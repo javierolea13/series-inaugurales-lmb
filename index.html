@@ -991,14 +991,30 @@ function createRanking2026Chart(ctx) {
                     data: teamData.map(t => t.online),
                     backgroundColor: COLORS.online,
                     borderColor: COLORS.online,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    datalabels: { display: false }
                 },
                 {
                     label: 'Taquilla',
                     data: teamData.map(t => t.taquilla),
                     backgroundColor: COLORS.taquilla,
                     borderColor: COLORS.taquilla,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    datalabels: {
+                        display: true,
+                        anchor: 'end',
+                        align: 'right',
+                        color: '#cbd5e1',
+                        font: { weight: 'bold', size: 10 },
+                        formatter: (value, context) => {
+                            const idx = context.dataIndex;
+                            const online = teamData[idx].online;
+                            const total = online + value;
+                            if (total === 0) return '';
+                            const pctOnline = Math.round((online / total) * 100);
+                            return '$' + (total / 1000000).toFixed(1) + 'M (' + pctOnline + '% en línea)';
+                        }
+                    }
                 }
             ]
         },
@@ -1011,15 +1027,7 @@ function createRanking2026Chart(ctx) {
                     display: true,
                     labels: { color: '#cbd5e1' }
                 },
-                datalabels: {
-                    display: true,
-                    color: 'white',
-                    font: { weight: 'bold', size: 9 },
-                    formatter: (value) => {
-                        if (value > 0) return '$' + (value / 1000000).toFixed(1) + 'M';
-                        return '';
-                    }
-                }
+                datalabels: {}
             },
             scales: {
                 x: {
