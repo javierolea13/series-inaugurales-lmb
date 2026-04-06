@@ -520,7 +520,17 @@ function createOverviewPanel() {
         </div>
     `;
 
-    panel.innerHTML = kpiHtml + chartsHtml + progressHtml + comparisonHtml;
+    // League cumulative timeline
+    const leagueTimelineHtml = `
+        <div class="chart-card">
+            <div class="chart-title">Venta Acumulada de la Liga por Día — Comparativa por Año</div>
+            <div class="chart-container">
+                <canvas id="chart-league-cumulative"></canvas>
+            </div>
+        </div>
+    `;
+
+    panel.innerHTML = kpiHtml + chartsHtml + progressHtml + comparisonHtml + leagueTimelineHtml;
     return panel;
 }
 
@@ -869,6 +879,9 @@ function initOverviewCharts() {
 
     const ctx3 = document.getElementById('chart-comparison-all-teams');
     if (ctx3) createComparisonAllTeamsChart(ctx3);
+
+    const ctx4 = document.getElementById('chart-league-cumulative');
+    if (ctx4) createLeagueCumulativeChart(ctx4);
 }
 
 // Initialize team charts
@@ -1278,6 +1291,97 @@ function createTeamCumulativeChart(ctx, teamName) {
                 },
                 x: {
                     ticks: { color: '#cbd5e1' },
+                    grid: { color: '#334155' }
+                }
+            }
+        }
+    });
+}
+
+// League: Cumulative timeline (all teams combined)
+function createLeagueCumulativeChart(ctx) {
+    const allTeams = getAllTeams();
+    const years = [2024, 2025, 2026];
+    const colors = { '2024': COLORS.y2024, '2025': COLORS.y2025, '2026': COLORS.y2026 };
+    const datasets = [];
+    let maxDays = 0;
+
+    years.forEach(year => {
+        // Aggregate daily sales across all teams by date
+        const dailyMap = {};
+        allTeams.forEach(team => {
+            const yearData = DATA[team][String(year)];
+            if (!yearData || !yearData.daily) return;
+            yearData.daily.forEach(d => {
+                if (!dailyMap[d.date]) dailyMap[d.date] = 0;
+                dailyMap[d.date] += d.subtotal;
+            });
+        });
+
+        const sortedDates = Object.keys(dailyMap).sort();
+        if (sortedDates.length === 0) return;
+        if (sortedDates.length > maxDays) maxDays = sortedDates.length;
+
+        let cumulative = 0;
+        const cumulativeData = sortedDates.map((date, i) => {
+            cumulative += dailyMap[date];
+            return cumulative;
+        });
+
+        // Store dates for tooltips
+        datasets.push({
+            label: String(year),
+            data: cumulativeData,
+            _dates: sortedDates,
+            borderColor: colors[year],
+            backgroundColor: colors[year] + '20',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.4,
+            pointRadius: 2,
+            pointBackgroundColor: colors[year],
+            pointBorderColor: colors[year]
+        });
+    });
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Array.from({ length: maxDays }, (_, i) => `Día ${i + 1}`),
+            datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { labels: { color: '#cbd5e1' } },
+                datalabels: { display: false },
+                tooltip: {
+                    callbacks: {
+                        title: (items) => {
+                            if (items.length > 0) return items[0].label;
+                            return '';
+                        },
+                        label: (item) => {
+                            const ds = item.dataset;
+                            const date = ds._dates && ds._dates[item.dataIndex]
+                                ? new Date(ds._dates[item.dataIndex] + 'T12:00:00').toLocaleDateString('es-MX', { day: 'numeric', month: 'short' })
+                                : '';
+                            return ` ${ds.label} (${date}): $${(item.raw / 1000000).toFixed(2)}M`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#cbd5e1', maxTicksLimit: 15 },
+                    grid: { color: '#334155' }
+                },
+                y: {
+                    ticks: {
+                        color: '#cbd5e1',
+                        callback: (value) => '$' + (value / 1000000).toFixed(1) + 'M'
+                    },
                     grid: { color: '#334155' }
                 }
             }
