@@ -1130,6 +1130,9 @@ function createTeamOnlineTaquillaChart(ctx, teamName) {
     const teamData = DATA[teamName];
     const years = Object.keys(teamData).map(Number).sort((a, b) => a - b);
 
+    const onlineData = years.map(y => teamData[y].subtotal_online);
+    const taquillaData = years.map(y => teamData[y].subtotal_taquilla);
+
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -1137,17 +1140,36 @@ function createTeamOnlineTaquillaChart(ctx, teamName) {
             datasets: [
                 {
                     label: 'En Línea',
-                    data: years.map(y => teamData[y].subtotal_online),
+                    data: onlineData,
                     backgroundColor: COLORS.online,
                     borderColor: COLORS.online,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    datalabels: {
+                        display: true,
+                        color: 'white',
+                        font: { weight: 'bold', size: 9 },
+                        formatter: (value) => value > 0 ? '$' + (value / 1000000).toFixed(1) + 'M' : ''
+                    }
                 },
                 {
                     label: 'Taquilla',
-                    data: years.map(y => teamData[y].subtotal_taquilla),
+                    data: taquillaData,
                     backgroundColor: COLORS.taquilla,
                     borderColor: COLORS.taquilla,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    datalabels: {
+                        display: true,
+                        anchor: 'end',
+                        align: 'top',
+                        color: '#cbd5e1',
+                        font: { weight: 'bold', size: 10 },
+                        formatter: (value, context) => {
+                            const idx = context.dataIndex;
+                            const total = onlineData[idx] + taquillaData[idx];
+                            if (total === 0) return '';
+                            return '$' + (total / 1000000).toFixed(1) + 'M';
+                        }
+                    }
                 }
             ]
         },
@@ -1156,15 +1178,7 @@ function createTeamOnlineTaquillaChart(ctx, teamName) {
             maintainAspectRatio: false,
             plugins: {
                 legend: { labels: { color: '#cbd5e1' } },
-                datalabels: {
-                    display: true,
-                    color: 'white',
-                    font: { weight: 'bold', size: 9 },
-                    formatter: (value) => {
-                        if (value > 0) return '$' + (value / 1000000).toFixed(1) + 'M';
-                        return '';
-                    }
-                }
+                datalabels: {}
             },
             scales: {
                 y: {
@@ -1222,11 +1236,15 @@ function createTeamPackageChart(ctx, teamName) {
                     borderWidth: 0,
                     datalabels: {
                         display: true,
-                        color: 'white',
-                        font: { weight: 'bold', size: 9 },
-                        formatter: (value) => {
-                            if (value > 0) return '$' + (value / 1000000).toFixed(1) + 'M';
-                            return '';
+                        anchor: 'end',
+                        align: 'top',
+                        color: '#cbd5e1',
+                        font: { weight: 'bold', size: 10 },
+                        formatter: (value, context) => {
+                            const idx = context.dataIndex;
+                            const total = paqueteData[idx] + individualData[idx];
+                            if (total === 0) return '';
+                            return '$' + (total / 1000000).toFixed(1) + 'M';
                         }
                     }
                 }
