@@ -1187,6 +1187,9 @@ function createTeamPackageChart(ctx, teamName) {
     const teamData = DATA[teamName];
     const years = Object.keys(teamData).map(Number).sort((a, b) => a - b);
 
+    const paqueteData = years.map(y => teamData[y].subtotal_paquete);
+    const individualData = years.map(y => teamData[y].subtotal_no_paquete);
+
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -1194,17 +1197,38 @@ function createTeamPackageChart(ctx, teamName) {
             datasets: [
                 {
                     label: 'Paquete',
-                    data: years.map(y => teamData[y].subtotal_paquete),
+                    data: paqueteData,
                     backgroundColor: COLORS.paquete,
                     borderColor: COLORS.paquete,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    datalabels: {
+                        display: true,
+                        color: 'white',
+                        font: { weight: 'bold', size: 9 },
+                        formatter: (value, context) => {
+                            if (value <= 0) return '';
+                            const idx = context.dataIndex;
+                            const total = paqueteData[idx] + individualData[idx];
+                            const pct = total > 0 ? Math.round((value / total) * 100) : 0;
+                            return '$' + (value / 1000000).toFixed(1) + 'M (' + pct + '%)';
+                        }
+                    }
                 },
                 {
                     label: 'Individual',
-                    data: years.map(y => teamData[y].subtotal_no_paquete),
+                    data: individualData,
                     backgroundColor: COLORS.individual,
                     borderColor: COLORS.individual,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    datalabels: {
+                        display: true,
+                        color: 'white',
+                        font: { weight: 'bold', size: 9 },
+                        formatter: (value) => {
+                            if (value > 0) return '$' + (value / 1000000).toFixed(1) + 'M';
+                            return '';
+                        }
+                    }
                 }
             ]
         },
@@ -1213,15 +1237,7 @@ function createTeamPackageChart(ctx, teamName) {
             maintainAspectRatio: false,
             plugins: {
                 legend: { labels: { color: '#cbd5e1' } },
-                datalabels: {
-                    display: true,
-                    color: 'white',
-                    font: { weight: 'bold', size: 9 },
-                    formatter: (value) => {
-                        if (value > 0) return '$' + (value / 1000000).toFixed(1) + 'M';
-                        return '';
-                    }
-                }
+                datalabels: {}
             },
             scales: {
                 y: {
