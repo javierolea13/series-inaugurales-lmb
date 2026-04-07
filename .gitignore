@@ -1,0 +1,6 @@
+# Archivos temporales
+.DS_Store
+.claude/
+
+# Los XLSX no se ignoran - se necesitan para el GitHub Action
+# Pero se reemplazan diario (no acumulan historial)

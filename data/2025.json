@@ -1,0 +1,1262 @@
+{
+  "Bravos": {
+    "subtotal": 601010.0,
+    "subtotal_online": 393860.0,
+    "subtotal_taquilla": 207150.0,
+    "subtotal_paquete": 163440.0,
+    "subtotal_no_paquete": 437570.0,
+    "boletos": 4995,
+    "boletos_online": 1521,
+    "boletos_taquilla": 3474,
+    "ordenes": 1386,
+    "ordenes_online": 515,
+    "ordenes_taquilla": 871,
+    "events": [
+      "Paquete Inaugural: Águilas vs Bravos",
+      "Juego Inaugural: El Águila vs Bravos",
+      "Paquete Inaugural: El Águila vs Bravos"
+    ],
+    "has_paquete": true,
+    "first_date": "03/04/2025",
+    "last_date": "22/04/2025",
+    "duration_days": 19,
+    "daily": [
+      {
+        "date": "2025-04-03",
+        "subtotal": 9600.0,
+        "boletos": 17
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 18000.0,
+        "boletos": 26
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 10950.0,
+        "boletos": 31
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 5700.0,
+        "boletos": 10
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 5850.0,
+        "boletos": 13
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 9600.0,
+        "boletos": 36
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 9000.0,
+        "boletos": 14
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 11400.0,
+        "boletos": 18
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 15300.0,
+        "boletos": 26
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 2700.0,
+        "boletos": 8
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 2400.0,
+        "boletos": 4
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 7050.0,
+        "boletos": 17
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 5040.0,
+        "boletos": 14
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 16380.0,
+        "boletos": 127
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 13530.0,
+        "boletos": 42
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 10050.0,
+        "boletos": 26
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 102940.0,
+        "boletos": 453
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 55300.0,
+        "boletos": 245
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 157770.0,
+        "boletos": 985
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 132450.0,
+        "boletos": 2883
+      }
+    ]
+  },
+  "Caliente": {
+    "subtotal": 871670.0,
+    "subtotal_online": 398786.0,
+    "subtotal_taquilla": 472884.0,
+    "subtotal_paquete": 232221.0,
+    "subtotal_no_paquete": 639449.0,
+    "boletos": 5160,
+    "boletos_online": 2056,
+    "boletos_taquilla": 3104,
+    "ordenes": 1569,
+    "ordenes_online": 685,
+    "ordenes_taquilla": 884,
+    "events": [
+      "Paquete Serie Inaugural: Saraperos vs Caliente de Durango (Incluye 3 eventos)",
+      "Juego Inaugural: Saraperos vs Caliente de Durango",
+      "J1: Saraperos vs Caliente de Durango"
+    ],
+    "has_paquete": true,
+    "first_date": "29/03/2025",
+    "last_date": "18/04/2025",
+    "duration_days": 20,
+    "daily": [
+      {
+        "date": "2025-03-29",
+        "subtotal": 6820.0,
+        "boletos": 39
+      },
+      {
+        "date": "2025-03-31",
+        "subtotal": 9364.0,
+        "boletos": 46
+      },
+      {
+        "date": "2025-04-01",
+        "subtotal": 84484.0,
+        "boletos": 132
+      },
+      {
+        "date": "2025-04-02",
+        "subtotal": 50422.0,
+        "boletos": 110
+      },
+      {
+        "date": "2025-04-03",
+        "subtotal": 24810.0,
+        "boletos": 40
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 14550.0,
+        "boletos": 23
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 20556.0,
+        "boletos": 36
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 15120.0,
+        "boletos": 24
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 9180.0,
+        "boletos": 15
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 162105.0,
+        "boletos": 794
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 80671.0,
+        "boletos": 410
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 33896.0,
+        "boletos": 162
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 30480.0,
+        "boletos": 164
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 33340.0,
+        "boletos": 179
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 9168.0,
+        "boletos": 43
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 29348.0,
+        "boletos": 218
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 38595.0,
+        "boletos": 341
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 53819.0,
+        "boletos": 380
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 58872.0,
+        "boletos": 698
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 106070.0,
+        "boletos": 1306
+      }
+    ]
+  },
+  "Charros": {
+    "subtotal": 1650406.0,
+    "subtotal_online": 1326260.0,
+    "subtotal_taquilla": 324146.0,
+    "subtotal_paquete": 328804.0,
+    "subtotal_no_paquete": 1321602.0,
+    "boletos": 7460,
+    "boletos_online": 4399,
+    "boletos_taquilla": 3061,
+    "ordenes": 2173,
+    "ordenes_online": 1534,
+    "ordenes_taquilla": 639,
+    "events": [
+      "Juego Inaugural: Unión Laguna vs Charros",
+      "Paquete Serie Inaugural: Unión Laguna vs Charros (Incluye 3 eventos)"
+    ],
+    "has_paquete": true,
+    "first_date": "27/02/2025",
+    "last_date": "22/04/2025",
+    "duration_days": 54,
+    "daily": [
+      {
+        "date": "2025-02-27",
+        "subtotal": 0,
+        "boletos": 34
+      },
+      {
+        "date": "2025-03-03",
+        "subtotal": 0,
+        "boletos": 52
+      },
+      {
+        "date": "2025-03-05",
+        "subtotal": 0,
+        "boletos": 106
+      },
+      {
+        "date": "2025-04-01",
+        "subtotal": 0,
+        "boletos": 1
+      },
+      {
+        "date": "2025-04-02",
+        "subtotal": 0,
+        "boletos": 3
+      },
+      {
+        "date": "2025-04-03",
+        "subtotal": 700.0,
+        "boletos": 15
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 347.0,
+        "boletos": 348
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 56.0,
+        "boletos": 56
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 223.0,
+        "boletos": 223
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 54224.0,
+        "boletos": 140
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 41166.0,
+        "boletos": 75
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 34500.0,
+        "boletos": 59
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 33804.0,
+        "boletos": 105
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 22680.0,
+        "boletos": 37
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 25620.0,
+        "boletos": 44
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 27660.0,
+        "boletos": 43
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 244220.0,
+        "boletos": 844
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 147860.0,
+        "boletos": 470
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 167400.0,
+        "boletos": 797
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 112140.0,
+        "boletos": 371
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 98540.0,
+        "boletos": 298
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 93400.0,
+        "boletos": 339
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 82380.0,
+        "boletos": 288
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 207420.0,
+        "boletos": 1117
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 256066.0,
+        "boletos": 1595
+      }
+    ]
+  },
+  "Dorados": {
+    "subtotal": 618340.0,
+    "subtotal_online": 472630.0,
+    "subtotal_taquilla": 145710.0,
+    "subtotal_paquete": 0,
+    "subtotal_no_paquete": 618340.0,
+    "boletos": 7275,
+    "boletos_online": 4080,
+    "boletos_taquilla": 3195,
+    "ordenes": 2350,
+    "ordenes_online": 1515,
+    "ordenes_taquilla": 835,
+    "events": [
+      "Juego Inaugural: Saraperos vs Dorados"
+    ],
+    "has_paquete": false,
+    "first_date": "11/04/2025",
+    "last_date": "25/04/2025",
+    "duration_days": 14,
+    "daily": [
+      {
+        "date": "2025-04-11",
+        "subtotal": 0,
+        "boletos": 2
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 0,
+        "boletos": 33
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 3050.0,
+        "boletos": 15
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 8060.0,
+        "boletos": 115
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 140050.0,
+        "boletos": 909
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 33710.0,
+        "boletos": 255
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 89640.0,
+        "boletos": 881
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 56620.0,
+        "boletos": 524
+      },
+      {
+        "date": "2025-04-23",
+        "subtotal": 69850.0,
+        "boletos": 956
+      },
+      {
+        "date": "2025-04-24",
+        "subtotal": 65300.0,
+        "boletos": 923
+      },
+      {
+        "date": "2025-04-25",
+        "subtotal": 152060.0,
+        "boletos": 2662
+      }
+    ]
+  },
+  "Guerreros": {
+    "subtotal": 1064420.0,
+    "subtotal_online": 787260.0,
+    "subtotal_taquilla": 277160.0,
+    "subtotal_paquete": 181840.0,
+    "subtotal_no_paquete": 882580.0,
+    "boletos": 3395,
+    "boletos_online": 2197,
+    "boletos_taquilla": 1198,
+    "ordenes": 1135,
+    "ordenes_online": 788,
+    "ordenes_taquilla": 347,
+    "events": [
+      "Paquete Serie Inaugural vs Conspiradores",
+      "Paquete Serie Inaugural vs Conspiradores (Incluye 3 Juegos)",
+      "Juego Inaugural: Conspiradores vs Guerreros",
+      "J1: Conspiradores vs Guerreros"
+    ],
+    "has_paquete": true,
+    "first_date": "01/04/2025",
+    "last_date": "22/04/2025",
+    "duration_days": 21,
+    "daily": [
+      {
+        "date": "2025-04-01",
+        "subtotal": 0,
+        "boletos": 20
+      },
+      {
+        "date": "2025-04-02",
+        "subtotal": 0,
+        "boletos": 208
+      },
+      {
+        "date": "2025-04-03",
+        "subtotal": 0,
+        "boletos": 25
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 63410.0,
+        "boletos": 110
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 16420.0,
+        "boletos": 35
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 18790.0,
+        "boletos": 39
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 62400.0,
+        "boletos": 171
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 17910.0,
+        "boletos": 47
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 18870.0,
+        "boletos": 45
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 27500.0,
+        "boletos": 70
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 34630.0,
+        "boletos": 85
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 96400.0,
+        "boletos": 277
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 29500.0,
+        "boletos": 86
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 44120.0,
+        "boletos": 127
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 68980.0,
+        "boletos": 195
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 108990.0,
+        "boletos": 328
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 56270.0,
+        "boletos": 170
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 81720.0,
+        "boletos": 258
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 44920.0,
+        "boletos": 134
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 40280.0,
+        "boletos": 116
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 95270.0,
+        "boletos": 334
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 138040.0,
+        "boletos": 515
+      }
+    ]
+  },
+  "Rieleros": {
+    "subtotal": 584780.0,
+    "subtotal_online": 384920.0,
+    "subtotal_taquilla": 199860.0,
+    "subtotal_paquete": 0,
+    "subtotal_no_paquete": 584780.0,
+    "boletos": 3841,
+    "boletos_online": 2134,
+    "boletos_taquilla": 1707,
+    "ordenes": 1119,
+    "ordenes_online": 666,
+    "ordenes_taquilla": 453,
+    "events": [
+      "Juego Inaugural: Dorados vs Rieleros"
+    ],
+    "has_paquete": false,
+    "first_date": "28/03/2025",
+    "last_date": "22/04/2025",
+    "duration_days": 25,
+    "daily": [
+      {
+        "date": "2025-03-28",
+        "subtotal": 0,
+        "boletos": 104
+      },
+      {
+        "date": "2025-03-31",
+        "subtotal": 11700.0,
+        "boletos": 101
+      },
+      {
+        "date": "2025-04-01",
+        "subtotal": 6360.0,
+        "boletos": 32
+      },
+      {
+        "date": "2025-04-02",
+        "subtotal": 2700.0,
+        "boletos": 17
+      },
+      {
+        "date": "2025-04-03",
+        "subtotal": 4490.0,
+        "boletos": 29
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 6030.0,
+        "boletos": 25
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 8460.0,
+        "boletos": 39
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 6690.0,
+        "boletos": 33
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 86530.0,
+        "boletos": 403
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 36720.0,
+        "boletos": 184
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 22830.0,
+        "boletos": 125
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 20970.0,
+        "boletos": 108
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 9430.0,
+        "boletos": 49
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 13930.0,
+        "boletos": 92
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 5540.0,
+        "boletos": 29
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 21000.0,
+        "boletos": 127
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 19330.0,
+        "boletos": 98
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 28460.0,
+        "boletos": 143
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 28390.0,
+        "boletos": 178
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 20590.0,
+        "boletos": 109
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 15830.0,
+        "boletos": 86
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 13190.0,
+        "boletos": 95
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 80480.0,
+        "boletos": 573
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 115130.0,
+        "boletos": 1062
+      }
+    ]
+  },
+  "Saraperos": {
+    "subtotal": 1683800.0,
+    "subtotal_online": 1239250.0,
+    "subtotal_taquilla": 444550.0,
+    "subtotal_paquete": 0,
+    "subtotal_no_paquete": 1683800.0,
+    "boletos": 5980,
+    "boletos_online": 4136,
+    "boletos_taquilla": 1844,
+    "ordenes": 1919,
+    "ordenes_online": 1623,
+    "ordenes_taquilla": 296,
+    "events": [
+      "Juego Inaugural: Acereros vs Saraperos "
+    ],
+    "has_paquete": false,
+    "first_date": "11/04/2025",
+    "last_date": "22/04/2025",
+    "duration_days": 11,
+    "daily": [
+      {
+        "date": "2025-04-11",
+        "subtotal": 490050.0,
+        "boletos": 1419
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 80300.0,
+        "boletos": 229
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 64900.0,
+        "boletos": 185
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 914900.0,
+        "boletos": 3253
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 40900.0,
+        "boletos": 113
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 19700.0,
+        "boletos": 55
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 11900.0,
+        "boletos": 34
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 6300.0,
+        "boletos": 78
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 1400.0,
+        "boletos": 4
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 0,
+        "boletos": 4
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 34100.0,
+        "boletos": 273
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 19350.0,
+        "boletos": 333
+      }
+    ]
+  },
+  "Sultanes": {
+    "subtotal": 3478596.7999999933,
+    "subtotal_online": 2490590.5,
+    "subtotal_taquilla": 988006.3000000038,
+    "subtotal_paquete": 0,
+    "subtotal_no_paquete": 3478596.7999999933,
+    "boletos": 17767,
+    "boletos_online": 9737,
+    "boletos_taquilla": 8030,
+    "ordenes": 4345,
+    "ordenes_online": 3158,
+    "ordenes_taquilla": 1187,
+    "events": [
+      "J1: Charros vs Sultanes",
+      "Juego Inaugural: Charros vs Sultanes"
+    ],
+    "has_paquete": false,
+    "first_date": "26/03/2025",
+    "last_date": "18/04/2025",
+    "duration_days": 23,
+    "daily": [
+      {
+        "date": "2025-03-26",
+        "subtotal": 97111.0,
+        "boletos": 378
+      },
+      {
+        "date": "2025-03-27",
+        "subtotal": 70406.0,
+        "boletos": 282
+      },
+      {
+        "date": "2025-03-28",
+        "subtotal": 54516.0,
+        "boletos": 217
+      },
+      {
+        "date": "2025-03-29",
+        "subtotal": 56339.5,
+        "boletos": 231
+      },
+      {
+        "date": "2025-03-30",
+        "subtotal": 95699.0,
+        "boletos": 272
+      },
+      {
+        "date": "2025-03-31",
+        "subtotal": 189625.0,
+        "boletos": 557
+      },
+      {
+        "date": "2025-04-01",
+        "subtotal": 204450.0,
+        "boletos": 585
+      },
+      {
+        "date": "2025-04-02",
+        "subtotal": 149820.0,
+        "boletos": 434
+      },
+      {
+        "date": "2025-04-03",
+        "subtotal": 90185.0,
+        "boletos": 269
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 65145.0,
+        "boletos": 202
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 38275.0,
+        "boletos": 128
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 60855.0,
+        "boletos": 290
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 93015.09999999995,
+        "boletos": 249
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 92570.09999999995,
+        "boletos": 271
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 91945.0,
+        "boletos": 406
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 164565.0,
+        "boletos": 1028
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 97215.0,
+        "boletos": 326
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 68600.0,
+        "boletos": 227
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 98995.0,
+        "boletos": 338
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 218595.0,
+        "boletos": 940
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 200400.10000000018,
+        "boletos": 787
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 246785.0,
+        "boletos": 1458
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 249245.0,
+        "boletos": 1590
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 684240.0,
+        "boletos": 6302
+      }
+    ]
+  },
+  "Tecos": {
+    "subtotal": 509900.0,
+    "subtotal_online": 322200.0,
+    "subtotal_taquilla": 187700.0,
+    "subtotal_paquete": 0,
+    "subtotal_no_paquete": 509900.0,
+    "boletos": 2063,
+    "boletos_online": 982,
+    "boletos_taquilla": 1081,
+    "ordenes": 617,
+    "ordenes_online": 380,
+    "ordenes_taquilla": 237,
+    "events": [
+      "Juego Inaugural: Caliente vs Tecos"
+    ],
+    "has_paquete": false,
+    "first_date": "16/04/2025",
+    "last_date": "22/04/2025",
+    "duration_days": 6,
+    "daily": [
+      {
+        "date": "2025-04-16",
+        "subtotal": 154050.0,
+        "boletos": 431
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 53300.0,
+        "boletos": 183
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 26250.0,
+        "boletos": 73
+      },
+      {
+        "date": "2025-04-19",
+        "subtotal": 16200.0,
+        "boletos": 45
+      },
+      {
+        "date": "2025-04-20",
+        "subtotal": 14650.0,
+        "boletos": 43
+      },
+      {
+        "date": "2025-04-21",
+        "subtotal": 41350.0,
+        "boletos": 270
+      },
+      {
+        "date": "2025-04-22",
+        "subtotal": 204100.0,
+        "boletos": 1018
+      }
+    ]
+  },
+  "Toros": {
+    "subtotal": 6031438.579999997,
+    "subtotal_online": 3326187.6,
+    "subtotal_taquilla": 2705250.9799999995,
+    "subtotal_paquete": 4437490.0,
+    "subtotal_no_paquete": 1593948.5799999975,
+    "boletos": 14112,
+    "boletos_online": 6866,
+    "boletos_taquilla": 7246,
+    "ordenes": 4049,
+    "ordenes_online": 2414,
+    "ordenes_taquilla": 1635,
+    "events": [
+      "Juego Inaugural: Rieleros vs Toros",
+      "Paquete Inaugural: Rieleros vs Toros (Incluye 3 juegos)"
+    ],
+    "has_paquete": true,
+    "first_date": "06/03/2025",
+    "last_date": "18/04/2025",
+    "duration_days": 43,
+    "daily": [
+      {
+        "date": "2025-03-06",
+        "subtotal": 0,
+        "boletos": 1
+      },
+      {
+        "date": "2025-03-10",
+        "subtotal": 231310.0,
+        "boletos": 324
+      },
+      {
+        "date": "2025-03-11",
+        "subtotal": 160680.0,
+        "boletos": 226
+      },
+      {
+        "date": "2025-03-12",
+        "subtotal": 1444440.0,
+        "boletos": 2165
+      },
+      {
+        "date": "2025-03-13",
+        "subtotal": 191140.0,
+        "boletos": 270
+      },
+      {
+        "date": "2025-03-14",
+        "subtotal": 140680.0,
+        "boletos": 218
+      },
+      {
+        "date": "2025-03-15",
+        "subtotal": 146590.0,
+        "boletos": 200
+      },
+      {
+        "date": "2025-03-16",
+        "subtotal": 63370.0,
+        "boletos": 104
+      },
+      {
+        "date": "2025-03-17",
+        "subtotal": 70130.0,
+        "boletos": 108
+      },
+      {
+        "date": "2025-03-18",
+        "subtotal": 109440.0,
+        "boletos": 156
+      },
+      {
+        "date": "2025-03-19",
+        "subtotal": 72440.0,
+        "boletos": 101
+      },
+      {
+        "date": "2025-03-20",
+        "subtotal": 117220.0,
+        "boletos": 197
+      },
+      {
+        "date": "2025-03-21",
+        "subtotal": 79610.0,
+        "boletos": 115
+      },
+      {
+        "date": "2025-03-22",
+        "subtotal": 62890.0,
+        "boletos": 92
+      },
+      {
+        "date": "2025-03-23",
+        "subtotal": 50360.0,
+        "boletos": 93
+      },
+      {
+        "date": "2025-03-24",
+        "subtotal": 53280.0,
+        "boletos": 80
+      },
+      {
+        "date": "2025-03-25",
+        "subtotal": 81020.0,
+        "boletos": 112
+      },
+      {
+        "date": "2025-03-26",
+        "subtotal": 53950.0,
+        "boletos": 100
+      },
+      {
+        "date": "2025-03-27",
+        "subtotal": 59900.0,
+        "boletos": 101
+      },
+      {
+        "date": "2025-03-28",
+        "subtotal": 83960.0,
+        "boletos": 166
+      },
+      {
+        "date": "2025-03-29",
+        "subtotal": 36430.0,
+        "boletos": 61
+      },
+      {
+        "date": "2025-03-30",
+        "subtotal": 56920.0,
+        "boletos": 92
+      },
+      {
+        "date": "2025-03-31",
+        "subtotal": 61260.0,
+        "boletos": 103
+      },
+      {
+        "date": "2025-04-01",
+        "subtotal": 107058.0,
+        "boletos": 251
+      },
+      {
+        "date": "2025-04-02",
+        "subtotal": 86480.0,
+        "boletos": 164
+      },
+      {
+        "date": "2025-04-03",
+        "subtotal": 68530.0,
+        "boletos": 151
+      },
+      {
+        "date": "2025-04-04",
+        "subtotal": 71270.0,
+        "boletos": 127
+      },
+      {
+        "date": "2025-04-05",
+        "subtotal": 23580.0,
+        "boletos": 46
+      },
+      {
+        "date": "2025-04-06",
+        "subtotal": 42500.0,
+        "boletos": 85
+      },
+      {
+        "date": "2025-04-07",
+        "subtotal": 86805.0,
+        "boletos": 197
+      },
+      {
+        "date": "2025-04-08",
+        "subtotal": 183428.0,
+        "boletos": 476
+      },
+      {
+        "date": "2025-04-09",
+        "subtotal": 129699.0,
+        "boletos": 328
+      },
+      {
+        "date": "2025-04-10",
+        "subtotal": 117430.0,
+        "boletos": 327
+      },
+      {
+        "date": "2025-04-11",
+        "subtotal": 130413.0,
+        "boletos": 379
+      },
+      {
+        "date": "2025-04-12",
+        "subtotal": 94350.0,
+        "boletos": 296
+      },
+      {
+        "date": "2025-04-13",
+        "subtotal": 68690.0,
+        "boletos": 205
+      },
+      {
+        "date": "2025-04-14",
+        "subtotal": 300618.0,
+        "boletos": 729
+      },
+      {
+        "date": "2025-04-15",
+        "subtotal": 227279.0,
+        "boletos": 1086
+      },
+      {
+        "date": "2025-04-16",
+        "subtotal": 214464.0,
+        "boletos": 761
+      },
+      {
+        "date": "2025-04-17",
+        "subtotal": 303200.0,
+        "boletos": 1148
+      },
+      {
+        "date": "2025-04-18",
+        "subtotal": 348624.5799999974,
+        "boletos": 2171
+      }
+    ]
+  }
+}

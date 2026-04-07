@@ -1,0 +1,38 @@
+name: Actualizar Dashboard LMB
+
+on:
+  push:
+    paths:
+      - 'data/csv/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install openpyxl
+
+      - name: Procesar XLSX y generar 2026.json
+        run: python scripts/procesar_csvs.py
+
+      - name: Commit y push si hay cambios
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/2026.json
+          if git diff --staged --quiet; then
+            echo "No hay cambios en 2026.json"
+          else
+            git commit -m "Actualizar datos 2026 ($(date '+%Y-%m-%d'))"
+            git push
+          fi
