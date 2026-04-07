@@ -1,24 +1,24 @@
 {
   "Bravos": {
-    "subtotal": 107590.0,
-    "subtotal_online": 80620.0,
-    "subtotal_taquilla": 26970.0,
+    "subtotal": 122170.0,
+    "subtotal_online": 86440.0,
+    "subtotal_taquilla": 35730.0,
     "subtotal_paquete": 26550.0,
-    "subtotal_no_paquete": 81040.0,
-    "boletos": 463,
-    "boletos_online": 257,
-    "boletos_taquilla": 206,
-    "ordenes": 111,
-    "ordenes_online": 83,
-    "ordenes_taquilla": 28,
+    "subtotal_no_paquete": 95620.0,
+    "boletos": 514,
+    "boletos_online": 278,
+    "boletos_taquilla": 236,
+    "ordenes": 124,
+    "ordenes_online": 90,
+    "ordenes_taquilla": 34,
     "events": [
       "Juego Inaugural: Guerreros vs Bravos",
       "Paquete Serie Inaugural"
     ],
     "has_paquete": true,
     "first_date": "17/03/2026",
-    "last_date": "06/04/2026",
-    "duration_days": 20,
+    "last_date": "07/04/2026",
+    "duration_days": 21,
     "daily": [
       {
         "date": "2026-03-17",
@@ -122,30 +122,35 @@
       },
       {
         "date": "2026-04-06",
-        "subtotal": 3450.0,
-        "boletos": 10
+        "subtotal": 17670.0,
+        "boletos": 59
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 360.0,
+        "boletos": 2
       }
     ]
   },
   "Caliente": {
-    "subtotal": 163960.0,
-    "subtotal_online": 60700.0,
-    "subtotal_taquilla": 103260.0,
-    "subtotal_paquete": 163960.0,
+    "subtotal": 175160.0,
+    "subtotal_online": 66400.0,
+    "subtotal_taquilla": 108760.0,
+    "subtotal_paquete": 175160.0,
     "subtotal_no_paquete": 0.0,
-    "boletos": 265,
-    "boletos_online": 104,
-    "boletos_taquilla": 161,
-    "ordenes": 104,
-    "ordenes_online": 40,
-    "ordenes_taquilla": 64,
+    "boletos": 284,
+    "boletos_online": 113,
+    "boletos_taquilla": 171,
+    "ordenes": 112,
+    "ordenes_online": 43,
+    "ordenes_taquilla": 69,
     "events": [
       "Paquete: Juego Inaugural | Dorados vs Caliente"
     ],
     "has_paquete": true,
     "first_date": "30/03/2026",
-    "last_date": "06/04/2026",
-    "duration_days": 7,
+    "last_date": "07/04/2026",
+    "duration_days": 8,
     "daily": [
       {
         "date": "2026-03-30",
@@ -184,30 +189,35 @@
       },
       {
         "date": "2026-04-06",
-        "subtotal": 700.0,
-        "boletos": 1
+        "subtotal": 8500.0,
+        "boletos": 13
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 3400.0,
+        "boletos": 7
       }
     ]
   },
   "Charros": {
-    "subtotal": 806370.0,
-    "subtotal_online": 750630.0,
-    "subtotal_taquilla": 55740.0,
+    "subtotal": 858420.0,
+    "subtotal_online": 794130.0,
+    "subtotal_taquilla": 64290.0,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 806370.0,
-    "boletos": 3942,
-    "boletos_online": 3367,
-    "boletos_taquilla": 575,
-    "ordenes": 961,
-    "ordenes_online": 891,
-    "ordenes_taquilla": 70,
+    "subtotal_no_paquete": 858420.0,
+    "boletos": 4174,
+    "boletos_online": 3578,
+    "boletos_taquilla": 596,
+    "ordenes": 1045,
+    "ordenes_online": 966,
+    "ordenes_taquilla": 79,
     "events": [
       "Juego Inaugural: Acereros vs Charros"
     ],
     "has_paquete": false,
     "first_date": "29/03/2026",
-    "last_date": "06/04/2026",
-    "duration_days": 8,
+    "last_date": "07/04/2026",
+    "duration_days": 9,
     "daily": [
       {
         "date": "2026-03-29",
@@ -251,8 +261,13 @@
       },
       {
         "date": "2026-04-06",
-        "subtotal": 13440.0,
-        "boletos": 66
+        "subtotal": 57630.0,
+        "boletos": 253
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 7860.0,
+        "boletos": 45
       }
     ]
   },
@@ -284,24 +299,24 @@
     ]
   },
   "Rieleros": {
-    "subtotal": 151770.0,
-    "subtotal_online": 151770.0,
+    "subtotal": 176100.0,
+    "subtotal_online": 176100.0,
     "subtotal_taquilla": 0.0,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 151770.0,
-    "boletos": 723,
-    "boletos_online": 723,
+    "subtotal_no_paquete": 176100.0,
+    "boletos": 844,
+    "boletos_online": 844,
     "boletos_taquilla": 0,
-    "ordenes": 231,
-    "ordenes_online": 231,
+    "ordenes": 262,
+    "ordenes_online": 262,
     "ordenes_taquilla": 0,
     "events": [
       "Juego Inaugural: Tecos vs Rieleros"
     ],
     "has_paquete": false,
     "first_date": "16/03/2026",
-    "last_date": "06/04/2026",
-    "duration_days": 21,
+    "last_date": "07/04/2026",
+    "duration_days": 22,
     "daily": [
       {
         "date": "2026-03-16",
@@ -410,30 +425,35 @@
       },
       {
         "date": "2026-04-06",
-        "subtotal": 2480.0,
-        "boletos": 10
+        "subtotal": 25410.0,
+        "boletos": 120
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 1400.0,
+        "boletos": 11
       }
     ]
   },
   "Sultanes": {
-    "subtotal": 949443.4,
-    "subtotal_online": 760543.0,
-    "subtotal_taquilla": 188900.4,
+    "subtotal": 1124033.8,
+    "subtotal_online": 849933.0,
+    "subtotal_taquilla": 274100.8,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 949443.4,
-    "boletos": 5714,
-    "boletos_online": 3874,
-    "boletos_taquilla": 1840,
-    "ordenes": 1402,
-    "ordenes_online": 1261,
-    "ordenes_taquilla": 141,
+    "subtotal_no_paquete": 1124033.8,
+    "boletos": 6715,
+    "boletos_online": 4381,
+    "boletos_taquilla": 2334,
+    "ordenes": 1607,
+    "ordenes_online": 1445,
+    "ordenes_taquilla": 162,
     "events": [
       "Juego Inaugural: Durango vs Sultanes"
     ],
     "has_paquete": false,
     "first_date": "12/03/2026",
-    "last_date": "06/04/2026",
-    "duration_days": 25,
+    "last_date": "07/04/2026",
+    "duration_days": 26,
     "daily": [
       {
         "date": "2026-03-12",
@@ -562,31 +582,36 @@
       },
       {
         "date": "2026-04-06",
-        "subtotal": 6800.0,
-        "boletos": 37
+        "subtotal": 160750.4,
+        "boletos": 923
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 20640.0,
+        "boletos": 115
       }
     ]
   },
   "Toros": {
-    "subtotal": 3113988.0,
-    "subtotal_online": 1784750.0,
-    "subtotal_taquilla": 1329238.0,
-    "subtotal_paquete": 3003948.0,
+    "subtotal": 3213218.0,
+    "subtotal_online": 1866450.0,
+    "subtotal_taquilla": 1346768.0,
+    "subtotal_paquete": 3103178.0,
     "subtotal_no_paquete": 110040.0,
-    "boletos": 4505,
-    "boletos_online": 2335,
-    "boletos_taquilla": 2170,
-    "ordenes": 1186,
-    "ordenes_online": 700,
-    "ordenes_taquilla": 486,
+    "boletos": 4665,
+    "boletos_online": 2452,
+    "boletos_taquilla": 2213,
+    "ordenes": 1232,
+    "ordenes_online": 733,
+    "ordenes_taquilla": 499,
     "events": [
       "Juego Inaugural: Acereros vs Toros",
       "Paquete Acereros vs Toros"
     ],
     "has_paquete": true,
     "first_date": "13/02/2026",
-    "last_date": "06/04/2026",
-    "duration_days": 52,
+    "last_date": "07/04/2026",
+    "duration_days": 53,
     "daily": [
       {
         "date": "2026-02-13",
@@ -750,8 +775,8 @@
       },
       {
         "date": "2026-04-03",
-        "subtotal": 74500.0,
-        "boletos": 104
+        "subtotal": 73500.0,
+        "boletos": 102
       },
       {
         "date": "2026-04-04",
@@ -765,8 +790,13 @@
       },
       {
         "date": "2026-04-06",
-        "subtotal": 3060.0,
-        "boletos": 4
+        "subtotal": 86090.0,
+        "boletos": 144
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 17200.0,
+        "boletos": 22
       }
     ]
   }
