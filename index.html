@@ -386,8 +386,55 @@
     <!-- HEADER -->
     <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;">
         <h1 style="display:flex;align-items:center;gap:1rem;flex:1;min-width:0;"><img src="logo.png" alt="Boletomovil" style="height:50px;width:auto;flex-shrink:0;"> Series Inaugurales LMB — Comparativa de Ventas</h1>
-        <button onclick="location.reload(true)" style="background:#334155;color:#e2e8f0;border:none;padding:0.5rem 1rem;border-radius:0.5rem;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;gap:0.4rem;white-space:nowrap;flex-shrink:0;margin-left:1rem;" onmouseover="this.style.background='#475569'" onmouseout="this.style.background='#334155'">&#x21bb; Actualizar</button>
+        <div style="display:flex;gap:0.5rem;flex-shrink:0;margin-left:1rem;">
+            <button id="btn-sync" onclick="syncFromDrive()" style="background:#334155;color:#e2e8f0;border:none;padding:0.5rem 1rem;border-radius:0.5rem;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;gap:0.4rem;white-space:nowrap;" onmouseover="this.style.background='#475569'" onmouseout="this.style.background='#334155'">&#x2601; Sync Drive</button>
+            <button onclick="location.reload(true)" style="background:#334155;color:#e2e8f0;border:none;padding:0.5rem 1rem;border-radius:0.5rem;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;gap:0.4rem;white-space:nowrap;" onmouseover="this.style.background='#475569'" onmouseout="this.style.background='#334155'">&#x21bb; Recargar</button>
+        </div>
     </header>
+    <script>
+    async function syncFromDrive() {
+        const btn = document.getElementById('btn-sync');
+        let token = localStorage.getItem('gh_sync_token');
+        if (!token) {
+            token = prompt('Pega tu GitHub Personal Access Token (solo la primera vez):');
+            if (!token) return;
+            localStorage.setItem('gh_sync_token', token);
+        }
+        btn.innerHTML = '&#x23F3; Sincronizando...';
+        btn.disabled = true;
+        try {
+            const res = await fetch('https://api.github.com/repos/javierolea13/series-inaugurales-lmb/actions/workflows/sync-drive.yml/dispatches', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/vnd.github+json'
+                },
+                body: JSON.stringify({ ref: 'main' })
+            });
+            if (res.status === 204) {
+                btn.innerHTML = '&#x2705; Sync iniciado';
+                setTimeout(() => {
+                    btn.innerHTML = '&#x2601; Sync Drive';
+                    btn.disabled = false;
+                    alert('El sync tarda ~30 segundos. Haz clic en Recargar en un momento para ver los datos nuevos.');
+                }, 2000);
+            } else if (res.status === 401) {
+                localStorage.removeItem('gh_sync_token');
+                btn.innerHTML = '&#x2601; Sync Drive';
+                btn.disabled = false;
+                alert('Token inválido. Intenta de nuevo.');
+            } else {
+                btn.innerHTML = '&#x2601; Sync Drive';
+                btn.disabled = false;
+                alert('Error: ' + res.status);
+            }
+        } catch (e) {
+            btn.innerHTML = '&#x2601; Sync Drive';
+            btn.disabled = false;
+            alert('Error de conexión');
+        }
+    }
+    </script>
 
     <!-- MAIN CONTAINER -->
     <div class="container">
