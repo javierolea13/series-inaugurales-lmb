@@ -304,24 +304,24 @@
     ]
   },
   "Rieleros": {
-    "subtotal": 176100.0,
-    "subtotal_online": 176100.0,
+    "subtotal": 189370.0,
+    "subtotal_online": 189370.0,
     "subtotal_taquilla": 0.0,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 176100.0,
-    "boletos": 844,
-    "boletos_online": 844,
+    "subtotal_no_paquete": 189370.0,
+    "boletos": 927,
+    "boletos_online": 927,
     "boletos_taquilla": 0,
-    "ordenes": 262,
-    "ordenes_online": 262,
+    "ordenes": 289,
+    "ordenes_online": 289,
     "ordenes_taquilla": 0,
     "events": [
       "Juego Inaugural: Tecos vs Rieleros"
     ],
     "has_paquete": false,
     "first_date": "16/03/2026",
-    "last_date": "07/04/2026",
-    "duration_days": 22,
+    "last_date": "08/04/2026",
+    "duration_days": 23,
     "daily": [
       {
         "date": "2026-03-16",
@@ -435,8 +435,13 @@
       },
       {
         "date": "2026-04-07",
-        "subtotal": 1400.0,
-        "boletos": 11
+        "subtotal": 13900.0,
+        "boletos": 87
+      },
+      {
+        "date": "2026-04-08",
+        "subtotal": 770.0,
+        "boletos": 7
       }
     ]
   },

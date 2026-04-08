@@ -28,6 +28,10 @@ jobs:
           mkdir -p data/csv
           # Descargar toda la carpeta de Drive
           gdown --folder "https://drive.google.com/drive/folders/1GtwKLB-nKyGHskqXN6md93cJxiInlma2" -O data/csv --remaining-ok
+          # Mover archivos de subcarpetas al nivel raíz de data/csv
+          find data/csv -mindepth 2 -name "*.xlsx" -exec mv -f {} data/csv/ \;
+          # Limpiar subcarpetas vacías
+          find data/csv -mindepth 1 -type d -empty -delete
           echo "Archivos descargados:"
           ls -la data/csv/
 
