@@ -91,6 +91,7 @@ def procesar_xlsx(filepath):
     idx_orden = col_map.get('NÚMERO DE ORDEN', 0)
     idx_evento = col_map.get('EVENTO', 2)
     idx_fecha = col_map.get('FECHA', 3)
+    idx_tipo = col_map.get('TIPO', None)
     idx_medio = col_map.get('MEDIO DE COMPRA', 9)
     idx_subtotal = col_map.get('SUBTOTAL', 13)
     idx_zona = col_map.get('ZONA', None)
@@ -108,8 +109,16 @@ def procesar_xlsx(filepath):
     boletos = 0
     boletos_online = 0
     boletos_taquilla = 0
+    boletos_cortesias = 0
+    boletos_cortesias_online = 0
+    boletos_cortesias_taquilla = 0
     daily_data = defaultdict(lambda: {'subtotal': 0.0, 'boletos': 0})
-    zona_data = defaultdict(lambda: {'boletos': 0, 'subtotal': 0.0, 'boletos_online': 0, 'subtotal_online': 0.0, 'boletos_taquilla': 0, 'subtotal_taquilla': 0.0})
+    zona_data = defaultdict(lambda: {
+        'boletos': 0, 'subtotal': 0.0,
+        'boletos_online': 0, 'subtotal_online': 0.0,
+        'boletos_taquilla': 0, 'subtotal_taquilla': 0.0,
+        'boletos_cortesias': 0, 'boletos_cortesias_online': 0, 'boletos_cortesias_taquilla': 0
+    })
     fechas = []
     has_paquete = False
 
@@ -117,6 +126,7 @@ def procesar_xlsx(filepath):
         orden = row[idx_orden] if len(row) > idx_orden else None
         evento = row[idx_evento] if len(row) > idx_evento else None
         fecha_str = row[idx_fecha] if len(row) > idx_fecha else None
+        tipo_raw = row[idx_tipo] if idx_tipo is not None and len(row) > idx_tipo else None
         medio = row[idx_medio] if len(row) > idx_medio else None
         subtotal_raw = row[idx_subtotal] if len(row) > idx_subtotal else None
         zona_raw = row[idx_zona] if idx_zona is not None and len(row) > idx_zona else None
@@ -132,6 +142,10 @@ def procesar_xlsx(filepath):
         fecha = parsear_fecha(str(fecha_str) if fecha_str else '')
         zona = str(zona_raw).strip() if zona_raw and str(zona_raw).strip() not in ('-', '', 'None') else None
 
+        # Detectar cortesía: por columna TIPO o por subtotal = 0
+        tipo_str = str(tipo_raw).strip().lower() if tipo_raw else ''
+        es_cortesia = tipo_str == 'cortesía' or tipo_str == 'cortesia' or (subtotal == 0 and tipo_str not in ('adulto',))
+
         # Clasificar online vs taquilla
         es_taquilla = (str(medio).strip().lower() == 'taquilla') if medio else False
         es_paquete_flag = 'paquete' in str(evento).lower()
@@ -142,6 +156,13 @@ def procesar_xlsx(filepath):
         boletos += 1
         total_subtotal += subtotal
         ordenes_todas.add(orden)
+
+        if es_cortesia:
+            boletos_cortesias += 1
+            if es_taquilla:
+                boletos_cortesias_taquilla += 1
+            else:
+                boletos_cortesias_online += 1
 
         if es_taquilla:
             boletos_taquilla += 1
@@ -166,6 +187,12 @@ def procesar_xlsx(filepath):
         if zona:
             zona_data[zona]['boletos'] += 1
             zona_data[zona]['subtotal'] += subtotal
+            if es_cortesia:
+                zona_data[zona]['boletos_cortesias'] += 1
+                if es_taquilla:
+                    zona_data[zona]['boletos_cortesias_taquilla'] += 1
+                else:
+                    zona_data[zona]['boletos_cortesias_online'] += 1
             if es_taquilla:
                 zona_data[zona]['boletos_taquilla'] += 1
                 zona_data[zona]['subtotal_taquilla'] += subtotal
@@ -206,6 +233,9 @@ def procesar_xlsx(filepath):
         'boletos': boletos,
         'boletos_online': boletos_online,
         'boletos_taquilla': boletos_taquilla,
+        'boletos_cortesias': boletos_cortesias,
+        'boletos_cortesias_online': boletos_cortesias_online,
+        'boletos_cortesias_taquilla': boletos_cortesias_taquilla,
         'ordenes': len(ordenes_todas),
         'ordenes_online': len(ordenes_online),
         'ordenes_taquilla': len(ordenes_taquilla),
@@ -217,8 +247,12 @@ def procesar_xlsx(filepath):
         'daily': daily,
         'zonas': {z: {
             'boletos': d['boletos'],
+            'boletos_pagados': d['boletos'] - d['boletos_cortesias'],
+            'boletos_cortesias': d['boletos_cortesias'],
+            'boletos_cortesias_online': d['boletos_cortesias_online'],
+            'boletos_cortesias_taquilla': d['boletos_cortesias_taquilla'],
             'subtotal': round(d['subtotal'], 2),
-            'ticket_promedio': round(d['subtotal'] / d['boletos'], 2) if d['boletos'] > 0 else 0,
+            'ticket_promedio': round(d['subtotal'] / (d['boletos'] - d['boletos_cortesias']), 2) if (d['boletos'] - d['boletos_cortesias']) > 0 else 0,
             'boletos_online': d['boletos_online'],
             'subtotal_online': round(d['subtotal_online'], 2),
             'boletos_taquilla': d['boletos_taquilla'],
