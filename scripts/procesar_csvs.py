@@ -93,6 +93,7 @@ def procesar_xlsx(filepath):
     idx_fecha = col_map.get('FECHA', 3)
     idx_medio = col_map.get('MEDIO DE COMPRA', 9)
     idx_subtotal = col_map.get('SUBTOTAL', 13)
+    idx_zona = col_map.get('ZONA', None)
 
     # Procesar filas
     eventos_set = set()
@@ -108,6 +109,7 @@ def procesar_xlsx(filepath):
     boletos_online = 0
     boletos_taquilla = 0
     daily_data = defaultdict(lambda: {'subtotal': 0.0, 'boletos': 0})
+    zona_data = defaultdict(lambda: {'boletos': 0, 'subtotal': 0.0, 'boletos_online': 0, 'subtotal_online': 0.0, 'boletos_taquilla': 0, 'subtotal_taquilla': 0.0})
     fechas = []
     has_paquete = False
 
@@ -117,6 +119,7 @@ def procesar_xlsx(filepath):
         fecha_str = row[idx_fecha] if len(row) > idx_fecha else None
         medio = row[idx_medio] if len(row) > idx_medio else None
         subtotal_raw = row[idx_subtotal] if len(row) > idx_subtotal else None
+        zona_raw = row[idx_zona] if idx_zona is not None and len(row) > idx_zona else None
 
         # Filtrar filas sin orden o con evento basura
         if orden is None:
@@ -127,6 +130,7 @@ def procesar_xlsx(filepath):
         eventos_set.add(str(evento))
         subtotal = parsear_subtotal(subtotal_raw)
         fecha = parsear_fecha(str(fecha_str) if fecha_str else '')
+        zona = str(zona_raw).strip() if zona_raw and str(zona_raw).strip() not in ('-', '', 'None') else None
 
         # Clasificar online vs taquilla
         es_taquilla = (str(medio).strip().lower() == 'taquilla') if medio else False
@@ -157,6 +161,17 @@ def procesar_xlsx(filepath):
             fechas.append(fecha)
             daily_data[fecha]['subtotal'] += subtotal
             daily_data[fecha]['boletos'] += 1
+
+        # Acumular por zona
+        if zona:
+            zona_data[zona]['boletos'] += 1
+            zona_data[zona]['subtotal'] += subtotal
+            if es_taquilla:
+                zona_data[zona]['boletos_taquilla'] += 1
+                zona_data[zona]['subtotal_taquilla'] += subtotal
+            else:
+                zona_data[zona]['boletos_online'] += 1
+                zona_data[zona]['subtotal_online'] += subtotal
 
     wb.close()
 
@@ -199,7 +214,16 @@ def procesar_xlsx(filepath):
         'first_date': first_date,
         'last_date': last_date,
         'duration_days': duration_days,
-        'daily': daily
+        'daily': daily,
+        'zonas': {z: {
+            'boletos': d['boletos'],
+            'subtotal': round(d['subtotal'], 2),
+            'ticket_promedio': round(d['subtotal'] / d['boletos'], 2) if d['boletos'] > 0 else 0,
+            'boletos_online': d['boletos_online'],
+            'subtotal_online': round(d['subtotal_online'], 2),
+            'boletos_taquilla': d['boletos_taquilla'],
+            'subtotal_taquilla': round(d['subtotal_taquilla'], 2)
+        } for z, d in sorted(zona_data.items())}
     }
 
 
@@ -217,39 +241,40 @@ def main():
         print(f"Error: Carpeta no encontrada: {csv_dir}")
         sys.exit(1)
 
-    # Buscar archivos XLSX del 2026
-    archivos = [f for f in os.listdir(csv_dir) if f.endswith('.xlsx') and '2026' in f]
+    # Procesar cada año disponible
+    for year in ['2024', '2025', '2026']:
+        archivos = [f for f in os.listdir(csv_dir) if f.endswith('.xlsx') and f' {year}.' in f]
 
-    if not archivos:
-        print(f"No se encontraron archivos *2026*.xlsx en {csv_dir}")
-        sys.exit(1)
+        if not archivos:
+            print(f"No se encontraron archivos *{year}*.xlsx en {csv_dir}")
+            continue
 
-    print(f"Procesando {len(archivos)} archivos de {csv_dir}...")
+        print(f"\nProcesando {len(archivos)} archivos de {year}...")
 
-    resultado = {}
-    for archivo in sorted(archivos):
-        # Extraer nombre del equipo del nombre del archivo
-        # Formato: "Bravos 2026.xlsx" o "Bravos_2026.xlsx"
-        equipo = archivo.replace('_2026.xlsx', '').replace(' 2026.xlsx', '').strip()
-        filepath = os.path.join(csv_dir, archivo)
+        resultado = {}
+        for archivo in sorted(archivos):
+            # Extraer nombre del equipo: "Bravos 2026.xlsx" → "Bravos"
+            equipo = archivo.replace(f'_{year}.xlsx', '').replace(f' {year}.xlsx', '').strip()
+            filepath = os.path.join(csv_dir, archivo)
 
-        print(f"  {equipo}...", end=' ')
-        try:
-            datos = procesar_xlsx(filepath)
-            resultado[equipo] = datos
-            print(f"OK ({datos['boletos']} boletos, ${datos['subtotal']:,.0f})")
-        except Exception as e:
-            print(f"ERROR: {e}")
+            print(f"  {equipo}...", end=' ')
+            try:
+                datos = procesar_xlsx(filepath)
+                resultado[equipo] = datos
+                zonas_count = len(datos.get('zonas', {}))
+                print(f"OK ({datos['boletos']} boletos, ${datos['subtotal']:,.0f}, {zonas_count} zonas)")
+            except Exception as e:
+                print(f"ERROR: {e}")
 
-    # Guardar JSON
-    output_path = os.path.join(repo_dir, 'data', '2026.json')
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(resultado, f, ensure_ascii=False, indent=2)
+        # Guardar JSON
+        output_path = os.path.join(repo_dir, 'data', f'{year}.json')
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(resultado, f, ensure_ascii=False, indent=2)
 
-    print(f"\nGenerado: {output_path}")
-    print(f"Equipos: {len(resultado)}")
-    total = sum(d['subtotal'] for d in resultado.values())
-    print(f"Venta total 2026: ${total:,.0f}")
+        print(f"Generado: {output_path}")
+        print(f"Equipos: {len(resultado)}")
+        total = sum(d['subtotal'] for d in resultado.values())
+        print(f"Venta total {year}: ${total:,.0f}")
 
 
 if __name__ == '__main__':

@@ -27,7 +27,7 @@
       },
       {
         "date": "2024-03-01",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 50
       },
       {
@@ -235,7 +235,90 @@
         "subtotal": 88920.0,
         "boletos": 1179
       }
-    ]
+    ],
+    "zonas": {
+      "Butaca 1ra Base": {
+        "boletos": 709,
+        "subtotal": 135150.0,
+        "ticket_promedio": 190.62,
+        "boletos_online": 349,
+        "subtotal_online": 75450.0,
+        "boletos_taquilla": 360,
+        "subtotal_taquilla": 59700.0
+      },
+      "Butaca 3ra Base": {
+        "boletos": 419,
+        "subtotal": 82200.0,
+        "ticket_promedio": 196.18,
+        "boletos_online": 92,
+        "subtotal_online": 40500.0,
+        "boletos_taquilla": 327,
+        "subtotal_taquilla": 41700.0
+      },
+      "Butaca Central": {
+        "boletos": 949,
+        "subtotal": 251500.0,
+        "ticket_promedio": 265.02,
+        "boletos_online": 473,
+        "subtotal_online": 143250.0,
+        "boletos_taquilla": 476,
+        "subtotal_taquilla": 108250.0
+      },
+      "General 1ra Base": {
+        "boletos": 489,
+        "subtotal": 35120.0,
+        "ticket_promedio": 71.82,
+        "boletos_online": 188,
+        "subtotal_online": 15040.0,
+        "boletos_taquilla": 301,
+        "subtotal_taquilla": 20080.0
+      },
+      "General 3ra Base": {
+        "boletos": 1564,
+        "subtotal": 114500.0,
+        "ticket_promedio": 73.21,
+        "boletos_online": 487,
+        "subtotal_online": 49500.0,
+        "boletos_taquilla": 1077,
+        "subtotal_taquilla": 65000.0
+      },
+      "Palco Terreno Lateral": {
+        "boletos": 44,
+        "subtotal": 200.0,
+        "ticket_promedio": 4.55,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 44,
+        "subtotal_taquilla": 200.0
+      },
+      "Palcos": {
+        "boletos": 160,
+        "subtotal": 900.0,
+        "ticket_promedio": 5.62,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 160,
+        "subtotal_taquilla": 900.0
+      },
+      "Parrilladas": {
+        "boletos": 45,
+        "subtotal": 26250.0,
+        "ticket_promedio": 583.33,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 45,
+        "subtotal_taquilla": 26250.0
+      },
+      "VIP": {
+        "boletos": 252,
+        "subtotal": 65500.0,
+        "ticket_promedio": 259.92,
+        "boletos_online": 80,
+        "subtotal_online": 56000.0,
+        "boletos_taquilla": 172,
+        "subtotal_taquilla": 9500.0
+      }
+    }
   },
   "Charros": {
     "subtotal": 1846061.0,
@@ -250,37 +333,37 @@
     "ordenes_online": 1442,
     "ordenes_taquilla": 819,
     "events": [
-      "Paquete Inaugural: Sultanes vs Charros | Tecolotes vs Charros",
-      "Juego Inaugural: Sultanes vs Charros"
+      "Juego Inaugural: Sultanes vs Charros",
+      "Paquete Inaugural: Sultanes vs Charros | Tecolotes vs Charros"
     ],
     "has_paquete": true,
     "first_date": "27/03/2024",
     "last_date": "16/04/2024",
-    "duration_days": 19,
+    "duration_days": 20,
     "daily": [
       {
         "date": "2024-03-27",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 15
       },
       {
         "date": "2024-03-28",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 10
       },
       {
         "date": "2024-03-29",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 3
       },
       {
         "date": "2024-03-31",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 5
       },
       {
         "date": "2024-04-01",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 3
       },
       {
@@ -358,13 +441,141 @@
         "subtotal": 567065.0,
         "boletos": 2720
       }
-    ]
+    ],
+    "zonas": {
+      "Bleachers": {
+        "boletos": 405,
+        "subtotal": 41350.0,
+        "ticket_promedio": 102.1,
+        "boletos_online": 350,
+        "subtotal_online": 35600.0,
+        "boletos_taquilla": 55,
+        "subtotal_taquilla": 5750.0
+      },
+      "Butaca Preferente": {
+        "boletos": 523,
+        "subtotal": 163308.0,
+        "ticket_promedio": 312.25,
+        "boletos_online": 360,
+        "subtotal_online": 143200.0,
+        "boletos_taquilla": 163,
+        "subtotal_taquilla": 20108.0
+      },
+      "Gourmet": {
+        "boletos": 442,
+        "subtotal": 27140.0,
+        "ticket_promedio": 61.4,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 442,
+        "subtotal_taquilla": 27140.0
+      },
+      "Lateral 1era y 3era": {
+        "boletos": 1993,
+        "subtotal": 280910.0,
+        "ticket_promedio": 140.95,
+        "boletos_online": 642,
+        "subtotal_online": 193200.0,
+        "boletos_taquilla": 1351,
+        "subtotal_taquilla": 87710.0
+      },
+      "Lateral Preferente": {
+        "boletos": 387,
+        "subtotal": 87362.0,
+        "ticket_promedio": 225.74,
+        "boletos_online": 144,
+        "subtotal_online": 60000.0,
+        "boletos_taquilla": 243,
+        "subtotal_taquilla": 27362.0
+      },
+      "Lateral Premier": {
+        "boletos": 122,
+        "subtotal": 67100.0,
+        "ticket_promedio": 550.0,
+        "boletos_online": 78,
+        "subtotal_online": 42900.0,
+        "boletos_taquilla": 44,
+        "subtotal_taquilla": 24200.0
+      },
+      "Planta Alta": {
+        "boletos": 2544,
+        "subtotal": 399663.0,
+        "ticket_promedio": 157.1,
+        "boletos_online": 1655,
+        "subtotal_online": 304020.0,
+        "boletos_taquilla": 889,
+        "subtotal_taquilla": 95643.0
+      },
+      "Planta Baja 1era y 3era": {
+        "boletos": 545,
+        "subtotal": 193760.0,
+        "ticket_promedio": 355.52,
+        "boletos_online": 426,
+        "subtotal_online": 170800.0,
+        "boletos_taquilla": 119,
+        "subtotal_taquilla": 22960.0
+      },
+      "Planta Baja Central": {
+        "boletos": 225,
+        "subtotal": 118620.0,
+        "ticket_promedio": 527.2,
+        "boletos_online": 142,
+        "subtotal_online": 85200.0,
+        "boletos_taquilla": 83,
+        "subtotal_taquilla": 33420.0
+      },
+      "Premier 1era": {
+        "boletos": 128,
+        "subtotal": 97200.0,
+        "ticket_promedio": 759.38,
+        "boletos_online": 81,
+        "subtotal_online": 72900.0,
+        "boletos_taquilla": 47,
+        "subtotal_taquilla": 24300.0
+      },
+      "Premier 3ra": {
+        "boletos": 89,
+        "subtotal": 50404.0,
+        "ticket_promedio": 566.34,
+        "boletos_online": 44,
+        "subtotal_online": 39600.0,
+        "boletos_taquilla": 45,
+        "subtotal_taquilla": 10804.0
+      },
+      "Premier Dugout": {
+        "boletos": 192,
+        "subtotal": 66519.0,
+        "ticket_promedio": 346.45,
+        "boletos_online": 85,
+        "subtotal_online": 62300.0,
+        "boletos_taquilla": 107,
+        "subtotal_taquilla": 4219.0
+      },
+      "VIP": {
+        "boletos": 311,
+        "subtotal": 252714.0,
+        "ticket_promedio": 812.59,
+        "boletos_online": 121,
+        "subtotal_online": 172500.0,
+        "boletos_taquilla": 190,
+        "subtotal_taquilla": 80214.0
+      },
+      "ZONA SUITES": {
+        "boletos": 164,
+        "subtotal": 11.0,
+        "ticket_promedio": 0.07,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 164,
+        "subtotal_taquilla": 11.0
+      }
+    }
   },
   "Dorados": {
     "subtotal": 462060.0,
     "subtotal_online": 353480.0,
     "subtotal_taquilla": 108580.0,
-    "subtotal_paquete": 0,
+    "subtotal_paquete": 0.0,
     "subtotal_no_paquete": 462060.0,
     "boletos": 7004,
     "boletos_online": 4126,
@@ -382,7 +593,7 @@
     "daily": [
       {
         "date": "2024-04-10",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 36
       },
       {
@@ -415,13 +626,69 @@
         "subtotal": 100990.0,
         "boletos": 2095
       }
-    ]
+    ],
+    "zonas": {
+      "Grada Sol": {
+        "boletos": 1320,
+        "subtotal": 57650.0,
+        "ticket_promedio": 43.67,
+        "boletos_online": 516,
+        "subtotal_online": 25800.0,
+        "boletos_taquilla": 804,
+        "subtotal_taquilla": 31850.0
+      },
+      "Numerado Derecho": {
+        "boletos": 2343,
+        "subtotal": 155760.0,
+        "ticket_promedio": 66.48,
+        "boletos_online": 1487,
+        "subtotal_online": 117920.0,
+        "boletos_taquilla": 856,
+        "subtotal_taquilla": 37840.0
+      },
+      "Numerado Izquierdo": {
+        "boletos": 2184,
+        "subtotal": 153600.0,
+        "ticket_promedio": 70.33,
+        "boletos_online": 1521,
+        "subtotal_online": 120160.0,
+        "boletos_taquilla": 663,
+        "subtotal_taquilla": 33440.0
+      },
+      "Oro": {
+        "boletos": 84,
+        "subtotal": 2250.0,
+        "ticket_promedio": 26.79,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 84,
+        "subtotal_taquilla": 2250.0
+      },
+      "Plata": {
+        "boletos": 377,
+        "subtotal": 64000.0,
+        "ticket_promedio": 169.76,
+        "boletos_online": 312,
+        "subtotal_online": 62400.0,
+        "boletos_taquilla": 65,
+        "subtotal_taquilla": 1600.0
+      },
+      "Preferente": {
+        "boletos": 696,
+        "subtotal": 28800.0,
+        "ticket_promedio": 41.38,
+        "boletos_online": 290,
+        "subtotal_online": 27200.0,
+        "boletos_taquilla": 406,
+        "subtotal_taquilla": 1600.0
+      }
+    }
   },
   "Guerreros": {
     "subtotal": 948120.0,
     "subtotal_online": 573670.0,
     "subtotal_taquilla": 374450.0,
-    "subtotal_paquete": 0,
+    "subtotal_paquete": 0.0,
     "subtotal_no_paquete": 948120.0,
     "boletos": 5381,
     "boletos_online": 2595,
@@ -492,13 +759,78 @@
         "subtotal": 188250.0,
         "boletos": 1601
       }
-    ]
+    ],
+    "zonas": {
+      "Central": {
+        "boletos": 1684,
+        "subtotal": 434560.0,
+        "ticket_promedio": 258.05,
+        "boletos_online": 1197,
+        "subtotal_online": 335160.0,
+        "boletos_taquilla": 487,
+        "subtotal_taquilla": 99400.0
+      },
+      "Jardines": {
+        "boletos": 900,
+        "subtotal": 45000.0,
+        "ticket_promedio": 50.0,
+        "boletos_online": 145,
+        "subtotal_online": 7250.0,
+        "boletos_taquilla": 755,
+        "subtotal_taquilla": 37750.0
+      },
+      "Lateral Derecho": {
+        "boletos": 1346,
+        "subtotal": 230040.0,
+        "ticket_promedio": 170.91,
+        "boletos_online": 728,
+        "subtotal_online": 131040.0,
+        "boletos_taquilla": 618,
+        "subtotal_taquilla": 99000.0
+      },
+      "Lateral Izquierdo": {
+        "boletos": 1358,
+        "subtotal": 225720.0,
+        "ticket_promedio": 166.22,
+        "boletos_online": 499,
+        "subtotal_online": 89820.0,
+        "boletos_taquilla": 859,
+        "subtotal_taquilla": 135900.0
+      },
+      "Palco Central BK": {
+        "boletos": 37,
+        "subtotal": 12800.0,
+        "ticket_promedio": 345.95,
+        "boletos_online": 26,
+        "subtotal_online": 10400.0,
+        "boletos_taquilla": 11,
+        "subtotal_taquilla": 2400.0
+      },
+      "Palco Terr Izquierdo": {
+        "boletos": 16,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 16,
+        "subtotal_taquilla": 0.0
+      },
+      "Palcos Izquierdo": {
+        "boletos": 40,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 40,
+        "subtotal_taquilla": 0.0
+      }
+    }
   },
   "Rieleros": {
     "subtotal": 603740.0,
     "subtotal_online": 356690.0,
     "subtotal_taquilla": 247050.0,
-    "subtotal_paquete": 0,
+    "subtotal_paquete": 0.0,
     "subtotal_no_paquete": 603740.0,
     "boletos": 4930,
     "boletos_online": 2771,
@@ -574,13 +906,114 @@
         "subtotal": 3820.0,
         "boletos": 151
       }
-    ]
+    ],
+    "zonas": {
+      "Butaca Num. L": {
+        "boletos": 755,
+        "subtotal": 141930.0,
+        "ticket_promedio": 187.99,
+        "boletos_online": 563,
+        "subtotal_online": 106970.0,
+        "boletos_taquilla": 192,
+        "subtotal_taquilla": 34960.0
+      },
+      "Palco Plus": {
+        "boletos": 273,
+        "subtotal": 43680.0,
+        "ticket_promedio": 160.0,
+        "boletos_online": 155,
+        "subtotal_online": 24800.0,
+        "boletos_taquilla": 118,
+        "subtotal_taquilla": 18880.0
+      },
+      "Palco Terr. 1era.": {
+        "boletos": 220,
+        "subtotal": 35200.0,
+        "ticket_promedio": 160.0,
+        "boletos_online": 205,
+        "subtotal_online": 32800.0,
+        "boletos_taquilla": 15,
+        "subtotal_taquilla": 2400.0
+      },
+      "Palco Terr. 3ra.": {
+        "boletos": 217,
+        "subtotal": 34720.0,
+        "ticket_promedio": 160.0,
+        "boletos_online": 179,
+        "subtotal_online": 28640.0,
+        "boletos_taquilla": 38,
+        "subtotal_taquilla": 6080.0
+      },
+      "Preferente 1ra": {
+        "boletos": 1175,
+        "subtotal": 94000.0,
+        "ticket_promedio": 80.0,
+        "boletos_online": 570,
+        "subtotal_online": 45600.0,
+        "boletos_taquilla": 605,
+        "subtotal_taquilla": 48400.0
+      },
+      "Preferente 3ra": {
+        "boletos": 1377,
+        "subtotal": 109840.0,
+        "ticket_promedio": 79.77,
+        "boletos_online": 885,
+        "subtotal_online": 70800.0,
+        "boletos_taquilla": 492,
+        "subtotal_taquilla": 39040.0
+      },
+      "Suite": {
+        "boletos": 12,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 12,
+        "subtotal_taquilla": 0.0
+      },
+      "Terraza 1ra": {
+        "boletos": 202,
+        "subtotal": 30300.0,
+        "ticket_promedio": 150.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 202,
+        "subtotal_taquilla": 30300.0
+      },
+      "Terraza 3ra": {
+        "boletos": 187,
+        "subtotal": 28050.0,
+        "ticket_promedio": 150.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 187,
+        "subtotal_taquilla": 28050.0
+      },
+      "Terreno VIP": {
+        "boletos": 212,
+        "subtotal": 20020.0,
+        "ticket_promedio": 94.43,
+        "boletos_online": 11,
+        "subtotal_online": 2420.0,
+        "boletos_taquilla": 201,
+        "subtotal_taquilla": 17600.0
+      },
+      "Zona VIP": {
+        "boletos": 300,
+        "subtotal": 66000.0,
+        "ticket_promedio": 220.0,
+        "boletos_online": 203,
+        "subtotal_online": 44660.0,
+        "boletos_taquilla": 97,
+        "subtotal_taquilla": 21340.0
+      }
+    }
   },
   "Saraperos": {
     "subtotal": 1083910.0,
     "subtotal_online": 522565.0,
     "subtotal_taquilla": 561345.0,
-    "subtotal_paquete": 0,
+    "subtotal_paquete": 0.0,
     "subtotal_no_paquete": 1083910.0,
     "boletos": 5991,
     "boletos_online": 2967,
@@ -589,17 +1022,17 @@
     "ordenes_online": 1260,
     "ordenes_taquilla": 772,
     "events": [
-      "Juego Inaugural: Generales vs Saraperos",
-      "Juego Inaugural: Caliente de Durango vs Saraperos"
+      "Juego Inaugural: Caliente de Durango vs Saraperos",
+      "Juego Inaugural: Generales vs Saraperos"
     ],
     "has_paquete": false,
     "first_date": "08/04/2024",
     "last_date": "12/04/2024",
-    "duration_days": 3,
+    "duration_days": 4,
     "daily": [
       {
         "date": "2024-04-08",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 1
       },
       {
@@ -622,14 +1055,79 @@
         "subtotal": 7480.0,
         "boletos": 170
       }
-    ]
+    ],
+    "zonas": {
+      "Area Contenedores": {
+        "boletos": 154,
+        "subtotal": 77750.0,
+        "ticket_promedio": 504.87,
+        "boletos_online": 135,
+        "subtotal_online": 65625.0,
+        "boletos_taquilla": 19,
+        "subtotal_taquilla": 12125.0
+      },
+      "Butaca Central B": {
+        "boletos": 1431,
+        "subtotal": 283800.0,
+        "ticket_promedio": 198.32,
+        "boletos_online": 115,
+        "subtotal_online": 25300.0,
+        "boletos_taquilla": 1316,
+        "subtotal_taquilla": 258500.0
+      },
+      "Butaca Lateral A": {
+        "boletos": 1443,
+        "subtotal": 272400.0,
+        "ticket_promedio": 188.77,
+        "boletos_online": 687,
+        "subtotal_online": 137400.0,
+        "boletos_taquilla": 756,
+        "subtotal_taquilla": 135000.0
+      },
+      "Butaca Lateral C": {
+        "boletos": 1213,
+        "subtotal": 242000.0,
+        "ticket_promedio": 199.51,
+        "boletos_online": 633,
+        "subtotal_online": 126600.0,
+        "boletos_taquilla": 580,
+        "subtotal_taquilla": 115400.0
+      },
+      "General-Gradas": {
+        "boletos": 1734,
+        "subtotal": 207960.0,
+        "ticket_promedio": 119.93,
+        "boletos_online": 1397,
+        "subtotal_online": 167640.0,
+        "boletos_taquilla": 337,
+        "subtotal_taquilla": 40320.0
+      },
+      "Palco Nivel 1": {
+        "boletos": 10,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 10,
+        "subtotal_taquilla": 0.0
+      },
+      "Palco Nivel 2": {
+        "boletos": 6,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 6,
+        "subtotal_taquilla": 0.0
+      }
+    }
   },
   "Sultanes": {
-    "subtotal": 3486203.389999995,
+    "subtotal": 3486203.39,
     "subtotal_online": 2379905.0,
-    "subtotal_taquilla": 1106298.3900000032,
-    "subtotal_paquete": 0,
-    "subtotal_no_paquete": 3486203.389999995,
+    "subtotal_taquilla": 1106298.39,
+    "subtotal_paquete": 0.0,
+    "subtotal_no_paquete": 3486203.39,
     "boletos": 15076,
     "boletos_online": 8662,
     "boletos_taquilla": 6414,
@@ -642,21 +1140,21 @@
     "has_paquete": false,
     "first_date": "15/03/2024",
     "last_date": "13/04/2024",
-    "duration_days": 28,
+    "duration_days": 29,
     "daily": [
       {
         "date": "2024-03-15",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 386
       },
       {
         "date": "2024-03-19",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 228
       },
       {
         "date": "2024-03-20",
-        "subtotal": 0,
+        "subtotal": 0.0,
         "boletos": 58
       },
       {
@@ -681,7 +1179,7 @@
       },
       {
         "date": "2024-03-25",
-        "subtotal": 107375.1999999999,
+        "subtotal": 107375.2,
         "boletos": 252
       },
       {
@@ -721,7 +1219,7 @@
       },
       {
         "date": "2024-04-02",
-        "subtotal": 124085.08999999995,
+        "subtotal": 124085.09,
         "boletos": 317
       },
       {
@@ -761,7 +1259,7 @@
       },
       {
         "date": "2024-04-10",
-        "subtotal": 210717.09999999995,
+        "subtotal": 210717.1,
         "boletos": 1176
       },
       {
@@ -779,13 +1277,195 @@
         "subtotal": 1100.0,
         "boletos": 5
       }
-    ]
+    ],
+    "zonas": {
+      "Bleachers": {
+        "boletos": 2732,
+        "subtotal": 301800.0,
+        "ticket_promedio": 110.47,
+        "boletos_online": 1804,
+        "subtotal_online": 216480.0,
+        "boletos_taquilla": 928,
+        "subtotal_taquilla": 85320.0
+      },
+      "PCD": {
+        "boletos": 4,
+        "subtotal": 1320.0,
+        "ticket_promedio": 330.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 4,
+        "subtotal_taquilla": 1320.0
+      },
+      "Palco Azul 1ra": {
+        "boletos": 154,
+        "subtotal": 48400.0,
+        "ticket_promedio": 314.29,
+        "boletos_online": 65,
+        "subtotal_online": 35750.0,
+        "boletos_taquilla": 89,
+        "subtotal_taquilla": 12650.0
+      },
+      "Palco Azul 3ra": {
+        "boletos": 156,
+        "subtotal": 68200.0,
+        "ticket_promedio": 437.18,
+        "boletos_online": 108,
+        "subtotal_online": 59400.0,
+        "boletos_taquilla": 48,
+        "subtotal_taquilla": 8800.0
+      },
+      "Palco Azul Central": {
+        "boletos": 10,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 10,
+        "subtotal_taquilla": 0.0
+      },
+      "Palco Rojo 1ra": {
+        "boletos": 108,
+        "subtotal": 50600.0,
+        "ticket_promedio": 468.52,
+        "boletos_online": 82,
+        "subtotal_online": 45100.0,
+        "boletos_taquilla": 26,
+        "subtotal_taquilla": 5500.0
+      },
+      "Palco Rojo 3ra": {
+        "boletos": 103,
+        "subtotal": 48070.0,
+        "ticket_promedio": 466.7,
+        "boletos_online": 74,
+        "subtotal_online": 40700.0,
+        "boletos_taquilla": 29,
+        "subtotal_taquilla": 7370.0
+      },
+      "Palco Rojo central": {
+        "boletos": 52,
+        "subtotal": 12100.0,
+        "ticket_promedio": 232.69,
+        "boletos_online": 1,
+        "subtotal_online": 550.0,
+        "boletos_taquilla": 51,
+        "subtotal_taquilla": 11550.0
+      },
+      "Parrilladas": {
+        "boletos": 426,
+        "subtotal": 266800.39,
+        "ticket_promedio": 626.29,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 426,
+        "subtotal_taquilla": 266800.39
+      },
+      "Primer Nivel 1ra": {
+        "boletos": 2259,
+        "subtotal": 641058.0,
+        "ticket_promedio": 283.78,
+        "boletos_online": 1544,
+        "subtotal_online": 509520.0,
+        "boletos_taquilla": 715,
+        "subtotal_taquilla": 131538.0
+      },
+      "Primer Nivel 3ra": {
+        "boletos": 2422,
+        "subtotal": 689700.0,
+        "ticket_promedio": 284.76,
+        "boletos_online": 1809,
+        "subtotal_online": 596970.0,
+        "boletos_taquilla": 613,
+        "subtotal_taquilla": 92730.0
+      },
+      "Primer Nivel Central": {
+        "boletos": 835,
+        "subtotal": 281600.0,
+        "ticket_promedio": 337.25,
+        "boletos_online": 484,
+        "subtotal_online": 212960.0,
+        "boletos_taquilla": 351,
+        "subtotal_taquilla": 68640.0
+      },
+      "Segundo Nivel Laterales": {
+        "boletos": 1854,
+        "subtotal": 381425.0,
+        "ticket_promedio": 205.73,
+        "boletos_online": 1023,
+        "subtotal_online": 281325.0,
+        "boletos_taquilla": 831,
+        "subtotal_taquilla": 100100.0
+      },
+      "Segundo Nivel VIP": {
+        "boletos": 256,
+        "subtotal": 33150.0,
+        "ticket_promedio": 129.49,
+        "boletos_online": 33,
+        "subtotal_online": 21450.0,
+        "boletos_taquilla": 223,
+        "subtotal_taquilla": 11700.0
+      },
+      "Suites Primer Nivel 1ra": {
+        "boletos": 48,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 48,
+        "subtotal_taquilla": 0.0
+      },
+      "Suites Primer Nivel 3ra": {
+        "boletos": 24,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 24,
+        "subtotal_taquilla": 0.0
+      },
+      "Suites Segundo Nivel 1ra": {
+        "boletos": 66,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 66,
+        "subtotal_taquilla": 0.0
+      },
+      "Suites Segundo Nivel 3ra": {
+        "boletos": 24,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 24,
+        "subtotal_taquilla": 0.0
+      },
+      "Suites Segundo Nivel Central": {
+        "boletos": 12,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 12,
+        "subtotal_taquilla": 0.0
+      },
+      "Tercer Nivel": {
+        "boletos": 3531,
+        "subtotal": 661980.0,
+        "ticket_promedio": 187.48,
+        "boletos_online": 1635,
+        "subtotal_online": 359700.0,
+        "boletos_taquilla": 1896,
+        "subtotal_taquilla": 302280.0
+      }
+    }
   },
   "Tecos": {
     "subtotal": 58760.0,
     "subtotal_online": 27835.0,
     "subtotal_taquilla": 30925.0,
-    "subtotal_paquete": 0,
+    "subtotal_paquete": 0.0,
     "subtotal_no_paquete": 58760.0,
     "boletos": 4264,
     "boletos_online": 1437,
@@ -799,7 +1479,7 @@
     "has_paquete": false,
     "first_date": "04/04/2024",
     "last_date": "12/04/2024",
-    "duration_days": 7,
+    "duration_days": 8,
     "daily": [
       {
         "date": "2024-04-04",
@@ -846,14 +1526,97 @@
         "subtotal": 23505.0,
         "boletos": 1925
       }
-    ]
+    ],
+    "zonas": {
+      "Box Seat": {
+        "boletos": 2075,
+        "subtotal": 39000.0,
+        "ticket_promedio": 18.8,
+        "boletos_online": 1120,
+        "subtotal_online": 22400.0,
+        "boletos_taquilla": 955,
+        "subtotal_taquilla": 16600.0
+      },
+      "Club Level Access": {
+        "boletos": 154,
+        "subtotal": 2220.0,
+        "ticket_promedio": 14.42,
+        "boletos_online": 36,
+        "subtotal_online": 1080.0,
+        "boletos_taquilla": 118,
+        "subtotal_taquilla": 1140.0
+      },
+      "Corona Bullpen Bar": {
+        "boletos": 37,
+        "subtotal": 385.0,
+        "ticket_promedio": 10.41,
+        "boletos_online": 2,
+        "subtotal_online": 70.0,
+        "boletos_taquilla": 35,
+        "subtotal_taquilla": 315.0
+      },
+      "Field Deck": {
+        "boletos": 26,
+        "subtotal": 910.0,
+        "ticket_promedio": 35.0,
+        "boletos_online": 10,
+        "subtotal_online": 350.0,
+        "boletos_taquilla": 16,
+        "subtotal_taquilla": 560.0
+      },
+      "GRILL ZONE": {
+        "boletos": 20,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 20,
+        "subtotal_taquilla": 0.0
+      },
+      "Premium Club Box Seat": {
+        "boletos": 28,
+        "subtotal": 105.0,
+        "ticket_promedio": 3.75,
+        "boletos_online": 3,
+        "subtotal_online": 105.0,
+        "boletos_taquilla": 25,
+        "subtotal_taquilla": 0.0
+      },
+      "Reserved Seat": {
+        "boletos": 1070,
+        "subtotal": 8880.0,
+        "ticket_promedio": 8.3,
+        "boletos_online": 234,
+        "subtotal_online": 3510.0,
+        "boletos_taquilla": 836,
+        "subtotal_taquilla": 5370.0
+      },
+      "Standing General Admission": {
+        "boletos": 765,
+        "subtotal": 7260.0,
+        "ticket_promedio": 9.49,
+        "boletos_online": 32,
+        "subtotal_online": 320.0,
+        "boletos_taquilla": 733,
+        "subtotal_taquilla": 6940.0
+      },
+      "Suite": {
+        "boletos": 89,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 89,
+        "subtotal_taquilla": 0.0
+      }
+    }
   },
   "Toros": {
     "subtotal": 3949248.3,
     "subtotal_online": 2241845.0,
-    "subtotal_taquilla": 1707403.3000000003,
+    "subtotal_taquilla": 1707403.3,
     "subtotal_paquete": 3256925.0,
-    "subtotal_no_paquete": 692323.2999999999,
+    "subtotal_no_paquete": 692323.3,
     "boletos": 17197,
     "boletos_online": 5423,
     "boletos_taquilla": 11774,
@@ -1121,7 +1884,7 @@
       },
       {
         "date": "2024-04-11",
-        "subtotal": 100431.65000000001,
+        "subtotal": 100431.65,
         "boletos": 451
       },
       {
@@ -1136,7 +1899,7 @@
       },
       {
         "date": "2024-04-14",
-        "subtotal": 89421.65000000001,
+        "subtotal": 89421.65,
         "boletos": 1338
       },
       {
@@ -1149,6 +1912,116 @@
         "subtotal": 402840.0,
         "boletos": 3000
       }
-    ]
+    ],
+    "zonas": {
+      "General sin asiento": {
+        "boletos": 4100,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 4100,
+        "subtotal_taquilla": 0.0
+      },
+      "Jardines": {
+        "boletos": 7470,
+        "subtotal": 1615510.0,
+        "ticket_promedio": 216.27,
+        "boletos_online": 3423,
+        "subtotal_online": 896190.0,
+        "boletos_taquilla": 4047,
+        "subtotal_taquilla": 719320.0
+      },
+      "PalcosLaterales": {
+        "boletos": 40,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 40,
+        "subtotal_taquilla": 0.0
+      },
+      "Preferente": {
+        "boletos": 1157,
+        "subtotal": 523740.0,
+        "ticket_promedio": 452.67,
+        "boletos_online": 297,
+        "subtotal_online": 258390.0,
+        "boletos_taquilla": 860,
+        "subtotal_taquilla": 265350.0
+      },
+      "Preferente1raBase": {
+        "boletos": 421,
+        "subtotal": 97976.65,
+        "ticket_promedio": 232.72,
+        "boletos_online": 92,
+        "subtotal_online": 54740.0,
+        "boletos_taquilla": 329,
+        "subtotal_taquilla": 43236.65
+      },
+      "Preferente3raBase": {
+        "boletos": 526,
+        "subtotal": 233041.65,
+        "ticket_promedio": 443.04,
+        "boletos_online": 295,
+        "subtotal_online": 175525.0,
+        "boletos_taquilla": 231,
+        "subtotal_taquilla": 57516.65
+      },
+      "Superior": {
+        "boletos": 2000,
+        "subtotal": 1037000.0,
+        "ticket_promedio": 518.5,
+        "boletos_online": 816,
+        "subtotal_online": 612000.0,
+        "boletos_taquilla": 1184,
+        "subtotal_taquilla": 425000.0
+      },
+      "Superior1raBase": {
+        "boletos": 509,
+        "subtotal": 196000.0,
+        "ticket_promedio": 385.07,
+        "boletos_online": 235,
+        "subtotal_online": 115150.0,
+        "boletos_taquilla": 274,
+        "subtotal_taquilla": 80850.0
+      },
+      "Superior3raBase": {
+        "boletos": 669,
+        "subtotal": 245980.0,
+        "ticket_promedio": 367.68,
+        "boletos_online": 265,
+        "subtotal_online": 129850.0,
+        "boletos_taquilla": 404,
+        "subtotal_taquilla": 116130.0
+      },
+      "ToroBar": {
+        "boletos": 169,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 169,
+        "subtotal_taquilla": 0.0
+      },
+      "ToroGrill": {
+        "boletos": 127,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 127,
+        "subtotal_taquilla": 0.0
+      },
+      "ZONA CHEVRON": {
+        "boletos": 9,
+        "subtotal": 0.0,
+        "ticket_promedio": 0.0,
+        "boletos_online": 0,
+        "subtotal_online": 0.0,
+        "boletos_taquilla": 9,
+        "subtotal_taquilla": 0.0
+      }
+    }
   }
 }

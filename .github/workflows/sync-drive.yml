@@ -28,7 +28,7 @@ jobs:
           mkdir -p data/csv data/asistencia
           # Descargar toda la carpeta de Drive
           gdown --folder "https://drive.google.com/drive/folders/1GtwKLB-nKyGHskqXN6md93cJxiInlma2" -O data/drive_download --remaining-ok
-          # Mover Ordenes a data/csv
+          # Mover Ordenes (incluyendo subcarpetas por año) a data/csv
           find data/drive_download/Ordenes -name "*.xlsx" -exec mv -f {} data/csv/ \; 2>/dev/null || true
           # Mover Asistencia a data/asistencia
           find data/drive_download/Asistencia -name "*.xlsx" -exec mv -f {} data/asistencia/ \; 2>/dev/null || true
