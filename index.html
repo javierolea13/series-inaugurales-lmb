@@ -575,18 +575,25 @@ function createZoneAnalysisTable(team) {
     commonZones.forEach(zone => {
         const s = salesZones[zone];
         const a = asistMap26[zone];
-        const pagados = s.boletos_pagados || (s.boletos - (s.boletos_cortesias || 0));
+        const pagados26 = s.boletos_pagados || (s.boletos - (s.boletos_cortesias || 0));
+        const pagados25 = asistMap25[zone] ? (asistMap25[zone].vendidos_precio || 0) : null;
         const cortesias26 = s.boletos_cortesias || 0;
-        const cortesias25 = asistMap25[zone] ? (asistMap25[zone].cortesias || 0) : '-';
+        const cortesias25 = asistMap25[zone] ? (asistMap25[zone].cortesias || 0) : null;
         const ticketProm = s.ticket_promedio || 0;
         const ingresoPotencial = (a.disponibles || 0) * ticketProm;
         totalIngresoPotencial += ingresoPotencial;
         const ocupColor = a.pct_ocupacion >= 80 ? '#10b981' : a.pct_ocupacion >= 50 ? '#f59e0b' : '#ef4444';
+        // Color for pagados26 vs pagados25
+        let pag26Color = '';
+        if (pagados25 !== null && pagados25 > 0) {
+            pag26Color = pagados26 >= pagados25 ? 'color:#10b981;' : 'color:#ef4444;';
+        }
         rows += `<tr>
             <td style="${tdStyle}text-align:left;font-weight:500;white-space:nowrap;">${zone}</td>
-            <td style="${tdStyle}">${pagados.toLocaleString()}</td>
+            <td style="${tdStyle}${pag26Color}font-weight:600;">${pagados26.toLocaleString()}</td>
+            <td style="${tdStyle}color:#64748b;">${pagados25 !== null ? pagados25.toLocaleString() : '&mdash;'}</td>
             <td style="${tdStyle}color:#94a3b8;">${cortesias26.toLocaleString()}</td>
-            <td style="${tdStyle}color:#64748b;">${typeof cortesias25 === 'number' ? cortesias25.toLocaleString() : cortesias25}</td>
+            <td style="${tdStyle}color:#64748b;">${cortesias25 !== null ? cortesias25.toLocaleString() : '&mdash;'}</td>
             <td style="${tdStyle}font-weight:600;">${formatCurrency(ticketProm)}</td>
             <td style="${tdStyle}">${formatCurrency(s.subtotal)}</td>
             <td style="${tdStyle}">${a.aforo.toLocaleString()}</td>
@@ -597,27 +604,32 @@ function createZoneAnalysisTable(team) {
     });
 
     // Totals
-    const totS = { pagados: 0, cortesias26: 0, subtotal: 0 };
+    const totS = { pagados26: 0, pagados25: 0, cortesias26: 0, cortesias25: 0, subtotal: 0 };
     const totA = { aforo: 0, disponibles: 0, ocupados: 0 };
-    let totCort25 = 0;
+    let hasPag25 = false;
     let hasCort25 = false;
     commonZones.forEach(zone => {
         const s = salesZones[zone];
-        totS.pagados += s.boletos_pagados || (s.boletos - (s.boletos_cortesias || 0));
+        totS.pagados26 += s.boletos_pagados || (s.boletos - (s.boletos_cortesias || 0));
         totS.cortesias26 += s.boletos_cortesias || 0;
         totS.subtotal += s.subtotal;
         totA.aforo += asistMap26[zone].aforo;
         totA.disponibles += asistMap26[zone].disponibles;
         totA.ocupados += asistMap26[zone].ocupados;
-        if (asistMap25[zone]) { totCort25 += asistMap25[zone].cortesias || 0; hasCort25 = true; }
+        if (asistMap25[zone]) {
+            totS.pagados25 += asistMap25[zone].vendidos_precio || 0; hasPag25 = true;
+            totS.cortesias25 += asistMap25[zone].cortesias || 0; hasCort25 = true;
+        }
     });
     const totPctOcup = totA.aforo > 0 ? ((totA.ocupados / totA.aforo) * 100).toFixed(1) : 0;
+    const totPagColor = hasPag25 && totS.pagados25 > 0 ? (totS.pagados26 >= totS.pagados25 ? 'color:#10b981;' : 'color:#ef4444;') : '';
 
     rows += `<tr style="background:#0f172a;font-weight:700;">
         <td style="padding:0.4rem 0.6rem;font-size:0.75rem;">TOTAL</td>
-        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">${totS.pagados.toLocaleString()}</td>
+        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;${totPagColor}">${totS.pagados26.toLocaleString()}</td>
+        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#64748b;">${hasPag25 ? totS.pagados25.toLocaleString() : '&mdash;'}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#94a3b8;">${totS.cortesias26.toLocaleString()}</td>
-        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#64748b;">${hasCort25 ? totCort25.toLocaleString() : '&mdash;'}</td>
+        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#64748b;">${hasCort25 ? totS.cortesias25.toLocaleString() : '&mdash;'}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">&mdash;</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">${formatCurrency(totS.subtotal)}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">${totA.aforo.toLocaleString()}</td>
@@ -629,13 +641,14 @@ function createZoneAnalysisTable(team) {
     return `
         <div class="chart-card" style="margin-bottom:1rem;">
             <div class="chart-title">${team} 2026 &mdash; An&aacute;lisis por Zona</div>
-            <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.75rem 0;">Ticket promedio calculado solo con boletos pagados (sin cortes&iacute;as). Aforo y ocupaci&oacute;n del reporte de disponibilidad 2026.</p>
+            <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.75rem 0;">Ticket promedio solo boletos pagados. <span style="color:#10b981;">Verde</span> = arriba de 2025, <span style="color:#ef4444;">Rojo</span> = abajo. Pag. 25 = vendidos a precio del reporte de asistencia 2025.</p>
             <div style="overflow-x:auto;">
                 <table style="width:100%;border-collapse:collapse;color:#e2e8f0;background:#1e293b;border:1px solid #334155;border-radius:0.5rem;">
                     <thead>
                         <tr style="background:#334155;">
                             <th style="${thStyle}text-align:left;">Zona</th>
-                            <th style="${thStyle}">Pagados</th>
+                            <th style="${thStyle}">Pag. 26</th>
+                            <th style="${thStyle}">Pag. 25</th>
                             <th style="${thStyle}">Cort. 26</th>
                             <th style="${thStyle}">Cort. 25</th>
                             <th style="${thStyle}">Ticket Prom.</th>
@@ -771,15 +784,13 @@ function createSalesRhythmChart(ctx, team) {
                     callbacks: {
                         title: function(items) {
                             const x = items[0].parsed.x;
-                            return x === 0 ? 'Día del evento' : 'Día ' + x + ' antes del evento';
+                            return x === 0 ? 'Día del evento' : 'Día ' + x;
                         },
                         afterBody: function(items) {
                             const x = items[0].parsed.x;
-                            // Show all years at this day for comparison
-                            const lines = [];
+                            // Get all years' values at this day
                             const vals = {};
                             years.forEach(y => {
-                                // Find closest day <= x
                                 const map = yearCumulativeMap[y];
                                 if (!map) return;
                                 let closest = null;
@@ -789,23 +800,33 @@ function createSalesRhythmChart(ctx, team) {
                                 });
                                 if (closest !== null) vals[y] = map[closest];
                             });
-                            // Show comparison
-                            if (vals[2026] !== undefined && vals[2025] !== undefined) {
-                                const diff = vals[2026] - vals[2025];
-                                const pct = vals[2025] > 0 ? ((diff / vals[2025]) * 100).toFixed(0) : '—';
+                            const lines = [''];
+                            // Always show all years' totals
+                            [2024, 2025, 2026].forEach(y => {
+                                if (vals[y] !== undefined) {
+                                    lines.push(y + ': ' + formatCurrency(vals[y]));
+                                }
+                            });
+                            // Show 2026 vs others with color indicators
+                            if (vals[2026] !== undefined) {
                                 lines.push('');
-                                lines.push('vs 2025: ' + (diff >= 0 ? '+' : '') + formatCurrency(diff) + ' (' + (diff >= 0 ? '+' : '') + pct + '%)');
-                            }
-                            if (vals[2026] !== undefined && vals[2024] !== undefined) {
-                                const diff = vals[2026] - vals[2024];
-                                const pct = vals[2024] > 0 ? ((diff / vals[2024]) * 100).toFixed(0) : '—';
-                                lines.push('vs 2024: ' + (diff >= 0 ? '+' : '') + formatCurrency(diff) + ' (' + (diff >= 0 ? '+' : '') + pct + '%)');
+                                if (vals[2025] !== undefined) {
+                                    const diff = vals[2026] - vals[2025];
+                                    const pct = vals[2025] > 0 ? ((diff / vals[2025]) * 100).toFixed(0) : '—';
+                                    const arrow = diff >= 0 ? '▲' : '▼';
+                                    lines.push(arrow + ' vs 2025: ' + (diff >= 0 ? '+' : '') + formatCurrency(diff) + ' (' + (diff >= 0 ? '+' : '') + pct + '%)');
+                                }
+                                if (vals[2024] !== undefined) {
+                                    const diff = vals[2026] - vals[2024];
+                                    const pct = vals[2024] > 0 ? ((diff / vals[2024]) * 100).toFixed(0) : '—';
+                                    const arrow = diff >= 0 ? '▲' : '▼';
+                                    lines.push(arrow + ' vs 2024: ' + (diff >= 0 ? '+' : '') + formatCurrency(diff) + ' (' + (diff >= 0 ? '+' : '') + pct + '%)');
+                                }
                             }
                             return lines;
                         },
-                        label: function(context) {
-                            return context.dataset.label + ': ' + formatCurrency(context.parsed.y);
-                        }
+                        label: function() { return ''; },
+                        labelColor: function() { return { borderColor: 'transparent', backgroundColor: 'transparent' }; }
                     }
                 }
             }
@@ -814,7 +835,7 @@ function createSalesRhythmChart(ctx, team) {
     });
 }
 
-// Sales Velocity Chart: daily (non-cumulative) sales for 2026 with moving average
+// Sales Velocity Chart: daily (non-cumulative) sales for 2026
 function createSalesVelocityChart(ctx, team) {
     const teamData = DATA[team];
     if (!teamData || !teamData['2026']) return;
@@ -827,15 +848,6 @@ function createSalesVelocityChart(ctx, team) {
     });
     const salesValues = daily.map(d => d.subtotal);
 
-    // 3-day moving average
-    const ma = [];
-    for (let i = 0; i < salesValues.length; i++) {
-        const window = 3;
-        const start = Math.max(0, i - window + 1);
-        const slice = salesValues.slice(start, i + 1);
-        ma.push(slice.reduce((a, b) => a + b, 0) / slice.length);
-    }
-
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -845,20 +857,7 @@ function createSalesVelocityChart(ctx, team) {
                     label: 'Venta diaria',
                     data: salesValues,
                     backgroundColor: '#6366f1',
-                    borderRadius: 4,
-                    order: 2
-                },
-                {
-                    label: 'Promedio móvil (3 días)',
-                    data: ma,
-                    type: 'line',
-                    borderColor: '#f59e0b',
-                    backgroundColor: '#f59e0b20',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.4,
-                    pointRadius: 0,
-                    order: 1
+                    borderRadius: 4
                 }
             ]
         },
@@ -880,12 +879,88 @@ function createSalesVelocityChart(ctx, team) {
                 }
             },
             plugins: {
-                legend: { labels: { color: '#e2e8f0' } },
+                legend: { display: false },
                 datalabels: { display: false },
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            return context.dataset.label + ': ' + formatCurrency(context.parsed.y);
+                            return formatCurrency(context.parsed.y);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Cortesías Chart: online vs taquilla, 2025 vs 2026
+function createCortesiasChart(ctx, team) {
+    const salesData26 = DATA[team] && DATA[team]['2026'] ? DATA[team]['2026'] : null;
+    const salesData25 = DATA[team] && DATA[team]['2025'] ? DATA[team]['2025'] : null;
+    const asistData25 = ASISTENCIA[team] && ASISTENCIA[team]['2025'] ? ASISTENCIA[team]['2025'] : null;
+    const asistData26 = ASISTENCIA[team] && ASISTENCIA[team]['2026'] ? ASISTENCIA[team]['2026'] : null;
+
+    // 2026 cortesías from sales data (has online/taquilla split)
+    const cort26Online = salesData26 ? (salesData26.boletos_cortesias_online || 0) : 0;
+    const cort26Taquilla = salesData26 ? (salesData26.boletos_cortesias_taquilla || 0) : 0;
+
+    // 2025 cortesías from sales data
+    const cort25Online = salesData25 ? (salesData25.boletos_cortesias_online || 0) : 0;
+    const cort25Taquilla = salesData25 ? (salesData25.boletos_cortesias_taquilla || 0) : 0;
+
+    // Also get total from asistencia for reference
+    const asist25Total = asistData25 ? asistData25.zonas.reduce((sum, z) => sum + (z.cortesias || 0), 0) : 0;
+    const asist26Total = asistData26 ? asistData26.zonas.reduce((sum, z) => sum + (z.cortesias || 0), 0) : 0;
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['2025', '2026'],
+            datasets: [
+                {
+                    label: 'En línea',
+                    data: [cort25Online, cort26Online],
+                    backgroundColor: '#6366f1',
+                    borderRadius: 4
+                },
+                {
+                    label: 'Taquilla',
+                    data: [cort25Taquilla, cort26Taquilla],
+                    backgroundColor: '#f59e0b',
+                    borderRadius: 4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { display: false }
+                },
+                y: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: '#334155' },
+                    title: { display: true, text: 'Cortesías emitidas', color: '#94a3b8' }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: '#e2e8f0' } },
+                datalabels: {
+                    display: true,
+                    color: '#fff',
+                    font: { weight: 'bold', size: 12 },
+                    anchor: 'center',
+                    align: 'center',
+                    formatter: function(v) { return v > 0 ? v.toLocaleString() : ''; }
+                },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(items) {
+                            const year = items[0].label;
+                            const total = year === '2025' ? asist25Total : asist26Total;
+                            return ['Total asistencia: ' + total.toLocaleString()];
                         }
                     }
                 }
@@ -1323,14 +1398,23 @@ function createAsistenciaPanel() {
         if (DATA[team] && DATA[team]['2026']) {
             teamContent += `
                 <div class="chart-card" style="margin-bottom:1rem;">
-                    <div class="chart-title">${team} 2026 &mdash; Velocidad de Venta Diaria</div>
-                    <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.5rem 0;">Barras = venta de cada d&iacute;a. L&iacute;nea amarilla = promedio de los &uacute;ltimos 3 d&iacute;as (suaviza picos). Si la l&iacute;nea sube &rarr; la venta se est&aacute; acelerando. Si baja &rarr; se desacelera.</p>
+                    <div class="chart-title">${team} 2026 &mdash; Venta Diaria</div>
                     <div class="chart-container" style="height:300px">
                         <canvas id="chart-sales-velocity-${team}"></canvas>
                     </div>
                 </div>
             `;
         }
+
+        // Cortesías chart
+        teamContent += `
+            <div class="chart-card" style="margin-bottom:1rem;">
+                <div class="chart-title">${team} &mdash; Cortes&iacute;as Emitidas (En l&iacute;nea vs Taquilla)</div>
+                <div class="chart-container" style="height:250px">
+                    <canvas id="chart-cortesias-${team}"></canvas>
+                </div>
+            </div>
+        `;
 
         // Zone charts for each year
         years.forEach(year => {
@@ -1398,6 +1482,12 @@ window.toggleAsistTeam = function(team) {
         if (ctxVelocity && !ctxVelocity._chartInit) {
             ctxVelocity._chartInit = true;
             createSalesVelocityChart(ctxVelocity, team);
+        }
+        // Cortesías chart
+        const ctxCort = document.getElementById('chart-cortesias-' + team);
+        if (ctxCort && !ctxCort._chartInit) {
+            ctxCort._chartInit = true;
+            createCortesiasChart(ctxCort, team);
         }
 
         const years = Object.keys(ASISTENCIA[team]).sort();
