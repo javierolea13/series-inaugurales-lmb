@@ -1,16 +1,16 @@
 {
   "Bravos": {
-    "subtotal": 122170.0,
-    "subtotal_online": 86440.0,
-    "subtotal_taquilla": 35730.0,
-    "subtotal_paquete": 26550.0,
-    "subtotal_no_paquete": 95620.0,
-    "boletos": 514,
-    "boletos_online": 278,
-    "boletos_taquilla": 236,
-    "ordenes": 124,
-    "ordenes_online": 90,
-    "ordenes_taquilla": 34,
+    "subtotal": 130270.0,
+    "subtotal_online": 91630.0,
+    "subtotal_taquilla": 38640.0,
+    "subtotal_paquete": 29550.0,
+    "subtotal_no_paquete": 100720.0,
+    "boletos": 544,
+    "boletos_online": 292,
+    "boletos_taquilla": 252,
+    "ordenes": 133,
+    "ordenes_online": 95,
+    "ordenes_taquilla": 38,
     "events": [
       "Juego Inaugural: Guerreros vs Bravos",
       "Paquete Serie Inaugural"
@@ -127,23 +127,23 @@
       },
       {
         "date": "2026-04-07",
-        "subtotal": 360.0,
-        "boletos": 2
+        "subtotal": 8460.0,
+        "boletos": 32
       }
     ]
   },
   "Caliente": {
-    "subtotal": 175160.0,
-    "subtotal_online": 66400.0,
-    "subtotal_taquilla": 108760.0,
-    "subtotal_paquete": 175160.0,
+    "subtotal": 197360.0,
+    "subtotal_online": 72700.0,
+    "subtotal_taquilla": 124660.0,
+    "subtotal_paquete": 197360.0,
     "subtotal_no_paquete": 0.0,
-    "boletos": 284,
-    "boletos_online": 113,
-    "boletos_taquilla": 171,
-    "ordenes": 112,
-    "ordenes_online": 43,
-    "ordenes_taquilla": 69,
+    "boletos": 324,
+    "boletos_online": 127,
+    "boletos_taquilla": 197,
+    "ordenes": 128,
+    "ordenes_online": 46,
+    "ordenes_taquilla": 82,
     "events": [
       "Paquete: Juego Inaugural | Dorados vs Caliente"
     ],
@@ -194,30 +194,30 @@
       },
       {
         "date": "2026-04-07",
-        "subtotal": 3400.0,
-        "boletos": 7
+        "subtotal": 25600.0,
+        "boletos": 47
       }
     ]
   },
   "Charros": {
-    "subtotal": 858420.0,
-    "subtotal_online": 794130.0,
-    "subtotal_taquilla": 64290.0,
+    "subtotal": 910800.0,
+    "subtotal_online": 836220.0,
+    "subtotal_taquilla": 74580.0,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 858420.0,
-    "boletos": 4174,
-    "boletos_online": 3578,
-    "boletos_taquilla": 596,
-    "ordenes": 1045,
-    "ordenes_online": 966,
-    "ordenes_taquilla": 79,
+    "subtotal_no_paquete": 910800.0,
+    "boletos": 4437,
+    "boletos_online": 3763,
+    "boletos_taquilla": 674,
+    "ordenes": 1129,
+    "ordenes_online": 1035,
+    "ordenes_taquilla": 94,
     "events": [
       "Juego Inaugural: Acereros vs Charros"
     ],
     "has_paquete": false,
     "first_date": "29/03/2026",
-    "last_date": "07/04/2026",
-    "duration_days": 9,
+    "last_date": "08/04/2026",
+    "duration_days": 10,
     "daily": [
       {
         "date": "2026-03-29",
@@ -266,8 +266,13 @@
       },
       {
         "date": "2026-04-07",
-        "subtotal": 7860.0,
-        "boletos": 45
+        "subtotal": 52080.0,
+        "boletos": 270
+      },
+      {
+        "date": "2026-04-08",
+        "subtotal": 8160.0,
+        "boletos": 38
       }
     ]
   },
@@ -435,25 +440,167 @@
       }
     ]
   },
-  "Sultanes": {
-    "subtotal": 1124033.8,
-    "subtotal_online": 849933.0,
-    "subtotal_taquilla": 274100.8,
+  "Rileros": {
+    "subtotal": 189370.0,
+    "subtotal_online": 189370.0,
+    "subtotal_taquilla": 0.0,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 1124033.8,
-    "boletos": 6715,
-    "boletos_online": 4381,
-    "boletos_taquilla": 2334,
-    "ordenes": 1607,
-    "ordenes_online": 1445,
-    "ordenes_taquilla": 162,
+    "subtotal_no_paquete": 189370.0,
+    "boletos": 927,
+    "boletos_online": 927,
+    "boletos_taquilla": 0,
+    "ordenes": 289,
+    "ordenes_online": 289,
+    "ordenes_taquilla": 0,
+    "events": [
+      "Juego Inaugural: Tecos vs Rieleros"
+    ],
+    "has_paquete": false,
+    "first_date": "16/03/2026",
+    "last_date": "08/04/2026",
+    "duration_days": 23,
+    "daily": [
+      {
+        "date": "2026-03-16",
+        "subtotal": 2800.0,
+        "boletos": 10
+      },
+      {
+        "date": "2026-03-17",
+        "subtotal": 2430.0,
+        "boletos": 13
+      },
+      {
+        "date": "2026-03-18",
+        "subtotal": 3820.0,
+        "boletos": 20
+      },
+      {
+        "date": "2026-03-19",
+        "subtotal": 1920.0,
+        "boletos": 8
+      },
+      {
+        "date": "2026-03-20",
+        "subtotal": 16160.0,
+        "boletos": 80
+      },
+      {
+        "date": "2026-03-21",
+        "subtotal": 3520.0,
+        "boletos": 14
+      },
+      {
+        "date": "2026-03-22",
+        "subtotal": 2000.0,
+        "boletos": 11
+      },
+      {
+        "date": "2026-03-23",
+        "subtotal": 4990.0,
+        "boletos": 27
+      },
+      {
+        "date": "2026-03-24",
+        "subtotal": 5860.0,
+        "boletos": 36
+      },
+      {
+        "date": "2026-03-25",
+        "subtotal": 2580.0,
+        "boletos": 11
+      },
+      {
+        "date": "2026-03-26",
+        "subtotal": 7180.0,
+        "boletos": 34
+      },
+      {
+        "date": "2026-03-27",
+        "subtotal": 8510.0,
+        "boletos": 35
+      },
+      {
+        "date": "2026-03-28",
+        "subtotal": 5850.0,
+        "boletos": 24
+      },
+      {
+        "date": "2026-03-29",
+        "subtotal": 17960.0,
+        "boletos": 91
+      },
+      {
+        "date": "2026-03-30",
+        "subtotal": 7930.0,
+        "boletos": 40
+      },
+      {
+        "date": "2026-03-31",
+        "subtotal": 9850.0,
+        "boletos": 46
+      },
+      {
+        "date": "2026-04-01",
+        "subtotal": 10970.0,
+        "boletos": 47
+      },
+      {
+        "date": "2026-04-02",
+        "subtotal": 6800.0,
+        "boletos": 31
+      },
+      {
+        "date": "2026-04-03",
+        "subtotal": 7130.0,
+        "boletos": 34
+      },
+      {
+        "date": "2026-04-04",
+        "subtotal": 13110.0,
+        "boletos": 63
+      },
+      {
+        "date": "2026-04-05",
+        "subtotal": 7920.0,
+        "boletos": 38
+      },
+      {
+        "date": "2026-04-06",
+        "subtotal": 25410.0,
+        "boletos": 120
+      },
+      {
+        "date": "2026-04-07",
+        "subtotal": 13900.0,
+        "boletos": 87
+      },
+      {
+        "date": "2026-04-08",
+        "subtotal": 770.0,
+        "boletos": 7
+      }
+    ]
+  },
+  "Sultanes": {
+    "subtotal": 1210623.8,
+    "subtotal_online": 927263.0,
+    "subtotal_taquilla": 283360.8,
+    "subtotal_paquete": 0.0,
+    "subtotal_no_paquete": 1210623.8,
+    "boletos": 7199,
+    "boletos_online": 4806,
+    "boletos_taquilla": 2393,
+    "ordenes": 1755,
+    "ordenes_online": 1580,
+    "ordenes_taquilla": 175,
     "events": [
       "Juego Inaugural: Durango vs Sultanes"
     ],
     "has_paquete": false,
     "first_date": "12/03/2026",
-    "last_date": "07/04/2026",
-    "duration_days": 26,
+    "last_date": "08/04/2026",
+    "duration_days": 27,
     "daily": [
       {
         "date": "2026-03-12",
@@ -587,31 +734,36 @@
       },
       {
         "date": "2026-04-07",
-        "subtotal": 20640.0,
-        "boletos": 115
+        "subtotal": 103300.0,
+        "boletos": 578
+      },
+      {
+        "date": "2026-04-08",
+        "subtotal": 3930.0,
+        "boletos": 21
       }
     ]
   },
   "Toros": {
-    "subtotal": 3213218.0,
-    "subtotal_online": 1866450.0,
-    "subtotal_taquilla": 1346768.0,
-    "subtotal_paquete": 3103178.0,
+    "subtotal": 3278260.0,
+    "subtotal_online": 1899620.0,
+    "subtotal_taquilla": 1378640.0,
+    "subtotal_paquete": 3168220.0,
     "subtotal_no_paquete": 110040.0,
-    "boletos": 4665,
-    "boletos_online": 2452,
-    "boletos_taquilla": 2213,
-    "ordenes": 1232,
-    "ordenes_online": 733,
-    "ordenes_taquilla": 499,
+    "boletos": 4814,
+    "boletos_online": 2499,
+    "boletos_taquilla": 2315,
+    "ordenes": 1268,
+    "ordenes_online": 750,
+    "ordenes_taquilla": 518,
     "events": [
       "Juego Inaugural: Acereros vs Toros",
       "Paquete Acereros vs Toros"
     ],
     "has_paquete": true,
     "first_date": "13/02/2026",
-    "last_date": "07/04/2026",
-    "duration_days": 53,
+    "last_date": "08/04/2026",
+    "duration_days": 54,
     "daily": [
       {
         "date": "2026-02-13",
@@ -761,7 +913,7 @@
       {
         "date": "2026-03-31",
         "subtotal": 64972.0,
-        "boletos": 102
+        "boletos": 98
       },
       {
         "date": "2026-04-01",
@@ -795,8 +947,13 @@
       },
       {
         "date": "2026-04-07",
-        "subtotal": 17200.0,
-        "boletos": 22
+        "subtotal": 81082.0,
+        "boletos": 173
+      },
+      {
+        "date": "2026-04-08",
+        "subtotal": 1160.0,
+        "boletos": 2
       }
     ]
   }
