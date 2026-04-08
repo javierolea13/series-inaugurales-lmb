@@ -91,6 +91,7 @@ def procesar_xlsx(filepath):
     idx_orden = col_map.get('NÚMERO DE ORDEN', 0)
     idx_evento = col_map.get('EVENTO', 2)
     idx_fecha = col_map.get('FECHA', 3)
+    idx_vendido_por = col_map.get('VENDIDO POR', None)
     idx_tipo = col_map.get('TIPO', None)
     idx_medio = col_map.get('MEDIO DE COMPRA', 9)
     idx_subtotal = col_map.get('SUBTOTAL', 13)
@@ -112,6 +113,7 @@ def procesar_xlsx(filepath):
     boletos_cortesias = 0
     boletos_cortesias_online = 0
     boletos_cortesias_taquilla = 0
+    cortesias_por_persona = defaultdict(lambda: {'total': 0, 'online': 0, 'taquilla': 0})
     daily_data = defaultdict(lambda: {'subtotal': 0.0, 'boletos': 0})
     zona_data = defaultdict(lambda: {
         'boletos': 0, 'subtotal': 0.0,
@@ -126,6 +128,7 @@ def procesar_xlsx(filepath):
         orden = row[idx_orden] if len(row) > idx_orden else None
         evento = row[idx_evento] if len(row) > idx_evento else None
         fecha_str = row[idx_fecha] if len(row) > idx_fecha else None
+        vendido_por_raw = row[idx_vendido_por] if idx_vendido_por is not None and len(row) > idx_vendido_por else None
         tipo_raw = row[idx_tipo] if idx_tipo is not None and len(row) > idx_tipo else None
         medio = row[idx_medio] if len(row) > idx_medio else None
         subtotal_raw = row[idx_subtotal] if len(row) > idx_subtotal else None
@@ -163,6 +166,13 @@ def procesar_xlsx(filepath):
                 boletos_cortesias_taquilla += 1
             else:
                 boletos_cortesias_online += 1
+            # Track by person
+            vendido_por = str(vendido_por_raw).strip() if vendido_por_raw and str(vendido_por_raw).strip() not in ('-', '', 'None') else 'Sin asignar'
+            cortesias_por_persona[vendido_por]['total'] += 1
+            if es_taquilla:
+                cortesias_por_persona[vendido_por]['taquilla'] += 1
+            else:
+                cortesias_por_persona[vendido_por]['online'] += 1
 
         if es_taquilla:
             boletos_taquilla += 1
@@ -236,6 +246,11 @@ def procesar_xlsx(filepath):
         'boletos_cortesias': boletos_cortesias,
         'boletos_cortesias_online': boletos_cortesias_online,
         'boletos_cortesias_taquilla': boletos_cortesias_taquilla,
+        'cortesias_por_persona': sorted(
+            [{'persona': p, 'total': d['total'], 'online': d['online'], 'taquilla': d['taquilla']}
+             for p, d in cortesias_por_persona.items()],
+            key=lambda x: x['total'], reverse=True
+        ),
         'ordenes': len(ordenes_todas),
         'ordenes_online': len(ordenes_online),
         'ordenes_taquilla': len(ordenes_taquilla),

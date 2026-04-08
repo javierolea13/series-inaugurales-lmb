@@ -893,80 +893,78 @@ function createSalesVelocityChart(ctx, team) {
     });
 }
 
-// Cortesías Chart: online vs taquilla, 2025 vs 2026
-function createCortesiasChart(ctx, team) {
+// Cortesías Chart: breakdown by person who issued them, 2025 vs 2026
+function createCortesiasChart(container, team) {
     const salesData26 = DATA[team] && DATA[team]['2026'] ? DATA[team]['2026'] : null;
     const salesData25 = DATA[team] && DATA[team]['2025'] ? DATA[team]['2025'] : null;
-    const asistData25 = ASISTENCIA[team] && ASISTENCIA[team]['2025'] ? ASISTENCIA[team]['2025'] : null;
-    const asistData26 = ASISTENCIA[team] && ASISTENCIA[team]['2026'] ? ASISTENCIA[team]['2026'] : null;
 
-    // 2026 cortesías from sales data (has online/taquilla split)
-    const cort26Online = salesData26 ? (salesData26.boletos_cortesias_online || 0) : 0;
-    const cort26Taquilla = salesData26 ? (salesData26.boletos_cortesias_taquilla || 0) : 0;
+    const personas26 = salesData26 ? (salesData26.cortesias_por_persona || []) : [];
+    const personas25 = salesData25 ? (salesData25.cortesias_por_persona || []) : [];
 
-    // 2025 cortesías from sales data
-    const cort25Online = salesData25 ? (salesData25.boletos_cortesias_online || 0) : 0;
-    const cort25Taquilla = salesData25 ? (salesData25.boletos_cortesias_taquilla || 0) : 0;
+    // Build summary totals
+    const tot26Online = salesData26 ? (salesData26.boletos_cortesias_online || 0) : 0;
+    const tot26Taquilla = salesData26 ? (salesData26.boletos_cortesias_taquilla || 0) : 0;
+    const tot25Online = salesData25 ? (salesData25.boletos_cortesias_online || 0) : 0;
+    const tot25Taquilla = salesData25 ? (salesData25.boletos_cortesias_taquilla || 0) : 0;
 
-    // Also get total from asistencia for reference
-    const asist25Total = asistData25 ? asistData25.zonas.reduce((sum, z) => sum + (z.cortesias || 0), 0) : 0;
-    const asist26Total = asistData26 ? asistData26.zonas.reduce((sum, z) => sum + (z.cortesias || 0), 0) : 0;
+    let html = '';
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['2025', '2026'],
-            datasets: [
-                {
-                    label: 'En línea',
-                    data: [cort25Online, cort26Online],
-                    backgroundColor: '#6366f1',
-                    borderRadius: 4
-                },
-                {
-                    label: 'Taquilla',
-                    data: [cort25Taquilla, cort26Taquilla],
-                    backgroundColor: '#f59e0b',
-                    borderRadius: 4
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    ticks: { color: '#94a3b8' },
-                    grid: { display: false }
-                },
-                y: {
-                    ticks: { color: '#94a3b8' },
-                    grid: { color: '#334155' },
-                    title: { display: true, text: 'Cortesías emitidas', color: '#94a3b8' }
-                }
-            },
-            plugins: {
-                legend: { labels: { color: '#e2e8f0' } },
-                datalabels: {
-                    display: true,
-                    color: '#fff',
-                    font: { weight: 'bold', size: 12 },
-                    anchor: 'center',
-                    align: 'center',
-                    formatter: function(v) { return v > 0 ? v.toLocaleString() : ''; }
-                },
-                tooltip: {
-                    callbacks: {
-                        afterBody: function(items) {
-                            const year = items[0].label;
-                            const total = year === '2025' ? asist25Total : asist26Total;
-                            return ['Total asistencia: ' + total.toLocaleString()];
-                        }
-                    }
-                }
-            }
-        }
-    });
+    // Summary bars
+    html += '<div style="display:flex;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;">';
+    html += '<div style="flex:1;min-width:200px;">';
+    html += '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.3rem;">2026 &mdash; ' + (tot26Online + tot26Taquilla).toLocaleString() + ' total</div>';
+    const pct26Taq = (tot26Online + tot26Taquilla) > 0 ? Math.round(tot26Taquilla / (tot26Online + tot26Taquilla) * 100) : 0;
+    html += '<div style="display:flex;height:24px;border-radius:4px;overflow:hidden;font-size:0.7rem;font-weight:600;">';
+    if (tot26Online > 0) html += '<div style="background:#6366f1;flex:' + tot26Online + ';display:flex;align-items:center;justify-content:center;color:#fff;">' + tot26Online.toLocaleString() + ' online</div>';
+    if (tot26Taquilla > 0) html += '<div style="background:#f59e0b;flex:' + tot26Taquilla + ';display:flex;align-items:center;justify-content:center;color:#000;">' + tot26Taquilla.toLocaleString() + ' taquilla</div>';
+    if (tot26Online + tot26Taquilla === 0) html += '<div style="background:#334155;flex:1;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Sin datos</div>';
+    html += '</div></div>';
+
+    html += '<div style="flex:1;min-width:200px;">';
+    html += '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.3rem;">2025 &mdash; ' + (tot25Online + tot25Taquilla).toLocaleString() + ' total</div>';
+    html += '<div style="display:flex;height:24px;border-radius:4px;overflow:hidden;font-size:0.7rem;font-weight:600;">';
+    if (tot25Online > 0) html += '<div style="background:#6366f1;flex:' + tot25Online + ';display:flex;align-items:center;justify-content:center;color:#fff;">' + tot25Online.toLocaleString() + ' online</div>';
+    if (tot25Taquilla > 0) html += '<div style="background:#f59e0b;flex:' + tot25Taquilla + ';display:flex;align-items:center;justify-content:center;color:#000;">' + tot25Taquilla.toLocaleString() + ' taquilla</div>';
+    if (tot25Online + tot25Taquilla === 0) html += '<div style="background:#334155;flex:1;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Sin datos</div>';
+    html += '</div></div>';
+    html += '</div>';
+
+    // Tables side by side
+    html += '<div style="display:flex;gap:1rem;flex-wrap:wrap;">';
+
+    // 2026 table
+    if (personas26.length > 0) {
+        html += '<div style="flex:1;min-width:280px;">';
+        html += '<div style="font-size:0.8rem;font-weight:600;color:#10b981;margin-bottom:0.5rem;">2026 &mdash; Detalle por persona</div>';
+        html += '<table style="width:100%;border-collapse:collapse;font-size:0.75rem;color:#e2e8f0;">';
+        html += '<tr style="background:#334155;"><th style="padding:0.3rem 0.5rem;text-align:left;">Persona</th><th style="padding:0.3rem 0.5rem;text-align:right;">Total</th><th style="padding:0.3rem 0.5rem;text-align:right;">Online</th><th style="padding:0.3rem 0.5rem;text-align:right;">Taquilla</th></tr>';
+        personas26.forEach(p => {
+            html += '<tr><td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;">' + p.persona + '</td>';
+            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;font-weight:600;">' + p.total.toLocaleString() + '</td>';
+            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#6366f1;">' + (p.online > 0 ? p.online.toLocaleString() : '-') + '</td>';
+            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#f59e0b;">' + (p.taquilla > 0 ? p.taquilla.toLocaleString() : '-') + '</td></tr>';
+        });
+        html += '</table></div>';
+    }
+
+    // 2025 table
+    if (personas25.length > 0) {
+        html += '<div style="flex:1;min-width:280px;">';
+        html += '<div style="font-size:0.8rem;font-weight:600;color:#f59e0b;margin-bottom:0.5rem;">2025 &mdash; Detalle por persona</div>';
+        html += '<table style="width:100%;border-collapse:collapse;font-size:0.75rem;color:#e2e8f0;">';
+        html += '<tr style="background:#334155;"><th style="padding:0.3rem 0.5rem;text-align:left;">Persona</th><th style="padding:0.3rem 0.5rem;text-align:right;">Total</th><th style="padding:0.3rem 0.5rem;text-align:right;">Online</th><th style="padding:0.3rem 0.5rem;text-align:right;">Taquilla</th></tr>';
+        personas25.forEach(p => {
+            html += '<tr><td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;">' + p.persona + '</td>';
+            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;font-weight:600;">' + p.total.toLocaleString() + '</td>';
+            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#6366f1;">' + (p.online > 0 ? p.online.toLocaleString() : '-') + '</td>';
+            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#f59e0b;">' + (p.taquilla > 0 ? p.taquilla.toLocaleString() : '-') + '</td></tr>';
+        });
+        html += '</table></div>';
+    }
+
+    html += '</div>';
+
+    container.innerHTML = html;
 }
 
 // Create overview panel
@@ -1293,7 +1291,7 @@ function createTeamTable(teamName) {
 // ==================== ASISTENCIA SECTION ====================
 
 // Show asistencia panel
-window.showAsistencia = function() {
+window.showAsistencia = function(teamToExpand) {
     let panel = document.getElementById('panel-asistencia');
     if (!panel) {
         panel = createAsistenciaPanel();
@@ -1406,13 +1404,11 @@ function createAsistenciaPanel() {
             `;
         }
 
-        // Cortesías chart
+        // Cortesías detail
         teamContent += `
             <div class="chart-card" style="margin-bottom:1rem;">
-                <div class="chart-title">${team} &mdash; Cortes&iacute;as Emitidas (En l&iacute;nea vs Taquilla)</div>
-                <div class="chart-container" style="height:250px">
-                    <canvas id="chart-cortesias-${team}"></canvas>
-                </div>
+                <div class="chart-title">${team} &mdash; Cortes&iacute;as Emitidas</div>
+                <div id="cortesias-detail-${team}"></div>
             </div>
         `;
 
@@ -1483,11 +1479,11 @@ window.toggleAsistTeam = function(team) {
             ctxVelocity._chartInit = true;
             createSalesVelocityChart(ctxVelocity, team);
         }
-        // Cortesías chart
-        const ctxCort = document.getElementById('chart-cortesias-' + team);
-        if (ctxCort && !ctxCort._chartInit) {
-            ctxCort._chartInit = true;
-            createCortesiasChart(ctxCort, team);
+        // Cortesías detail
+        const cortContainer = document.getElementById('cortesias-detail-' + team);
+        if (cortContainer && !cortContainer._chartInit) {
+            cortContainer._chartInit = true;
+            createCortesiasChart(cortContainer, team);
         }
 
         const years = Object.keys(ASISTENCIA[team]).sort();
@@ -1748,11 +1744,19 @@ function initSidebar() {
     sep.style.cssText = 'border-top:1px solid #475569;margin:0.75rem 0;';
     sidebar.appendChild(sep);
 
-    // Team buttons
+    // Team buttons — click goes to Asistencia + expands that team
     getAllTeams().forEach(team => {
         const btn = document.createElement('button');
         btn.dataset.team = team;
-        btn.onclick = () => showTeam(team);
+        btn.onclick = () => {
+            showAsistencia();
+            setTimeout(() => {
+                // Expand this team's detail (simulate clicking the team button)
+                if (typeof toggleAsistTeam === 'function') {
+                    toggleAsistTeam(team);
+                }
+            }, 150);
+        };
 
         const latestYear = getLatestYear(DATA[team]);
         const latestValue = DATA[team][latestYear].subtotal;

@@ -11,6 +11,14 @@
     "boletos_cortesias": 147,
     "boletos_cortesias_online": 0,
     "boletos_cortesias_taquilla": 147,
+    "cortesias_por_persona": [
+      {
+        "persona": "Oficinas Moral",
+        "total": 147,
+        "online": 0,
+        "taquilla": 147
+      }
+    ],
     "ordenes": 133,
     "ordenes_online": 95,
     "ordenes_taquilla": 38,
@@ -227,6 +235,20 @@
     "boletos_cortesias": 19,
     "boletos_cortesias_online": 17,
     "boletos_cortesias_taquilla": 2,
+    "cortesias_por_persona": [
+      {
+        "persona": "Venta en línea",
+        "total": 17,
+        "online": 17,
+        "taquilla": 0
+      },
+      {
+        "persona": "Jazmin Pazos",
+        "total": 2,
+        "online": 0,
+        "taquilla": 2
+      }
+    ],
     "ordenes": 128,
     "ordenes_online": 46,
     "ordenes_taquilla": 82,
@@ -377,6 +399,56 @@
     "boletos_cortesias": 1007,
     "boletos_cortesias_online": 622,
     "boletos_cortesias_taquilla": 385,
+    "cortesias_por_persona": [
+      {
+        "persona": "Venta en línea",
+        "total": 622,
+        "online": 622,
+        "taquilla": 0
+      },
+      {
+        "persona": "Rosaana",
+        "total": 306,
+        "online": 0,
+        "taquilla": 306
+      },
+      {
+        "persona": "Mirza Valdez",
+        "total": 36,
+        "online": 0,
+        "taquilla": 36
+      },
+      {
+        "persona": "Estrella Magallanes",
+        "total": 23,
+        "online": 0,
+        "taquilla": 23
+      },
+      {
+        "persona": "Fabio Charros",
+        "total": 11,
+        "online": 0,
+        "taquilla": 11
+      },
+      {
+        "persona": "Esmeralda Ruvalcaba",
+        "total": 3,
+        "online": 0,
+        "taquilla": 3
+      },
+      {
+        "persona": "Emiliano Negrete",
+        "total": 3,
+        "online": 0,
+        "taquilla": 3
+      },
+      {
+        "persona": "Diana Ramos",
+        "total": 3,
+        "online": 0,
+        "taquilla": 3
+      }
+    ],
     "ordenes": 1129,
     "ordenes_online": 1035,
     "ordenes_taquilla": 94,
@@ -628,6 +700,14 @@
     "boletos_cortesias": 1,
     "boletos_cortesias_online": 0,
     "boletos_cortesias_taquilla": 1,
+    "cortesias_por_persona": [
+      {
+        "persona": "Administrador Boletomóvil",
+        "total": 1,
+        "online": 0,
+        "taquilla": 1
+      }
+    ],
     "ordenes": 2,
     "ordenes_online": 0,
     "ordenes_taquilla": 2,
@@ -686,6 +766,14 @@
     "boletos_cortesias": 33,
     "boletos_cortesias_online": 33,
     "boletos_cortesias_taquilla": 0,
+    "cortesias_por_persona": [
+      {
+        "persona": "Venta en línea",
+        "total": 33,
+        "online": 33,
+        "taquilla": 0
+      }
+    ],
     "ordenes": 289,
     "ordenes_online": 289,
     "ordenes_taquilla": 0,
@@ -1002,6 +1090,7 @@
     "boletos_cortesias": 0,
     "boletos_cortesias_online": 0,
     "boletos_cortesias_taquilla": 0,
+    "cortesias_por_persona": [],
     "ordenes": 0,
     "ordenes_online": 0,
     "ordenes_taquilla": 0,
@@ -1025,6 +1114,32 @@
     "boletos_cortesias": 1645,
     "boletos_cortesias_online": 0,
     "boletos_cortesias_taquilla": 1645,
+    "cortesias_por_persona": [
+      {
+        "persona": "Eduardo Garza",
+        "total": 1361,
+        "online": 0,
+        "taquilla": 1361
+      },
+      {
+        "persona": "Supervisor 3",
+        "total": 271,
+        "online": 0,
+        "taquilla": 271
+      },
+      {
+        "persona": "Daniela Peña Martínez",
+        "total": 9,
+        "online": 0,
+        "taquilla": 9
+      },
+      {
+        "persona": "Supervisor 2",
+        "total": 4,
+        "online": 0,
+        "taquilla": 4
+      }
+    ],
     "ordenes": 1755,
     "ordenes_online": 1580,
     "ordenes_taquilla": 175,
@@ -1322,6 +1437,62 @@
     "boletos_cortesias": 352,
     "boletos_cortesias_online": 1,
     "boletos_cortesias_taquilla": 351,
+    "cortesias_por_persona": [
+      {
+        "persona": "Liliana Ancheyta",
+        "total": 162,
+        "online": 0,
+        "taquilla": 162
+      },
+      {
+        "persona": "Julio Carrazco",
+        "total": 64,
+        "online": 0,
+        "taquilla": 64
+      },
+      {
+        "persona": "Yerah Hernández",
+        "total": 56,
+        "online": 0,
+        "taquilla": 56
+      },
+      {
+        "persona": "Karla Marquez",
+        "total": 39,
+        "online": 0,
+        "taquilla": 39
+      },
+      {
+        "persona": "Administrador Boletomóvil",
+        "total": 10,
+        "online": 0,
+        "taquilla": 10
+      },
+      {
+        "persona": "Ashlee Antonio",
+        "total": 9,
+        "online": 0,
+        "taquilla": 9
+      },
+      {
+        "persona": "Yae García",
+        "total": 7,
+        "online": 0,
+        "taquilla": 7
+      },
+      {
+        "persona": "Perla Rosangel",
+        "total": 4,
+        "online": 0,
+        "taquilla": 4
+      },
+      {
+        "persona": "Venta en línea",
+        "total": 1,
+        "online": 1,
+        "taquilla": 0
+      }
+    ],
     "ordenes": 1268,
     "ordenes_online": 750,
     "ordenes_taquilla": 518,
