@@ -544,24 +544,21 @@ const EVENT_DATES = {
 
 // Helper: build zone analysis table HTML for a team
 function createZoneAnalysisTable(team) {
-    const salesData = DATA[team] && DATA[team]['2026'] ? DATA[team]['2026'] : null;
+    const salesData26 = DATA[team] && DATA[team]['2026'] ? DATA[team]['2026'] : null;
+    const salesData25 = DATA[team] && DATA[team]['2025'] ? DATA[team]['2025'] : null;
     const asistData26 = ASISTENCIA[team] && ASISTENCIA[team]['2026'] ? ASISTENCIA[team]['2026'] : null;
-    const asistData25 = ASISTENCIA[team] && ASISTENCIA[team]['2025'] ? ASISTENCIA[team]['2025'] : null;
-    if (!salesData || !salesData.zonas || !asistData26 || !asistData26.zonas) return '';
+    if (!salesData26 || !salesData26.zonas || !asistData26 || !asistData26.zonas) return '';
 
-    const salesZones = salesData.zonas;
+    const salesZones26 = salesData26.zonas;
+    const salesZones25 = salesData25 ? (salesData25.zonas || {}) : {};
     const asistZones26 = asistData26.zonas;
 
-    // Build lookups
+    // Build attendance lookup for 2026
     const asistMap26 = {};
     asistZones26.forEach(z => { asistMap26[z.zona] = z; });
-    const asistMap25 = {};
-    if (asistData25 && asistData25.zonas) {
-        asistData25.zonas.forEach(z => { asistMap25[z.zona] = z; });
-    }
 
-    // Zones in both sales and attendance 2026
-    const commonZones = Object.keys(salesZones).filter(z => asistMap26[z]).sort((a, b) => {
+    // Zones in both sales 2026 and attendance 2026
+    const commonZones = Object.keys(salesZones26).filter(z => asistMap26[z]).sort((a, b) => {
         return (asistMap26[b].aforo || 0) - (asistMap26[a].aforo || 0);
     });
 
@@ -573,13 +570,14 @@ function createZoneAnalysisTable(team) {
     let totalIngresoPotencial = 0;
     let rows = '';
     commonZones.forEach(zone => {
-        const s = salesZones[zone];
+        const s26 = salesZones26[zone];
+        const s25 = salesZones25[zone] || null;
         const a = asistMap26[zone];
-        const pagados26 = s.boletos_pagados || (s.boletos - (s.boletos_cortesias || 0));
-        const pagados25 = asistMap25[zone] ? (asistMap25[zone].vendidos_precio || 0) : null;
-        const cortesias26 = s.boletos_cortesias || 0;
-        const cortesias25 = asistMap25[zone] ? (asistMap25[zone].cortesias || 0) : null;
-        const ticketProm = s.ticket_promedio || 0;
+        const pagados26 = s26.boletos_pagados || (s26.boletos - (s26.boletos_cortesias || 0));
+        const pagados25 = s25 ? (s25.boletos_pagados || (s25.boletos - (s25.boletos_cortesias || 0))) : null;
+        const cortesias26 = s26.boletos_cortesias || 0;
+        const cortesias25 = s25 ? (s25.boletos_cortesias || 0) : null;
+        const ticketProm = s26.ticket_promedio || 0;
         const ingresoPotencial = (a.disponibles || 0) * ticketProm;
         totalIngresoPotencial += ingresoPotencial;
         const ocupColor = a.pct_ocupacion >= 80 ? '#10b981' : a.pct_ocupacion >= 50 ? '#f59e0b' : '#ef4444';
@@ -595,7 +593,7 @@ function createZoneAnalysisTable(team) {
             <td style="${tdStyle}color:#94a3b8;">${cortesias26.toLocaleString()}</td>
             <td style="${tdStyle}color:#64748b;">${cortesias25 !== null ? cortesias25.toLocaleString() : '&mdash;'}</td>
             <td style="${tdStyle}font-weight:600;">${formatCurrency(ticketProm)}</td>
-            <td style="${tdStyle}">${formatCurrency(s.subtotal)}</td>
+            <td style="${tdStyle}">${formatCurrency(s26.subtotal)}</td>
             <td style="${tdStyle}">${a.aforo.toLocaleString()}</td>
             <td style="${tdStyle}color:${ocupColor};font-weight:600;">${a.pct_ocupacion}%</td>
             <td style="${tdStyle}">${a.disponibles.toLocaleString()}</td>
@@ -609,16 +607,17 @@ function createZoneAnalysisTable(team) {
     let hasPag25 = false;
     let hasCort25 = false;
     commonZones.forEach(zone => {
-        const s = salesZones[zone];
-        totS.pagados26 += s.boletos_pagados || (s.boletos - (s.boletos_cortesias || 0));
-        totS.cortesias26 += s.boletos_cortesias || 0;
-        totS.subtotal += s.subtotal;
+        const s26 = salesZones26[zone];
+        const s25 = salesZones25[zone] || null;
+        totS.pagados26 += s26.boletos_pagados || (s26.boletos - (s26.boletos_cortesias || 0));
+        totS.cortesias26 += s26.boletos_cortesias || 0;
+        totS.subtotal += s26.subtotal;
         totA.aforo += asistMap26[zone].aforo;
         totA.disponibles += asistMap26[zone].disponibles;
         totA.ocupados += asistMap26[zone].ocupados;
-        if (asistMap25[zone]) {
-            totS.pagados25 += asistMap25[zone].vendidos_precio || 0; hasPag25 = true;
-            totS.cortesias25 += asistMap25[zone].cortesias || 0; hasCort25 = true;
+        if (s25) {
+            totS.pagados25 += s25.boletos_pagados || (s25.boletos - (s25.boletos_cortesias || 0)); hasPag25 = true;
+            totS.cortesias25 += s25.boletos_cortesias || 0; hasCort25 = true;
         }
     });
     const totPctOcup = totA.aforo > 0 ? ((totA.ocupados / totA.aforo) * 100).toFixed(1) : 0;
@@ -638,10 +637,14 @@ function createZoneAnalysisTable(team) {
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#10b981;">${formatCurrency(totalIngresoPotencial)}</td>
     </tr>`;
 
+    // Note about zone name mismatches
+    const zonesOnly26 = Object.keys(salesZones26).filter(z => asistMap26[z] && !salesZones25[z]);
+    const mismatchNote = zonesOnly26.length > 0 ? ' Zonas sin datos 2025: nombres cambiaron entre a&ntilde;os.' : '';
+
     return `
         <div class="chart-card" style="margin-bottom:1rem;">
             <div class="chart-title">${team} 2026 &mdash; An&aacute;lisis por Zona</div>
-            <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.75rem 0;">Ticket promedio solo boletos pagados. <span style="color:#10b981;">Verde</span> = arriba de 2025, <span style="color:#ef4444;">Rojo</span> = abajo. Pag. 25 = vendidos a precio del reporte de asistencia 2025.</p>
+            <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.75rem 0;">Datos de Ordenes (pagados = sin cortes&iacute;as). <span style="color:#10b981;">Verde</span> = arriba de 2025, <span style="color:#ef4444;">Rojo</span> = abajo.${mismatchNote}</p>
             <div style="overflow-x:auto;">
                 <table style="width:100%;border-collapse:collapse;color:#e2e8f0;background:#1e293b;border:1px solid #334155;border-radius:0.5rem;">
                     <thead>
