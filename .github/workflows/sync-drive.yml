@@ -1,0 +1,48 @@
+name: Sync Google Drive → Dashboard
+
+on:
+  # Ejecutar manualmente desde GitHub
+  workflow_dispatch:
+  # O automático cada 6 horas
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install openpyxl gdown
+
+      - name: Descargar Excel de Google Drive
+        run: |
+          mkdir -p data/csv
+          # Descargar toda la carpeta de Drive
+          gdown --folder "https://drive.google.com/drive/folders/1GtwKLB-nKyGHskqXN6md93cJxiInlma2" -O data/csv --remaining-ok
+          echo "Archivos descargados:"
+          ls -la data/csv/
+
+      - name: Procesar Excel → JSON
+        run: python scripts/procesar_csvs.py
+
+      - name: Commit y push si hay cambios
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los datos"
+          else
+            git commit -m "Actualizar datos 2026 ($(date '+%Y-%m-%d'))"
+            git push
+            echo "✅ Datos actualizados"
+          fi
