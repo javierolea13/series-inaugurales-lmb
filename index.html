@@ -1347,6 +1347,7 @@ function createAsistenciaPanel() {
                     <span style="font-size:1.1rem;font-weight:700;color:${color25};">${pct25}%</span>
                     <span style="font-size:0.65rem;color:#64748b;">2025</span>
                 </div>
+                <div style="font-size:0.7rem;color:#94a3b8;margin-top:0.15rem;">${d25 ? d25.ocupados_total.toLocaleString() : 0} / ${d25 ? d25.aforo_total.toLocaleString() : 0}</div>
                 <div style="background:#0f172a;border-radius:4px;height:5px;margin-top:0.25rem;overflow:hidden;">
                     <div style="background:${color25};height:100%;width:${barWidth25}%;border-radius:4px;opacity:0.6;"></div>
                 </div>
