@@ -25,18 +25,26 @@ jobs:
 
       - name: Descargar Excel de Google Drive
         run: |
-          mkdir -p data/csv
+          mkdir -p data/csv data/asistencia
           # Descargar toda la carpeta de Drive
-          gdown --folder "https://drive.google.com/drive/folders/1GtwKLB-nKyGHskqXN6md93cJxiInlma2" -O data/csv --remaining-ok
-          # Mover archivos de subcarpetas al nivel raíz de data/csv
-          find data/csv -mindepth 2 -name "*.xlsx" -exec mv -f {} data/csv/ \;
-          # Limpiar subcarpetas vacías
-          find data/csv -mindepth 1 -type d -empty -delete
-          echo "Archivos descargados:"
+          gdown --folder "https://drive.google.com/drive/folders/1GtwKLB-nKyGHskqXN6md93cJxiInlma2" -O data/drive_download --remaining-ok
+          # Mover Ordenes a data/csv
+          find data/drive_download/Ordenes -name "*.xlsx" -exec mv -f {} data/csv/ \; 2>/dev/null || true
+          # Mover Asistencia a data/asistencia
+          find data/drive_download/Asistencia -name "*.xlsx" -exec mv -f {} data/asistencia/ \; 2>/dev/null || true
+          # Mover archivos sueltos (si los hay) a data/csv
+          find data/drive_download -maxdepth 1 -name "*.xlsx" -exec mv -f {} data/csv/ \; 2>/dev/null || true
+          # Limpiar descarga temporal
+          rm -rf data/drive_download
+          echo "Archivos de ventas:"
           ls -la data/csv/
+          echo "Archivos de asistencia:"
+          ls -la data/asistencia/
 
       - name: Procesar Excel → JSON
-        run: python scripts/procesar_csvs.py
+        run: |
+          python scripts/procesar_csvs.py
+          python scripts/procesar_asistencia.py
 
       - name: Commit y push si hay cambios
         run: |

@@ -479,6 +479,7 @@
     <!-- DATA (loaded from JSON files) -->
     <script>
     let DATA = {};
+    let ASISTENCIA = {};
     </script>
 
     <!-- APPLICATION -->
@@ -849,6 +850,379 @@ function createTeamTable(teamName) {
     return html;
 }
 
+// ==================== ASISTENCIA SECTION ====================
+
+// Show asistencia panel
+window.showAsistencia = function() {
+    let panel = document.getElementById('panel-asistencia');
+    if (!panel) {
+        panel = createAsistenciaPanel();
+        document.getElementById('main').appendChild(panel);
+    }
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    panel.classList.add('active');
+    // Update sidebar
+    document.querySelectorAll('.sidebar button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.includes('Asistencia')) btn.classList.add('active');
+    });
+    setTimeout(() => initAsistenciaCharts(), 100);
+};
+
+function createAsistenciaPanel() {
+    const panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.id = 'panel-asistencia';
+
+    const teams = Object.keys(ASISTENCIA).sort();
+
+    if (teams.length === 0) {
+        panel.innerHTML = '<div class="chart-card"><div class="chart-title">Sin datos de asistencia</div><p style="padding:1rem;opacity:0.7;">Sube archivos de asistencia a la carpeta de Google Drive para ver esta sección.</p></div>';
+        return panel;
+    }
+
+    // KPIs
+    let kpiHtml = '<div class="kpi-row">';
+    teams.forEach(team => {
+        const years = Object.keys(ASISTENCIA[team]).sort();
+        years.forEach(year => {
+            const d = ASISTENCIA[team][year];
+            const pctClass = d.pct_ocupacion >= 80 ? 'green' : d.pct_ocupacion >= 50 ? 'amber' : 'red';
+            kpiHtml += `
+                <div class="kpi-card">
+                    <div class="kpi-label">${team} ${year}</div>
+                    <div class="kpi-value" style="color:${pctClass === 'green' ? '#10b981' : pctClass === 'amber' ? '#f59e0b' : '#ef4444'}">${d.pct_ocupacion}%</div>
+                    <div class="kpi-sub">${d.ocupados_total.toLocaleString()} / ${d.aforo_total.toLocaleString()}</div>
+                    <div class="kpi-sub" style="font-size:0.7rem;opacity:0.6">${d.evento}</div>
+                </div>
+            `;
+        });
+    });
+    kpiHtml += '</div>';
+
+    // Charts per team
+    let chartsHtml = '';
+
+    // 1. Overview comparison chart (all teams, 2025 vs 2026 occupancy)
+    chartsHtml += `
+        <div class="chart-card">
+            <div class="chart-title">Ocupación General — 2025 vs 2026</div>
+            <div class="chart-container">
+                <canvas id="chart-asist-overview"></canvas>
+            </div>
+        </div>
+    `;
+
+    // 2. Per-team zone charts
+    teams.forEach(team => {
+        const years = Object.keys(ASISTENCIA[team]).sort();
+
+        // Zone breakdown chart for each year
+        years.forEach(year => {
+            const d = ASISTENCIA[team][year];
+            chartsHtml += `
+                <div class="chart-card">
+                    <div class="chart-title">${team} ${year} — Zonas (${d.pct_ocupacion}% Ocupación)</div>
+                    <div class="chart-container" style="height:${Math.max(350, d.zonas.length * 35)}px">
+                        <canvas id="chart-asist-zones-${team}-${year}"></canvas>
+                    </div>
+                </div>
+            `;
+        });
+
+        // If both years exist, create comparison
+        if (years.length >= 2) {
+            chartsHtml += `
+                <div class="chart-card">
+                    <div class="chart-title">${team} — Composición de Asistencia 2025 vs 2026</div>
+                    <div class="chart-container" style="height:400px">
+                        <canvas id="chart-asist-compare-${team}"></canvas>
+                    </div>
+                </div>
+            `;
+        }
+    });
+
+    panel.innerHTML = kpiHtml + chartsHtml;
+    return panel;
+}
+
+function initAsistenciaCharts() {
+    const teams = Object.keys(ASISTENCIA).sort();
+
+    // Overview chart
+    const ctxOverview = document.getElementById('chart-asist-overview');
+    if (ctxOverview && !ctxOverview._chartInit) {
+        ctxOverview._chartInit = true;
+        createAsistOverviewChart(ctxOverview);
+    }
+
+    // Per-team zone charts
+    teams.forEach(team => {
+        const years = Object.keys(ASISTENCIA[team]).sort();
+        years.forEach(year => {
+            const ctx = document.getElementById(`chart-asist-zones-${team}-${year}`);
+            if (ctx && !ctx._chartInit) {
+                ctx._chartInit = true;
+                createZoneChart(ctx, team, year);
+            }
+        });
+
+        if (years.length >= 2) {
+            const ctx = document.getElementById(`chart-asist-compare-${team}`);
+            if (ctx && !ctx._chartInit) {
+                ctx._chartInit = true;
+                createAsistCompareChart(ctx, team);
+            }
+        }
+    });
+}
+
+// Overview: horizontal grouped bars showing % occupancy per team per year
+function createAsistOverviewChart(ctx) {
+    const teams = Object.keys(ASISTENCIA).sort();
+    const allYears = new Set();
+    teams.forEach(t => Object.keys(ASISTENCIA[t]).forEach(y => allYears.add(y)));
+    const years = [...allYears].sort();
+
+    const yearColors = { '2024': '#6366f1', '2025': '#f59e0b', '2026': '#10b981' };
+
+    const datasets = years.map(year => ({
+        label: year,
+        data: teams.map(team => ASISTENCIA[team][year] ? ASISTENCIA[team][year].pct_ocupacion : 0),
+        backgroundColor: yearColors[year] || '#94a3b8',
+        borderRadius: 4
+    }));
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: { labels: teams, datasets },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    max: 100,
+                    ticks: { color: '#94a3b8', callback: v => v + '%' },
+                    grid: { color: '#334155' }
+                },
+                y: {
+                    ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 13 } },
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: '#e2e8f0' } },
+                datalabels: {
+                    color: '#fff',
+                    font: { weight: 'bold', size: 11 },
+                    formatter: v => v > 0 ? v + '%' : '',
+                    anchor: 'center',
+                    align: 'center'
+                },
+                tooltip: {
+                    callbacks: {
+                        afterLabel: function(context) {
+                            const team = teams[context.dataIndex];
+                            const year = years[context.datasetIndex];
+                            const d = ASISTENCIA[team]?.[year];
+                            if (!d) return '';
+                            return `Ocupados: ${d.ocupados_total.toLocaleString()} / ${d.aforo_total.toLocaleString()}\nDisponibles: ${d.disponibles_total.toLocaleString()}\nBloqueos: ${d.bloqueos_total.toLocaleString()}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Zone chart: horizontal stacked bar showing composition per zone
+function createZoneChart(ctx, team, year) {
+    const data = ASISTENCIA[team][year];
+    if (!data || !data.zonas) return;
+
+    // Sort zones by aforo descending
+    const zonas = [...data.zonas].sort((a, b) => b.aforo - a.aforo);
+    const labels = zonas.map(z => z.zona);
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: [
+                {
+                    label: 'Vendidos',
+                    data: zonas.map(z => z.vendidos_precio),
+                    backgroundColor: '#10b981'
+                },
+                {
+                    label: 'Abonos',
+                    data: zonas.map(z => z.abonos),
+                    backgroundColor: '#6366f1'
+                },
+                {
+                    label: 'Paquetes',
+                    data: zonas.map(z => z.paquetes),
+                    backgroundColor: '#8b5cf6'
+                },
+                {
+                    label: 'Cortesías',
+                    data: zonas.map(z => z.cortesias + z.promos + z.precio_1 + z.promociones),
+                    backgroundColor: '#f59e0b'
+                },
+                {
+                    label: 'Bloqueos',
+                    data: zonas.map(z => z.bloqueos),
+                    backgroundColor: '#ef4444'
+                },
+                {
+                    label: 'En proceso',
+                    data: zonas.map(z => z.en_proceso),
+                    backgroundColor: '#06b6d4'
+                },
+                {
+                    label: 'Disponibles',
+                    data: zonas.map(z => z.disponibles),
+                    backgroundColor: '#334155'
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: '#334155' },
+                    title: { display: true, text: 'Asientos', color: '#94a3b8' }
+                },
+                y: {
+                    stacked: true,
+                    ticks: { color: '#e2e8f0', font: { size: 11 } },
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: '#e2e8f0', boxWidth: 12, font: { size: 11 } } },
+                datalabels: {
+                    display: function(context) {
+                        return context.dataset.data[context.dataIndex] > 0 &&
+                               context.dataset.label !== 'Disponibles' &&
+                               context.dataset.data[context.dataIndex] / zonas[context.dataIndex].aforo > 0.08;
+                    },
+                    color: '#fff',
+                    font: { size: 10 },
+                    formatter: (v) => v > 0 ? v.toLocaleString() : ''
+                },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(items) {
+                            const i = items[0].dataIndex;
+                            const z = zonas[i];
+                            return `\nAforo: ${z.aforo.toLocaleString()}\nOcupación: ${z.pct_ocupacion}%`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Comparison chart: side by side 2025 vs 2026 composition (grouped stacked)
+function createAsistCompareChart(ctx, team) {
+    const years = Object.keys(ASISTENCIA[team]).sort();
+    const y1 = years[0]; // 2025
+    const y2 = years[1]; // 2026
+    const d1 = ASISTENCIA[team][y1];
+    const d2 = ASISTENCIA[team][y2];
+
+    const categories = ['Vendidos', 'Abonos', 'Paquetes', 'Cortesías/Promos', 'Bloqueos', 'Disponibles'];
+
+    function sumCategory(data, cat) {
+        let total = 0;
+        data.zonas.forEach(z => {
+            switch(cat) {
+                case 'Vendidos': total += z.vendidos_precio; break;
+                case 'Abonos': total += z.abonos; break;
+                case 'Paquetes': total += z.paquetes; break;
+                case 'Cortesías/Promos': total += z.cortesias + z.promos + z.precio_1 + z.promociones; break;
+                case 'Bloqueos': total += z.bloqueos; break;
+                case 'Disponibles': total += z.disponibles; break;
+            }
+        });
+        return total;
+    }
+
+    const catColors = {
+        'Vendidos': '#10b981',
+        'Abonos': '#6366f1',
+        'Paquetes': '#8b5cf6',
+        'Cortesías/Promos': '#f59e0b',
+        'Bloqueos': '#ef4444',
+        'Disponibles': '#334155'
+    };
+
+    const datasets = categories.map(cat => ({
+        label: cat,
+        data: [sumCategory(d1, cat), sumCategory(d2, cat)],
+        backgroundColor: catColors[cat],
+        borderRadius: 2
+    }));
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [`${y1} (Aforo: ${d1.aforo_total.toLocaleString()})`, `${y2} (Aforo: ${d2.aforo_total.toLocaleString()})`],
+            datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: { color: '#e2e8f0', font: { weight: 'bold' } },
+                    grid: { display: false }
+                },
+                y: {
+                    stacked: true,
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: '#334155' },
+                    title: { display: true, text: 'Asientos', color: '#94a3b8' }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: '#e2e8f0', boxWidth: 12 } },
+                datalabels: {
+                    display: function(context) {
+                        const total = context.dataset.label === 'Disponibles' ?
+                            (context.dataIndex === 0 ? d1.aforo_total : d2.aforo_total) :
+                            (context.dataIndex === 0 ? d1.aforo_total : d2.aforo_total);
+                        return context.dataset.data[context.dataIndex] / total > 0.05;
+                    },
+                    color: '#fff',
+                    font: { size: 11, weight: 'bold' },
+                    formatter: v => v > 0 ? v.toLocaleString() : ''
+                },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(items) {
+                            const i = items[0].dataIndex;
+                            const d = i === 0 ? d1 : d2;
+                            return `\nOcupación total: ${d.pct_ocupacion}%\nOcupados: ${d.ocupados_total.toLocaleString()}\nAforo: ${d.aforo_total.toLocaleString()}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// ==================== END ASISTENCIA SECTION ====================
+
 // Initialize sidebar
 function initSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -859,6 +1233,17 @@ function initSidebar() {
     overviewBtn.onclick = () => showPanel('overview');
     overviewBtn.innerHTML = '<span class="team-name">📊 Vista General</span>';
     sidebar.appendChild(overviewBtn);
+
+    // Asistencia button
+    const asistBtn = document.createElement('button');
+    asistBtn.onclick = () => showAsistencia();
+    asistBtn.innerHTML = '<span class="team-name">🏟️ Asistencia</span>';
+    sidebar.appendChild(asistBtn);
+
+    // Separator
+    const sep = document.createElement('div');
+    sep.style.cssText = 'border-top:1px solid #475569;margin:0.75rem 0;';
+    sidebar.appendChild(sep);
 
     // Team buttons
     getAllTeams().forEach(team => {
@@ -1473,10 +1858,11 @@ function createLeagueCumulativeChart(ctx) {
 
 // Initialize
 async function loadData() {
-    const [d2024, d2025, d2026] = await Promise.all([
+    const [d2024, d2025, d2026, dAsistencia] = await Promise.all([
         fetch('data/2024.json').then(r => r.json()),
         fetch('data/2025.json').then(r => r.json()),
-        fetch('data/2026.json').then(r => r.json())
+        fetch('data/2026.json').then(r => r.json()),
+        fetch('data/asistencia.json').then(r => r.json()).catch(() => ({}))
     ]);
 
     DATA = {};
@@ -1492,6 +1878,8 @@ async function loadData() {
         DATA[team] = DATA[team] || {};
         DATA[team]['2026'] = yearData;
     }
+
+    ASISTENCIA = dAsistencia;
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
