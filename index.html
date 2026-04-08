@@ -529,6 +529,277 @@ const COLORS = {
     y2026: '#10b981'
 };
 
+const EVENT_DATES = {
+    'Caliente': '2026-04-17',
+    'Charros': '2026-04-17',
+    'Rieleros': '2026-04-17',
+    'Saraperos': '2026-04-17',
+    'Bravos': '2026-04-21',
+    'Guerreros': '2026-04-21',
+    'Sultanes': '2026-04-21',
+    'Tecos': '2026-04-21',
+    'Dorados': '2026-04-24',
+    'Toros': '2026-04-24'
+};
+
+// Helper: build zone analysis table HTML for a team
+function createZoneAnalysisTable(team) {
+    const salesData = DATA[team] && DATA[team]['2026'] ? DATA[team]['2026'] : null;
+    const asistData = ASISTENCIA[team] && ASISTENCIA[team]['2026'] ? ASISTENCIA[team]['2026'] : null;
+    if (!salesData || !salesData.zonas || !asistData || !asistData.zonas) return '';
+
+    const salesZones = salesData.zonas; // object keyed by zone name
+    const asistZones = asistData.zonas; // array of objects with .zona
+
+    // Build lookup from attendance
+    const asistMap = {};
+    asistZones.forEach(z => { asistMap[z.zona] = z; });
+
+    // Get zones present in both
+    const commonZones = Object.keys(salesZones).filter(z => asistMap[z]).sort((a, b) => {
+        return (asistMap[b].aforo || 0) - (asistMap[a].aforo || 0);
+    });
+
+    if (commonZones.length === 0) return '';
+
+    let totalIngresoPotencial = 0;
+    let rows = '';
+    commonZones.forEach(zone => {
+        const s = salesZones[zone];
+        const a = asistMap[zone];
+        const ingresoPotencial = (a.disponibles || 0) * (s.ticket_promedio || 0);
+        totalIngresoPotencial += ingresoPotencial;
+        const ocupColor = a.pct_ocupacion >= 80 ? '#10b981' : a.pct_ocupacion >= 50 ? '#f59e0b' : '#ef4444';
+        rows += `<tr>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;font-weight:500;white-space:nowrap;">${zone}</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;">${formatCurrency(s.ticket_promedio)}</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;">${s.boletos.toLocaleString()}</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;">${formatCurrency(s.subtotal)}</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;">${a.aforo.toLocaleString()}</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;color:${ocupColor};font-weight:600;">${a.pct_ocupacion}%</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;">${a.disponibles.toLocaleString()}</td>
+            <td style="padding:0.5rem 0.75rem;border-bottom:1px solid #334155;text-align:right;color:#10b981;font-weight:600;">${formatCurrency(ingresoPotencial)}</td>
+        </tr>`;
+    });
+
+    // Totals row
+    const totS = { boletos: 0, subtotal: 0 };
+    const totA = { aforo: 0, disponibles: 0, ocupados: 0 };
+    commonZones.forEach(zone => {
+        totS.boletos += salesZones[zone].boletos;
+        totS.subtotal += salesZones[zone].subtotal;
+        totA.aforo += asistMap[zone].aforo;
+        totA.disponibles += asistMap[zone].disponibles;
+        totA.ocupados += asistMap[zone].ocupados;
+    });
+    const totPctOcup = totA.aforo > 0 ? ((totA.ocupados / totA.aforo) * 100).toFixed(1) : 0;
+
+    rows += `<tr style="background:#0f172a;font-weight:700;">
+        <td style="padding:0.5rem 0.75rem;">TOTAL</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;">&mdash;</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;">${totS.boletos.toLocaleString()}</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;">${formatCurrency(totS.subtotal)}</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;">${totA.aforo.toLocaleString()}</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;">${totPctOcup}%</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;">${totA.disponibles.toLocaleString()}</td>
+        <td style="padding:0.5rem 0.75rem;text-align:right;color:#10b981;">${formatCurrency(totalIngresoPotencial)}</td>
+    </tr>`;
+
+    return `
+        <div class="chart-card" style="margin-bottom:1rem;">
+            <div class="chart-title">${team} 2026 &mdash; An&aacute;lisis por Zona (Ventas + Asistencia)</div>
+            <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.8rem;color:#e2e8f0;background:#1e293b;border:1px solid #334155;border-radius:0.5rem;">
+                    <thead>
+                        <tr style="background:#334155;">
+                            <th style="padding:0.6rem 0.75rem;text-align:left;font-weight:600;border-bottom:2px solid #475569;">Zona</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Ticket Prom.</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Boletos</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Venta Actual</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Aforo</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Ocupaci&oacute;n</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Disponibles</th>
+                            <th style="padding:0.6rem 0.75rem;text-align:right;font-weight:600;border-bottom:2px solid #475569;">Ingreso Potencial</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            </div>
+        </div>
+    `;
+}
+
+// Sales Rhythm Chart: cumulative sales with X-axis as days-before-event
+function createSalesRhythmChart(ctx, team) {
+    const teamData = DATA[team];
+    if (!teamData) return;
+    const years = Object.keys(teamData).map(Number).sort();
+    const colors = { 2024: COLORS.y2024, 2025: COLORS.y2025, 2026: COLORS.y2026 };
+    const datasets = [];
+
+    years.forEach(year => {
+        const daily = teamData[year].daily || [];
+        if (daily.length === 0) return;
+
+        let eventDate;
+        if (year === 2026 && EVENT_DATES[team]) {
+            eventDate = new Date(EVENT_DATES[team] + 'T00:00:00');
+        } else {
+            // Use last date in daily as approximate event date
+            eventDate = new Date(daily[daily.length - 1].date + 'T00:00:00');
+        }
+
+        let cumulative = 0;
+        const points = [];
+        daily.forEach(d => {
+            cumulative += d.subtotal;
+            const dayDate = new Date(d.date + 'T00:00:00');
+            const diffDays = Math.round((dayDate - eventDate) / (1000 * 60 * 60 * 24));
+            points.push({ x: diffDays, y: cumulative });
+        });
+
+        datasets.push({
+            label: String(year),
+            data: points,
+            borderColor: colors[year],
+            backgroundColor: colors[year] + '20',
+            borderWidth: year === 2026 ? 3 : 2,
+            fill: false,
+            tension: 0.3,
+            pointRadius: year === 2026 ? 3 : 2,
+            pointBackgroundColor: colors[year],
+            borderDash: year === 2026 ? [] : [5, 3]
+        });
+    });
+
+    new Chart(ctx, {
+        type: 'line',
+        data: { datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    ticks: {
+                        color: '#94a3b8',
+                        callback: function(v) {
+                            if (v === 0) return 'Evento';
+                            return 'Día ' + v;
+                        },
+                        stepSize: 5
+                    },
+                    grid: { color: '#334155' },
+                    title: { display: true, text: 'Días antes del evento', color: '#94a3b8' }
+                },
+                y: {
+                    ticks: {
+                        color: '#94a3b8',
+                        callback: function(v) { return formatCurrency(v); }
+                    },
+                    grid: { color: '#334155' },
+                    title: { display: true, text: 'Venta acumulada ($)', color: '#94a3b8' }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: '#e2e8f0' } },
+                datalabels: { display: false },
+                tooltip: {
+                    callbacks: {
+                        title: function(items) {
+                            const x = items[0].parsed.x;
+                            return x === 0 ? 'Día del evento' : 'Día ' + x;
+                        },
+                        label: function(context) {
+                            return context.dataset.label + ': ' + formatCurrency(context.parsed.y);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Sales Velocity Chart: daily (non-cumulative) sales for 2026 with moving average
+function createSalesVelocityChart(ctx, team) {
+    const teamData = DATA[team];
+    if (!teamData || !teamData['2026']) return;
+    const daily = teamData['2026'].daily || [];
+    if (daily.length === 0) return;
+
+    const labels = daily.map(d => {
+        const dt = new Date(d.date + 'T00:00:00');
+        return dt.toLocaleDateString('es-MX', { day: '2-digit', month: 'short' });
+    });
+    const salesValues = daily.map(d => d.subtotal);
+
+    // 3-day moving average
+    const ma = [];
+    for (let i = 0; i < salesValues.length; i++) {
+        const window = 3;
+        const start = Math.max(0, i - window + 1);
+        const slice = salesValues.slice(start, i + 1);
+        ma.push(slice.reduce((a, b) => a + b, 0) / slice.length);
+    }
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: [
+                {
+                    label: 'Venta diaria',
+                    data: salesValues,
+                    backgroundColor: '#6366f1',
+                    borderRadius: 4,
+                    order: 2
+                },
+                {
+                    label: 'Promedio móvil (3 días)',
+                    data: ma,
+                    type: 'line',
+                    borderColor: '#f59e0b',
+                    backgroundColor: '#f59e0b20',
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    order: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    ticks: { color: '#94a3b8', maxRotation: 45, font: { size: 10 } },
+                    grid: { color: '#334155' }
+                },
+                y: {
+                    ticks: {
+                        color: '#94a3b8',
+                        callback: function(v) { return formatCurrency(v); }
+                    },
+                    grid: { color: '#334155' },
+                    title: { display: true, text: 'Venta diaria ($)', color: '#94a3b8' }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: '#e2e8f0' } },
+                datalabels: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + formatCurrency(context.parsed.y);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
 // Create overview panel
 function createOverviewPanel() {
     const panel = document.createElement('div');
@@ -941,6 +1212,31 @@ function createAsistenciaPanel() {
 
         let teamContent = '';
 
+        // Zone analysis table (sales + attendance cross-reference)
+        teamContent += createZoneAnalysisTable(team);
+
+        // Sales rhythm chart (cumulative, days-before-event)
+        teamContent += `
+            <div class="chart-card" style="margin-bottom:1rem;">
+                <div class="chart-title">${team} &mdash; Ritmo de Venta (Acumulado vs D&iacute;as al Evento)</div>
+                <div class="chart-container" style="height:350px">
+                    <canvas id="chart-sales-rhythm-${team}"></canvas>
+                </div>
+            </div>
+        `;
+
+        // Sales velocity chart (daily, 2026 only)
+        if (DATA[team] && DATA[team]['2026']) {
+            teamContent += `
+                <div class="chart-card" style="margin-bottom:1rem;">
+                    <div class="chart-title">${team} 2026 &mdash; Velocidad de Venta Diaria</div>
+                    <div class="chart-container" style="height:300px">
+                        <canvas id="chart-sales-velocity-${team}"></canvas>
+                    </div>
+                </div>
+            `;
+        }
+
         // Zone charts for each year
         years.forEach(year => {
             const d = ASISTENCIA[team][year];
@@ -996,6 +1292,19 @@ window.toggleAsistTeam = function(team) {
         btn.style.borderColor = '#6366f1';
 
         // Init charts if not already
+        // Sales rhythm chart
+        const ctxRhythm = document.getElementById('chart-sales-rhythm-' + team);
+        if (ctxRhythm && !ctxRhythm._chartInit) {
+            ctxRhythm._chartInit = true;
+            createSalesRhythmChart(ctxRhythm, team);
+        }
+        // Sales velocity chart
+        const ctxVelocity = document.getElementById('chart-sales-velocity-' + team);
+        if (ctxVelocity && !ctxVelocity._chartInit) {
+            ctxVelocity._chartInit = true;
+            createSalesVelocityChart(ctxVelocity, team);
+        }
+
         const years = Object.keys(ASISTENCIA[team]).sort();
         years.forEach(year => {
             const ctx = document.getElementById('chart-asist-zones-' + team + '-' + year);
