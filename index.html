@@ -1333,7 +1333,7 @@ function createAsistenciaPanel() {
         const barWidth25 = Math.max(2, pct25);
 
         cardsHtml += `
-            <div style="background:#1e293b;border:1px solid #334155;border-radius:0.75rem;padding:1.25rem;text-align:center;">
+            <div onclick="toggleAsistTeam('${team}')" style="background:#1e293b;border:1px solid #334155;border-radius:0.75rem;padding:1.25rem;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#6366f1'" onmouseout="this.style.borderColor='#334155'">
                 <div style="font-size:0.85rem;font-weight:600;color:#e2e8f0;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">${team}</div>
                 <div style="font-size:2.5rem;font-weight:800;color:${color26};line-height:1.1;">${pct26}%</div>
                 <div style="font-size:0.7rem;color:#94a3b8;margin:0.25rem 0 0.5rem;">2026 &mdash; ${d26 ? d26.ocupados_total.toLocaleString() : 0} / ${d26 ? d26.aforo_total.toLocaleString() : 0}</div>
@@ -1744,19 +1744,11 @@ function initSidebar() {
     sep.style.cssText = 'border-top:1px solid #475569;margin:0.75rem 0;';
     sidebar.appendChild(sep);
 
-    // Team buttons — click goes to Asistencia + expands that team
+    // Team buttons — click goes to team sales panel
     getAllTeams().forEach(team => {
         const btn = document.createElement('button');
         btn.dataset.team = team;
-        btn.onclick = () => {
-            showAsistencia();
-            setTimeout(() => {
-                // Expand this team's detail (simulate clicking the team button)
-                if (typeof toggleAsistTeam === 'function') {
-                    toggleAsistTeam(team);
-                }
-            }, 150);
-        };
+        btn.onclick = () => showTeam(team);
 
         const latestYear = getLatestYear(DATA[team]);
         const latestValue = DATA[team][latestYear].subtotal;
