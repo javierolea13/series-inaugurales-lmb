@@ -73,8 +73,9 @@ def procesar_asistencia_xlsx(filepath):
                 return safe_int(row[idx])
             return default
 
-        epv = get('EN PROCESO DE VENTA')
-        vendidos = get('VENDIDOS CON PRECIO')
+        # Handle different column names between years
+        epv = get('EN PROCESO DE VENTA') or get('EN PROCESO')
+        vendidos = get('VENDIDOS CON PRECIO') or get('VENDIDOS')
         promos = get('PROMOS')
         cortesias = get('CORTESÍAS')
         precio_1 = get('PRECIO $1')
@@ -89,12 +90,16 @@ def procesar_asistencia_xlsx(filepath):
         bloqueos = get('BLOQUEOS')
         aforo = get('AFORO')
 
-        # Calcular ocupados = todo lo que tiene un asiento asignado
-        ocupados = (vendidos + promos + cortesias + precio_1 +
+        # Use TOTAL/OCUPADOS column if available, otherwise calculate
+        ocupados_directo = get('TOTAL') or get('OCUPADOS')
+        ocupados_calculado = (vendidos + promos + cortesias + precio_1 +
                     abonos_vend + abonos_prom + abonos_cort + abonos_p1 +
                     paquetes + paq_cort + paq_p1 + promociones)
+        ocupados = ocupados_directo if ocupados_directo > 0 else ocupados_calculado
 
-        disponibles = max(0, aforo - ocupados - bloqueos - epv)
+        # Use DISPONIBLES column if available, otherwise calculate
+        disp_directo = get('DISPONIBLES')
+        disponibles = disp_directo if disp_directo > 0 else max(0, aforo - ocupados - bloqueos - epv)
         pct = round(ocupados / aforo * 100, 1) if aforo > 0 else 0
 
         zonas.append({
