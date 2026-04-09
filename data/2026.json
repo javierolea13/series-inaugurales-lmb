@@ -1452,17 +1452,17 @@
     }
   },
   "Toros": {
-    "subtotal": 112812.0,
-    "subtotal_online": 0.0,
-    "subtotal_taquilla": 112812.0,
-    "subtotal_paquete": 0.0,
+    "subtotal": 3342284.0,
+    "subtotal_online": 1936250.0,
+    "subtotal_taquilla": 1406034.0,
+    "subtotal_paquete": 3229472.0,
     "subtotal_no_paquete": 112812.0,
-    "boletos": 478,
-    "boletos_online": 0,
-    "boletos_taquilla": 478,
-    "boletos_cortesias": 278,
-    "boletos_cortesias_online": 0,
-    "boletos_cortesias_taquilla": 278,
+    "boletos": 4931,
+    "boletos_online": 2551,
+    "boletos_taquilla": 2380,
+    "boletos_cortesias": 369,
+    "boletos_cortesias_online": 1,
+    "boletos_cortesias_taquilla": 368,
     "cortesias_por_persona": [
       {
         "persona": "Liliana Ancheyta",
@@ -1471,10 +1471,16 @@
         "taquilla": 175
       },
       {
-        "persona": "Yerah Hernández",
-        "total": 50,
+        "persona": "Julio Carrazco",
+        "total": 64,
         "online": 0,
-        "taquilla": 50
+        "taquilla": 64
+      },
+      {
+        "persona": "Yerah Hernández",
+        "total": 56,
+        "online": 0,
+        "taquilla": 56
       },
       {
         "persona": "Karla Marquez",
@@ -1487,18 +1493,43 @@
         "total": 10,
         "online": 0,
         "taquilla": 10
+      },
+      {
+        "persona": "Ashlee Antonio",
+        "total": 9,
+        "online": 0,
+        "taquilla": 9
+      },
+      {
+        "persona": "Yae García",
+        "total": 7,
+        "online": 0,
+        "taquilla": 7
+      },
+      {
+        "persona": "Perla Rosangel",
+        "total": 4,
+        "online": 0,
+        "taquilla": 4
+      },
+      {
+        "persona": "Venta en línea",
+        "total": 1,
+        "online": 1,
+        "taquilla": 0
       }
     ],
-    "ordenes": 64,
-    "ordenes_online": 0,
-    "ordenes_taquilla": 64,
+    "ordenes": 1301,
+    "ordenes_online": 768,
+    "ordenes_taquilla": 533,
     "events": [
-      "Juego Inaugural: Acereros vs Toros"
+      "Juego Inaugural: Acereros vs Toros",
+      "Paquete Acereros vs Toros"
     ],
-    "has_paquete": false,
+    "has_paquete": true,
     "first_date": "13/02/2026",
-    "last_date": "08/04/2026",
-    "duration_days": 54,
+    "last_date": "09/04/2026",
+    "duration_days": 55,
     "daily": [
       {
         "date": "2026-02-13",
@@ -1512,86 +1543,242 @@
       },
       {
         "date": "2026-03-04",
-        "subtotal": 0.0,
-        "boletos": 4
+        "subtotal": 119910.0,
+        "boletos": 151
       },
       {
         "date": "2026-03-05",
-        "subtotal": 0.0,
-        "boletos": 6
+        "subtotal": 77410.0,
+        "boletos": 122
       },
       {
         "date": "2026-03-06",
-        "subtotal": 0.0,
-        "boletos": 60
+        "subtotal": 1054633.0,
+        "boletos": 1451
       },
       {
         "date": "2026-03-07",
-        "subtotal": 8400.0,
-        "boletos": 10
+        "subtotal": 209051.0,
+        "boletos": 286
       },
       {
         "date": "2026-03-08",
-        "subtotal": 19800.0,
-        "boletos": 20
+        "subtotal": 86990.0,
+        "boletos": 110
+      },
+      {
+        "date": "2026-03-09",
+        "subtotal": 84376.0,
+        "boletos": 101
+      },
+      {
+        "date": "2026-03-10",
+        "subtotal": 84540.0,
+        "boletos": 119
+      },
+      {
+        "date": "2026-03-11",
+        "subtotal": 60666.0,
+        "boletos": 78
+      },
+      {
+        "date": "2026-03-12",
+        "subtotal": 40590.0,
+        "boletos": 58
+      },
+      {
+        "date": "2026-03-13",
+        "subtotal": 67988.0,
+        "boletos": 101
+      },
+      {
+        "date": "2026-03-14",
+        "subtotal": 40478.0,
+        "boletos": 55
+      },
+      {
+        "date": "2026-03-15",
+        "subtotal": 26330.0,
+        "boletos": 40
+      },
+      {
+        "date": "2026-03-16",
+        "subtotal": 31050.0,
+        "boletos": 44
       },
       {
         "date": "2026-03-17",
-        "subtotal": 15840.0,
-        "boletos": 24
+        "subtotal": 53880.0,
+        "boletos": 76
+      },
+      {
+        "date": "2026-03-18",
+        "subtotal": 38138.0,
+        "boletos": 45
+      },
+      {
+        "date": "2026-03-19",
+        "subtotal": 27862.0,
+        "boletos": 42
+      },
+      {
+        "date": "2026-03-20",
+        "subtotal": 38600.0,
+        "boletos": 61
+      },
+      {
+        "date": "2026-03-21",
+        "subtotal": 38452.0,
+        "boletos": 61
+      },
+      {
+        "date": "2026-03-22",
+        "subtotal": 10320.0,
+        "boletos": 13
+      },
+      {
+        "date": "2026-03-23",
+        "subtotal": 48358.0,
+        "boletos": 61
+      },
+      {
+        "date": "2026-03-24",
+        "subtotal": 78091.0,
+        "boletos": 112
+      },
+      {
+        "date": "2026-03-25",
+        "subtotal": 73740.0,
+        "boletos": 97
       },
       {
         "date": "2026-03-26",
-        "subtotal": 46200.0,
-        "boletos": 120
+        "subtotal": 92580.0,
+        "boletos": 185
+      },
+      {
+        "date": "2026-03-27",
+        "subtotal": 95520.0,
+        "boletos": 169
+      },
+      {
+        "date": "2026-03-28",
+        "subtotal": 43850.0,
+        "boletos": 62
+      },
+      {
+        "date": "2026-03-29",
+        "subtotal": 14410.0,
+        "boletos": 19
+      },
+      {
+        "date": "2026-03-30",
+        "subtotal": 55133.0,
+        "boletos": 77
+      },
+      {
+        "date": "2026-03-31",
+        "subtotal": 64972.0,
+        "boletos": 98
       },
       {
         "date": "2026-04-01",
-        "subtotal": 0.0,
-        "boletos": 20
+        "subtotal": 66900.0,
+        "boletos": 112
+      },
+      {
+        "date": "2026-04-02",
+        "subtotal": 80040.0,
+        "boletos": 107
+      },
+      {
+        "date": "2026-04-03",
+        "subtotal": 73500.0,
+        "boletos": 102
+      },
+      {
+        "date": "2026-04-04",
+        "subtotal": 67820.0,
+        "boletos": 96
+      },
+      {
+        "date": "2026-04-05",
+        "subtotal": 43950.0,
+        "boletos": 58
       },
       {
         "date": "2026-04-06",
-        "subtotal": 0.0,
-        "boletos": 14
+        "subtotal": 86090.0,
+        "boletos": 144
       },
       {
         "date": "2026-04-07",
-        "subtotal": 0.0,
-        "boletos": 51
+        "subtotal": 81082.0,
+        "boletos": 173
       },
       {
         "date": "2026-04-08",
-        "subtotal": 2772.0,
-        "boletos": 23
+        "subtotal": 61764.0,
+        "boletos": 115
+      },
+      {
+        "date": "2026-04-09",
+        "subtotal": 3420.0,
+        "boletos": 4
       }
     ],
     "zonas": {
+      "General Preferente": {
+        "boletos": 463,
+        "boletos_pagados": 461,
+        "boletos_cortesias": 2,
+        "boletos_cortesias_online": 0,
+        "boletos_cortesias_taquilla": 2,
+        "subtotal": 264770.0,
+        "ticket_promedio": 574.34,
+        "boletos_online": 273,
+        "subtotal_online": 158340.0,
+        "boletos_taquilla": 190,
+        "subtotal_taquilla": 106430.0
+      },
       "General Superior": {
-        "boletos": 20,
-        "boletos_pagados": 0,
+        "boletos": 549,
+        "boletos_pagados": 529,
         "boletos_cortesias": 20,
         "boletos_cortesias_online": 0,
         "boletos_cortesias_taquilla": 20,
-        "subtotal": 0.0,
-        "ticket_promedio": 0,
-        "boletos_online": 0,
-        "subtotal_online": 0.0,
-        "boletos_taquilla": 20,
-        "subtotal_taquilla": 0.0
+        "subtotal": 261800.0,
+        "ticket_promedio": 494.9,
+        "boletos_online": 301,
+        "subtotal_online": 150500.0,
+        "boletos_taquilla": 248,
+        "subtotal_taquilla": 111300.0
+      },
+      "Jardines": {
+        "boletos": 171,
+        "boletos_pagados": 171,
+        "boletos_cortesias": 0,
+        "boletos_cortesias_online": 0,
+        "boletos_cortesias_taquilla": 0,
+        "subtotal": 63840.0,
+        "ticket_promedio": 373.33,
+        "boletos_online": 121,
+        "subtotal_online": 45980.0,
+        "boletos_taquilla": 50,
+        "subtotal_taquilla": 17860.0
       },
       "Palcos": {
-        "boletos": 14,
-        "boletos_pagados": 10,
-        "boletos_cortesias": 4,
+        "boletos": 43,
+        "boletos_pagados": 33,
+        "boletos_cortesias": 10,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 4,
-        "subtotal": 8400.0,
-        "ticket_promedio": 840.0,
+        "boletos_cortesias_taquilla": 10,
+        "subtotal": 38460.0,
+        "ticket_promedio": 1165.45,
         "boletos_online": 0,
         "subtotal_online": 0.0,
-        "boletos_taquilla": 14,
-        "subtotal_taquilla": 8400.0
+        "boletos_taquilla": 43,
+        "subtotal_taquilla": 38460.0
       },
       "Palcos Superior": {
         "boletos": 10,
@@ -1607,30 +1794,43 @@
         "subtotal_taquilla": 0.0
       },
       "Preferente": {
-        "boletos": 92,
-        "boletos_pagados": 6,
-        "boletos_cortesias": 86,
+        "boletos": 861,
+        "boletos_pagados": 714,
+        "boletos_cortesias": 147,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 86,
-        "subtotal": 2772.0,
-        "ticket_promedio": 462.0,
-        "boletos_online": 0,
-        "subtotal_online": 0.0,
-        "boletos_taquilla": 92,
-        "subtotal_taquilla": 2772.0
+        "boletos_cortesias_taquilla": 147,
+        "subtotal": 734364.0,
+        "ticket_promedio": 1028.52,
+        "boletos_online": 424,
+        "subtotal_online": 457920.0,
+        "boletos_taquilla": 437,
+        "subtotal_taquilla": 276444.0
       },
       "Preferente1raBase": {
-        "boletos": 10,
-        "boletos_pagados": 0,
-        "boletos_cortesias": 10,
+        "boletos": 432,
+        "boletos_pagados": 419,
+        "boletos_cortesias": 13,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 10,
-        "subtotal": 0.0,
-        "ticket_promedio": 0,
-        "boletos_online": 0,
-        "subtotal_online": 0.0,
-        "boletos_taquilla": 10,
-        "subtotal_taquilla": 0.0
+        "boletos_cortesias_taquilla": 13,
+        "subtotal": 308180.0,
+        "ticket_promedio": 735.51,
+        "boletos_online": 259,
+        "subtotal_online": 196840.0,
+        "boletos_taquilla": 173,
+        "subtotal_taquilla": 111340.0
+      },
+      "Preferente3raBase": {
+        "boletos": 465,
+        "boletos_pagados": 465,
+        "boletos_cortesias": 0,
+        "boletos_cortesias_online": 0,
+        "boletos_cortesias_taquilla": 0,
+        "subtotal": 343140.0,
+        "ticket_promedio": 737.94,
+        "boletos_online": 267,
+        "subtotal_online": 202920.0,
+        "boletos_taquilla": 198,
+        "subtotal_taquilla": 140220.0
       },
       "Suite ToroGrill": {
         "boletos": 20,
@@ -1646,43 +1846,56 @@
         "subtotal_taquilla": 19800.0
       },
       "Suites": {
-        "boletos": 22,
+        "boletos": 32,
         "boletos_pagados": 0,
-        "boletos_cortesias": 22,
+        "boletos_cortesias": 32,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 22,
+        "boletos_cortesias_taquilla": 32,
         "subtotal": 0.0,
         "ticket_promedio": 0,
         "boletos_online": 0,
         "subtotal_online": 0.0,
-        "boletos_taquilla": 22,
+        "boletos_taquilla": 32,
         "subtotal_taquilla": 0.0
       },
       "Superior": {
-        "boletos": 214,
-        "boletos_pagados": 120,
-        "boletos_cortesias": 94,
+        "boletos": 1007,
+        "boletos_pagados": 910,
+        "boletos_cortesias": 97,
+        "boletos_cortesias_online": 1,
+        "boletos_cortesias_taquilla": 96,
+        "subtotal": 779315.0,
+        "ticket_promedio": 856.39,
+        "boletos_online": 481,
+        "subtotal_online": 456000.0,
+        "boletos_taquilla": 526,
+        "subtotal_taquilla": 323315.0
+      },
+      "Superior1raBase": {
+        "boletos": 308,
+        "boletos_pagados": 304,
+        "boletos_cortesias": 4,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 94,
-        "subtotal": 46200.0,
-        "ticket_promedio": 385.0,
-        "boletos_online": 0,
-        "subtotal_online": 0.0,
-        "boletos_taquilla": 214,
-        "subtotal_taquilla": 46200.0
+        "boletos_cortesias_taquilla": 4,
+        "subtotal": 187929.0,
+        "ticket_promedio": 618.19,
+        "boletos_online": 150,
+        "subtotal_online": 94500.0,
+        "boletos_taquilla": 158,
+        "subtotal_taquilla": 93429.0
       },
       "Superior3raBase": {
-        "boletos": 20,
-        "boletos_pagados": 0,
-        "boletos_cortesias": 20,
+        "boletos": 514,
+        "boletos_pagados": 492,
+        "boletos_cortesias": 22,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 20,
-        "subtotal": 0.0,
-        "ticket_promedio": 0,
-        "boletos_online": 0,
-        "subtotal_online": 0.0,
-        "boletos_taquilla": 20,
-        "subtotal_taquilla": 0.0
+        "boletos_cortesias_taquilla": 22,
+        "subtotal": 305046.0,
+        "ticket_promedio": 620.01,
+        "boletos_online": 275,
+        "subtotal_online": 173250.0,
+        "boletos_taquilla": 239,
+        "subtotal_taquilla": 131796.0
       },
       "ToroBar": {
         "boletos": 12,
