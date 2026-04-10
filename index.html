@@ -588,11 +588,12 @@ function createZoneAnalysisTable(team) {
         if (pagados25 !== null && pagados25 > 0) {
             pag26Color = pagados26 >= pagados25 ? 'color:#10b981;' : 'color:#ef4444;';
         }
-        let tpColor = '';
+        let tp25Html = '';
         if (ticketProm25 !== null && ticketProm25 > 0) {
-            tpColor = ticketProm >= ticketProm25 ? 'color:#10b981;' : 'color:#ef4444;';
+            const tp25Color = ticketProm >= ticketProm25 ? '#10b981' : '#ef4444';
+            const tp25Arrow = ticketProm >= ticketProm25 ? '&#9650;' : '&#9660;';
+            tp25Html = '<br><span style="font-size:0.6rem;color:' + tp25Color + ';font-weight:400;">' + tp25Arrow + ' 25: ' + formatCurrency(ticketProm25) + '</span>';
         }
-        const tp25Label = ticketProm25 !== null && ticketProm25 > 0 ? ' <span style="font-size:0.6rem;color:#64748b;font-weight:400;">(' + formatCurrency(ticketProm25) + ')</span>' : '';
         rows += `<tr>
             <td style="${tdStyle}text-align:left;font-weight:500;white-space:nowrap;">${zone}</td>
             <td style="${tdStyle}${pag26Color}font-weight:600;">${pagados26.toLocaleString()}</td>
@@ -601,7 +602,7 @@ function createZoneAnalysisTable(team) {
             <td style="${tdStyle}color:#64748b;">${cortesias25 !== null ? cortesias25.toLocaleString() : '&mdash;'}</td>
             <td style="${tdStyle}color:#8b5cf6;">${promo26.toLocaleString()}</td>
             <td style="${tdStyle}color:#64748b;">${promo25 !== null ? promo25.toLocaleString() : '&mdash;'}</td>
-            <td style="${tdStyle}${tpColor}font-weight:600;">${formatCurrency(ticketProm)}${tp25Label}</td>
+            <td style="${tdStyle}font-weight:600;">${formatCurrency(ticketProm)}${tp25Html}</td>
             <td style="${tdStyle}">${formatCurrency(s26.subtotal)}</td>
             <td style="${tdStyle}">${a.aforo.toLocaleString()}</td>
             <td style="${tdStyle}color:${ocupColor};font-weight:600;">${a.pct_ocupacion}%</td>
