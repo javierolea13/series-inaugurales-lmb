@@ -580,6 +580,7 @@ function createZoneAnalysisTable(team) {
         const promo26 = s26.boletos_promocion || 0;
         const promo25 = s25 ? (s25.boletos_promocion || 0) : null;
         const ticketProm = s26.ticket_promedio || 0;
+        const ticketProm25 = s25 ? (s25.ticket_promedio || 0) : null;
         const ingresoPotencial = (a.disponibles || 0) * ticketProm;
         totalIngresoPotencial += ingresoPotencial;
         const ocupColor = a.pct_ocupacion >= 80 ? '#10b981' : a.pct_ocupacion >= 50 ? '#f59e0b' : '#ef4444';
@@ -587,6 +588,11 @@ function createZoneAnalysisTable(team) {
         if (pagados25 !== null && pagados25 > 0) {
             pag26Color = pagados26 >= pagados25 ? 'color:#10b981;' : 'color:#ef4444;';
         }
+        let tpColor = '';
+        if (ticketProm25 !== null && ticketProm25 > 0) {
+            tpColor = ticketProm >= ticketProm25 ? 'color:#10b981;' : 'color:#ef4444;';
+        }
+        const tp25Label = ticketProm25 !== null && ticketProm25 > 0 ? ' <span style="font-size:0.6rem;color:#64748b;font-weight:400;">(' + formatCurrency(ticketProm25) + ')</span>' : '';
         rows += `<tr>
             <td style="${tdStyle}text-align:left;font-weight:500;white-space:nowrap;">${zone}</td>
             <td style="${tdStyle}${pag26Color}font-weight:600;">${pagados26.toLocaleString()}</td>
@@ -595,7 +601,7 @@ function createZoneAnalysisTable(team) {
             <td style="${tdStyle}color:#64748b;">${cortesias25 !== null ? cortesias25.toLocaleString() : '&mdash;'}</td>
             <td style="${tdStyle}color:#8b5cf6;">${promo26.toLocaleString()}</td>
             <td style="${tdStyle}color:#64748b;">${promo25 !== null ? promo25.toLocaleString() : '&mdash;'}</td>
-            <td style="${tdStyle}font-weight:600;">${formatCurrency(ticketProm)}</td>
+            <td style="${tdStyle}${tpColor}font-weight:600;">${formatCurrency(ticketProm)}${tp25Label}</td>
             <td style="${tdStyle}">${formatCurrency(s26.subtotal)}</td>
             <td style="${tdStyle}">${a.aforo.toLocaleString()}</td>
             <td style="${tdStyle}color:${ocupColor};font-weight:600;">${a.pct_ocupacion}%</td>
@@ -970,7 +976,7 @@ function createCortesiasChart(container, team) {
 
     // === PROMOCION SECTION ===
     html += '<div style="font-size:1rem;font-weight:700;color:#8b5cf6;margin-bottom:0.5rem;">Boletos Promoci&oacute;n (3x2, 2x1, etc.)</div>';
-    html += '<p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.5rem 0;">Boletos gratis por promoci&oacute;n. Cuentan como boleto vendido en el ticket promedio.</p>';
+    html += '<p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.5rem 0;">Boletos gratis por promoci&oacute;n (3x2, 2x1, etc.)</p>';
     html += '<div style="display:flex;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;">';
     html += summaryBar('2026', promo26Online, promo26Taquilla, '#8b5cf6', '#f59e0b');
     html += summaryBar('2025', promo25Online, promo25Taquilla, '#8b5cf6', '#f59e0b');
