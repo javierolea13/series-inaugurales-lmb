@@ -573,15 +573,16 @@ function createZoneAnalysisTable(team) {
         const s26 = salesZones26[zone];
         const s25 = salesZones25[zone] || null;
         const a = asistMap26[zone];
-        const pagados26 = s26.boletos_pagados || (s26.boletos - (s26.boletos_cortesias || 0));
-        const pagados25 = s25 ? (s25.boletos_pagados || (s25.boletos - (s25.boletos_cortesias || 0))) : null;
+        const pagados26 = s26.boletos_pagados || (s26.boletos - (s26.boletos_cortesias || 0) - (s26.boletos_promocion || 0));
+        const pagados25 = s25 ? (s25.boletos_pagados || (s25.boletos - (s25.boletos_cortesias || 0) - (s25.boletos_promocion || 0))) : null;
         const cortesias26 = s26.boletos_cortesias || 0;
         const cortesias25 = s25 ? (s25.boletos_cortesias || 0) : null;
+        const promo26 = s26.boletos_promocion || 0;
+        const promo25 = s25 ? (s25.boletos_promocion || 0) : null;
         const ticketProm = s26.ticket_promedio || 0;
         const ingresoPotencial = (a.disponibles || 0) * ticketProm;
         totalIngresoPotencial += ingresoPotencial;
         const ocupColor = a.pct_ocupacion >= 80 ? '#10b981' : a.pct_ocupacion >= 50 ? '#f59e0b' : '#ef4444';
-        // Color for pagados26 vs pagados25
         let pag26Color = '';
         if (pagados25 !== null && pagados25 > 0) {
             pag26Color = pagados26 >= pagados25 ? 'color:#10b981;' : 'color:#ef4444;';
@@ -590,8 +591,10 @@ function createZoneAnalysisTable(team) {
             <td style="${tdStyle}text-align:left;font-weight:500;white-space:nowrap;">${zone}</td>
             <td style="${tdStyle}${pag26Color}font-weight:600;">${pagados26.toLocaleString()}</td>
             <td style="${tdStyle}color:#64748b;">${pagados25 !== null ? pagados25.toLocaleString() : '&mdash;'}</td>
-            <td style="${tdStyle}color:#94a3b8;">${cortesias26.toLocaleString()}</td>
+            <td style="${tdStyle}color:#ef4444;">${cortesias26.toLocaleString()}</td>
             <td style="${tdStyle}color:#64748b;">${cortesias25 !== null ? cortesias25.toLocaleString() : '&mdash;'}</td>
+            <td style="${tdStyle}color:#8b5cf6;">${promo26.toLocaleString()}</td>
+            <td style="${tdStyle}color:#64748b;">${promo25 !== null ? promo25.toLocaleString() : '&mdash;'}</td>
             <td style="${tdStyle}font-weight:600;">${formatCurrency(ticketProm)}</td>
             <td style="${tdStyle}">${formatCurrency(s26.subtotal)}</td>
             <td style="${tdStyle}">${a.aforo.toLocaleString()}</td>
@@ -602,22 +605,25 @@ function createZoneAnalysisTable(team) {
     });
 
     // Totals
-    const totS = { pagados26: 0, pagados25: 0, cortesias26: 0, cortesias25: 0, subtotal: 0 };
+    const totS = { pagados26: 0, pagados25: 0, cortesias26: 0, cortesias25: 0, promo26: 0, promo25: 0, subtotal: 0 };
     const totA = { aforo: 0, disponibles: 0, ocupados: 0 };
     let hasPag25 = false;
     let hasCort25 = false;
+    let hasPromo25 = false;
     commonZones.forEach(zone => {
         const s26 = salesZones26[zone];
         const s25 = salesZones25[zone] || null;
-        totS.pagados26 += s26.boletos_pagados || (s26.boletos - (s26.boletos_cortesias || 0));
+        totS.pagados26 += s26.boletos_pagados || (s26.boletos - (s26.boletos_cortesias || 0) - (s26.boletos_promocion || 0));
         totS.cortesias26 += s26.boletos_cortesias || 0;
+        totS.promo26 += s26.boletos_promocion || 0;
         totS.subtotal += s26.subtotal;
         totA.aforo += asistMap26[zone].aforo;
         totA.disponibles += asistMap26[zone].disponibles;
         totA.ocupados += asistMap26[zone].ocupados;
         if (s25) {
-            totS.pagados25 += s25.boletos_pagados || (s25.boletos - (s25.boletos_cortesias || 0)); hasPag25 = true;
+            totS.pagados25 += s25.boletos_pagados || (s25.boletos - (s25.boletos_cortesias || 0) - (s25.boletos_promocion || 0)); hasPag25 = true;
             totS.cortesias25 += s25.boletos_cortesias || 0; hasCort25 = true;
+            totS.promo25 += s25.boletos_promocion || 0; hasPromo25 = true;
         }
     });
     const totPctOcup = totA.aforo > 0 ? ((totA.ocupados / totA.aforo) * 100).toFixed(1) : 0;
@@ -627,8 +633,10 @@ function createZoneAnalysisTable(team) {
         <td style="padding:0.4rem 0.6rem;font-size:0.75rem;">TOTAL</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;${totPagColor}">${totS.pagados26.toLocaleString()}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#64748b;">${hasPag25 ? totS.pagados25.toLocaleString() : '&mdash;'}</td>
-        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#94a3b8;">${totS.cortesias26.toLocaleString()}</td>
+        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#ef4444;">${totS.cortesias26.toLocaleString()}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#64748b;">${hasCort25 ? totS.cortesias25.toLocaleString() : '&mdash;'}</td>
+        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#8b5cf6;">${totS.promo26.toLocaleString()}</td>
+        <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;color:#64748b;">${hasPromo25 ? totS.promo25.toLocaleString() : '&mdash;'}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">&mdash;</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">${formatCurrency(totS.subtotal)}</td>
         <td style="padding:0.4rem 0.6rem;text-align:right;font-size:0.75rem;">${totA.aforo.toLocaleString()}</td>
@@ -644,7 +652,7 @@ function createZoneAnalysisTable(team) {
     return `
         <div class="chart-card" style="margin-bottom:1rem;">
             <div class="chart-title">${team} 2026 &mdash; An&aacute;lisis por Zona</div>
-            <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.75rem 0;">Datos de Ordenes (pagados = sin cortes&iacute;as). <span style="color:#10b981;">Verde</span> = arriba de 2025, <span style="color:#ef4444;">Rojo</span> = abajo.${mismatchNote}</p>
+            <p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.75rem 0;">Pagados = sin cortes&iacute;as ni promos. <span style="color:#8b5cf6;">Promo</span> = boletos gratis por promoci&oacute;n (3x2, etc.), s&iacute; cuentan en ticket promedio. <span style="color:#10b981;">Verde</span> = arriba de 2025, <span style="color:#ef4444;">Rojo</span> = abajo.${mismatchNote}</p>
             <div style="overflow-x:auto;">
                 <table style="width:100%;border-collapse:collapse;color:#e2e8f0;background:#1e293b;border:1px solid #334155;border-radius:0.5rem;">
                     <thead>
@@ -652,8 +660,10 @@ function createZoneAnalysisTable(team) {
                             <th style="${thStyle}text-align:left;">Zona</th>
                             <th style="${thStyle}">Pag. 26</th>
                             <th style="${thStyle}">Pag. 25</th>
-                            <th style="${thStyle}">Cort. 26</th>
+                            <th style="${thStyle}color:#ef4444;">Cort. 26</th>
                             <th style="${thStyle}">Cort. 25</th>
+                            <th style="${thStyle}color:#8b5cf6;">Promo 26</th>
+                            <th style="${thStyle}">Promo 25</th>
                             <th style="${thStyle}">Ticket Prom.</th>
                             <th style="${thStyle}">Venta $</th>
                             <th style="${thStyle}">Aforo</th>
@@ -896,75 +906,78 @@ function createSalesVelocityChart(ctx, team) {
     });
 }
 
-// Cortesías Chart: breakdown by person who issued them, 2025 vs 2026
+// Cortesías y Boletos Promoción: breakdown by person, 2025 vs 2026
 function createCortesiasChart(container, team) {
     const salesData26 = DATA[team] && DATA[team]['2026'] ? DATA[team]['2026'] : null;
     const salesData25 = DATA[team] && DATA[team]['2025'] ? DATA[team]['2025'] : null;
 
-    const personas26 = salesData26 ? (salesData26.cortesias_por_persona || []) : [];
-    const personas25 = salesData25 ? (salesData25.cortesias_por_persona || []) : [];
+    const cortPersonas26 = salesData26 ? (salesData26.cortesias_por_persona || []) : [];
+    const cortPersonas25 = salesData25 ? (salesData25.cortesias_por_persona || []) : [];
+    const promoPersonas26 = salesData26 ? (salesData26.promocion_por_persona || []) : [];
+    const promoPersonas25 = salesData25 ? (salesData25.promocion_por_persona || []) : [];
 
-    // Build summary totals
-    const tot26Online = salesData26 ? (salesData26.boletos_cortesias_online || 0) : 0;
-    const tot26Taquilla = salesData26 ? (salesData26.boletos_cortesias_taquilla || 0) : 0;
-    const tot25Online = salesData25 ? (salesData25.boletos_cortesias_online || 0) : 0;
-    const tot25Taquilla = salesData25 ? (salesData25.boletos_cortesias_taquilla || 0) : 0;
+    const cort26Online = salesData26 ? (salesData26.boletos_cortesias_online || 0) : 0;
+    const cort26Taquilla = salesData26 ? (salesData26.boletos_cortesias_taquilla || 0) : 0;
+    const cort25Online = salesData25 ? (salesData25.boletos_cortesias_online || 0) : 0;
+    const cort25Taquilla = salesData25 ? (salesData25.boletos_cortesias_taquilla || 0) : 0;
+    const promo26Online = salesData26 ? (salesData26.boletos_promocion_online || 0) : 0;
+    const promo26Taquilla = salesData26 ? (salesData26.boletos_promocion_taquilla || 0) : 0;
+    const promo25Online = salesData25 ? (salesData25.boletos_promocion_online || 0) : 0;
+    const promo25Taquilla = salesData25 ? (salesData25.boletos_promocion_taquilla || 0) : 0;
 
     let html = '';
 
-    // Summary bars
-    html += '<div style="display:flex;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;">';
-    html += '<div style="flex:1;min-width:200px;">';
-    html += '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.3rem;">2026 &mdash; ' + (tot26Online + tot26Taquilla).toLocaleString() + ' total</div>';
-    const pct26Taq = (tot26Online + tot26Taquilla) > 0 ? Math.round(tot26Taquilla / (tot26Online + tot26Taquilla) * 100) : 0;
-    html += '<div style="display:flex;height:24px;border-radius:4px;overflow:hidden;font-size:0.7rem;font-weight:600;">';
-    if (tot26Online > 0) html += '<div style="background:#6366f1;flex:' + tot26Online + ';display:flex;align-items:center;justify-content:center;color:#fff;">' + tot26Online.toLocaleString() + ' online</div>';
-    if (tot26Taquilla > 0) html += '<div style="background:#f59e0b;flex:' + tot26Taquilla + ';display:flex;align-items:center;justify-content:center;color:#000;">' + tot26Taquilla.toLocaleString() + ' taquilla</div>';
-    if (tot26Online + tot26Taquilla === 0) html += '<div style="background:#334155;flex:1;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Sin datos</div>';
-    html += '</div></div>';
+    // Helper: render summary bar
+    function summaryBar(label, online, taquilla, bgOnline, bgTaquilla) {
+        let h = '<div style="flex:1;min-width:200px;">';
+        h += '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.3rem;">' + label + ' &mdash; ' + (online + taquilla).toLocaleString() + ' total</div>';
+        h += '<div style="display:flex;height:24px;border-radius:4px;overflow:hidden;font-size:0.7rem;font-weight:600;">';
+        if (online > 0) h += '<div style="background:' + bgOnline + ';flex:' + online + ';display:flex;align-items:center;justify-content:center;color:#fff;">' + online.toLocaleString() + ' online</div>';
+        if (taquilla > 0) h += '<div style="background:' + bgTaquilla + ';flex:' + taquilla + ';display:flex;align-items:center;justify-content:center;color:#000;">' + taquilla.toLocaleString() + ' taquilla</div>';
+        if (online + taquilla === 0) h += '<div style="background:#334155;flex:1;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Sin datos</div>';
+        h += '</div></div>';
+        return h;
+    }
 
-    html += '<div style="flex:1;min-width:200px;">';
-    html += '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.3rem;">2025 &mdash; ' + (tot25Online + tot25Taquilla).toLocaleString() + ' total</div>';
-    html += '<div style="display:flex;height:24px;border-radius:4px;overflow:hidden;font-size:0.7rem;font-weight:600;">';
-    if (tot25Online > 0) html += '<div style="background:#6366f1;flex:' + tot25Online + ';display:flex;align-items:center;justify-content:center;color:#fff;">' + tot25Online.toLocaleString() + ' online</div>';
-    if (tot25Taquilla > 0) html += '<div style="background:#f59e0b;flex:' + tot25Taquilla + ';display:flex;align-items:center;justify-content:center;color:#000;">' + tot25Taquilla.toLocaleString() + ' taquilla</div>';
-    if (tot25Online + tot25Taquilla === 0) html += '<div style="background:#334155;flex:1;display:flex;align-items:center;justify-content:center;color:#94a3b8;">Sin datos</div>';
-    html += '</div></div>';
+    // Helper: render person table
+    function personTable(title, color, personas) {
+        if (personas.length === 0) return '';
+        let h = '<div style="flex:1;min-width:280px;">';
+        h += '<div style="font-size:0.8rem;font-weight:600;color:' + color + ';margin-bottom:0.5rem;">' + title + '</div>';
+        h += '<table style="width:100%;border-collapse:collapse;font-size:0.75rem;color:#e2e8f0;">';
+        h += '<tr style="background:#334155;"><th style="padding:0.3rem 0.5rem;text-align:left;">Persona</th><th style="padding:0.3rem 0.5rem;text-align:right;">Total</th><th style="padding:0.3rem 0.5rem;text-align:right;">Online</th><th style="padding:0.3rem 0.5rem;text-align:right;">Taquilla</th></tr>';
+        personas.forEach(p => {
+            h += '<tr><td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;">' + p.persona + '</td>';
+            h += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;font-weight:600;">' + p.total.toLocaleString() + '</td>';
+            h += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#6366f1;">' + (p.online > 0 ? p.online.toLocaleString() : '-') + '</td>';
+            h += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#f59e0b;">' + (p.taquilla > 0 ? p.taquilla.toLocaleString() : '-') + '</td></tr>';
+        });
+        h += '</table></div>';
+        return h;
+    }
+
+    // === CORTESIAS SECTION ===
+    html += '<div style="font-size:1rem;font-weight:700;color:#ef4444;margin-bottom:0.5rem;">Cortes&iacute;as (TIPO = Cortes&iacute;a)</div>';
+    html += '<p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.5rem 0;">Boletos emitidos como cortes&iacute;a directa, sin valor comercial.</p>';
+    html += '<div style="display:flex;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;">';
+    html += summaryBar('2026', cort26Online, cort26Taquilla, '#6366f1', '#f59e0b');
+    html += summaryBar('2025', cort25Online, cort25Taquilla, '#6366f1', '#f59e0b');
+    html += '</div>';
+    html += '<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;">';
+    html += personTable('2026 &mdash; Detalle por persona', '#10b981', cortPersonas26);
+    html += personTable('2025 &mdash; Detalle por persona', '#f59e0b', cortPersonas25);
     html += '</div>';
 
-    // Tables side by side
+    // === PROMOCION SECTION ===
+    html += '<div style="font-size:1rem;font-weight:700;color:#8b5cf6;margin-bottom:0.5rem;">Boletos Promoci&oacute;n (3x2, 2x1, etc.)</div>';
+    html += '<p style="font-size:0.7rem;color:#94a3b8;margin:0 0 0.5rem 0;">Boletos gratis por promoci&oacute;n. Cuentan como boleto vendido en el ticket promedio.</p>';
+    html += '<div style="display:flex;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;">';
+    html += summaryBar('2026', promo26Online, promo26Taquilla, '#8b5cf6', '#f59e0b');
+    html += summaryBar('2025', promo25Online, promo25Taquilla, '#8b5cf6', '#f59e0b');
+    html += '</div>';
     html += '<div style="display:flex;gap:1rem;flex-wrap:wrap;">';
-
-    // 2026 table
-    if (personas26.length > 0) {
-        html += '<div style="flex:1;min-width:280px;">';
-        html += '<div style="font-size:0.8rem;font-weight:600;color:#10b981;margin-bottom:0.5rem;">2026 &mdash; Detalle por persona</div>';
-        html += '<table style="width:100%;border-collapse:collapse;font-size:0.75rem;color:#e2e8f0;">';
-        html += '<tr style="background:#334155;"><th style="padding:0.3rem 0.5rem;text-align:left;">Persona</th><th style="padding:0.3rem 0.5rem;text-align:right;">Total</th><th style="padding:0.3rem 0.5rem;text-align:right;">Online</th><th style="padding:0.3rem 0.5rem;text-align:right;">Taquilla</th></tr>';
-        personas26.forEach(p => {
-            html += '<tr><td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;">' + p.persona + '</td>';
-            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;font-weight:600;">' + p.total.toLocaleString() + '</td>';
-            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#6366f1;">' + (p.online > 0 ? p.online.toLocaleString() : '-') + '</td>';
-            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#f59e0b;">' + (p.taquilla > 0 ? p.taquilla.toLocaleString() : '-') + '</td></tr>';
-        });
-        html += '</table></div>';
-    }
-
-    // 2025 table
-    if (personas25.length > 0) {
-        html += '<div style="flex:1;min-width:280px;">';
-        html += '<div style="font-size:0.8rem;font-weight:600;color:#f59e0b;margin-bottom:0.5rem;">2025 &mdash; Detalle por persona</div>';
-        html += '<table style="width:100%;border-collapse:collapse;font-size:0.75rem;color:#e2e8f0;">';
-        html += '<tr style="background:#334155;"><th style="padding:0.3rem 0.5rem;text-align:left;">Persona</th><th style="padding:0.3rem 0.5rem;text-align:right;">Total</th><th style="padding:0.3rem 0.5rem;text-align:right;">Online</th><th style="padding:0.3rem 0.5rem;text-align:right;">Taquilla</th></tr>';
-        personas25.forEach(p => {
-            html += '<tr><td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;">' + p.persona + '</td>';
-            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;font-weight:600;">' + p.total.toLocaleString() + '</td>';
-            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#6366f1;">' + (p.online > 0 ? p.online.toLocaleString() : '-') + '</td>';
-            html += '<td style="padding:0.3rem 0.5rem;border-bottom:1px solid #1e293b;text-align:right;color:#f59e0b;">' + (p.taquilla > 0 ? p.taquilla.toLocaleString() : '-') + '</td></tr>';
-        });
-        html += '</table></div>';
-    }
-
+    html += personTable('2026 &mdash; Detalle por persona', '#10b981', promoPersonas26);
+    html += personTable('2025 &mdash; Detalle por persona', '#f59e0b', promoPersonas25);
     html += '</div>';
 
     container.innerHTML = html;
@@ -1411,7 +1424,7 @@ function createAsistenciaPanel() {
         // Cortesías detail
         teamContent += `
             <div class="chart-card" style="margin-bottom:1rem;">
-                <div class="chart-title">${team} &mdash; Cortes&iacute;as Emitidas</div>
+                <div class="chart-title">${team} &mdash; Cortes&iacute;as y Boletos Promoci&oacute;n</div>
                 <div id="cortesias-detail-${team}"></div>
             </div>
         `;
