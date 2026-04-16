@@ -158,16 +158,16 @@
     "2026": {
       "evento": "Juego Inaugural: Guerreros vs Bravos",
       "aforo_total": 5583,
-      "ocupados_total": 1445,
-      "disponibles_total": 4138,
+      "ocupados_total": 1470,
+      "disponibles_total": 4113,
       "bloqueos_total": 317,
       "en_proceso_total": 7,
-      "pct_ocupacion": 25.9,
+      "pct_ocupacion": 26.3,
       "zonas": [
         {
           "zona": "Butaca 1ra Base",
           "aforo": 828,
-          "vendidos_precio": 189,
+          "vendidos_precio": 200,
           "promos": 0,
           "cortesias": 32,
           "precio_1": 0,
@@ -176,14 +176,14 @@
           "promociones": 0,
           "bloqueos": 43,
           "en_proceso": 0,
-          "ocupados": 329,
-          "disponibles": 499,
-          "pct_ocupacion": 39.7
+          "ocupados": 340,
+          "disponibles": 488,
+          "pct_ocupacion": 41.1
         },
         {
           "zona": "Butaca 3ra Base",
           "aforo": 534,
-          "vendidos_precio": 95,
+          "vendidos_precio": 97,
           "promos": 0,
           "cortesias": 10,
           "precio_1": 0,
@@ -192,9 +192,9 @@
           "promociones": 0,
           "bloqueos": 157,
           "en_proceso": 7,
-          "ocupados": 309,
-          "disponibles": 225,
-          "pct_ocupacion": 57.9
+          "ocupados": 311,
+          "disponibles": 223,
+          "pct_ocupacion": 58.2
         },
         {
           "zona": "General 1ra Base",
@@ -279,7 +279,7 @@
         {
           "zona": "Zona Gas Noel Butaca Central",
           "aforo": 1109,
-          "vendidos_precio": 264,
+          "vendidos_precio": 276,
           "promos": 0,
           "cortesias": 65,
           "precio_1": 0,
@@ -288,9 +288,9 @@
           "promociones": 0,
           "bloqueos": 40,
           "en_proceso": 0,
-          "ocupados": 478,
-          "disponibles": 631,
-          "pct_ocupacion": 43.1
+          "ocupados": 490,
+          "disponibles": 619,
+          "pct_ocupacion": 44.2
         }
       ]
     }
@@ -470,11 +470,11 @@
     "2026": {
       "evento": "Juego Inaugural: Dorados vs Caliente",
       "aforo_total": 6743,
-      "ocupados_total": 4156,
-      "disponibles_total": 2587,
+      "ocupados_total": 4352,
+      "disponibles_total": 2391,
       "bloqueos_total": 327,
-      "en_proceso_total": 9,
-      "pct_ocupacion": 61.6,
+      "en_proceso_total": 3,
+      "pct_ocupacion": 64.5,
       "zonas": [
         {
           "zona": "Central",
@@ -495,7 +495,7 @@
         {
           "zona": "Lateral",
           "aforo": 3300,
-          "vendidos_precio": 705,
+          "vendidos_precio": 903,
           "promos": 0,
           "cortesias": 1,
           "precio_1": 0,
@@ -503,10 +503,10 @@
           "paquetes": 34,
           "promociones": 0,
           "bloqueos": 20,
-          "en_proceso": 6,
-          "ocupados": 799,
-          "disponibles": 2501,
-          "pct_ocupacion": 24.2
+          "en_proceso": 3,
+          "ocupados": 994,
+          "disponibles": 2306,
+          "pct_ocupacion": 30.1
         },
         {
           "zona": "Lateral Preferente",
@@ -527,7 +527,7 @@
         {
           "zona": "Palco Bronce 1ra",
           "aforo": 84,
-          "vendidos_precio": 81,
+          "vendidos_precio": 83,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -536,14 +536,14 @@
           "promociones": 0,
           "bloqueos": 0,
           "en_proceso": 0,
-          "ocupados": 81,
-          "disponibles": 3,
-          "pct_ocupacion": 96.4
+          "ocupados": 83,
+          "disponibles": 1,
+          "pct_ocupacion": 98.8
         },
         {
           "zona": "Palco Bronce 3ra",
           "aforo": 78,
-          "vendidos_precio": 52,
+          "vendidos_precio": 54,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -551,7 +551,7 @@
           "paquetes": 22,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 2,
+          "en_proceso": 0,
           "ocupados": 76,
           "disponibles": 2,
           "pct_ocupacion": 97.4
@@ -583,10 +583,10 @@
           "paquetes": 6,
           "promociones": 0,
           "bloqueos": 12,
-          "en_proceso": 1,
-          "ocupados": 60,
-          "disponibles": 0,
-          "pct_ocupacion": 100.0
+          "en_proceso": 0,
+          "ocupados": 59,
+          "disponibles": 1,
+          "pct_ocupacion": 98.3
         },
         {
           "zona": "Palco Plata 3ra",
@@ -878,16 +878,16 @@
     "2026": {
       "evento": "Juego Inaugural: Acereros vs Charros",
       "aforo_total": 14991,
-      "ocupados_total": 10910,
-      "disponibles_total": 4081,
-      "bloqueos_total": 688,
-      "en_proceso_total": 38,
-      "pct_ocupacion": 72.8,
+      "ocupados_total": 11256,
+      "disponibles_total": 3735,
+      "bloqueos_total": 696,
+      "en_proceso_total": 20,
+      "pct_ocupacion": 75.1,
       "zonas": [
         {
           "zona": "Bleachers",
           "aforo": 414,
-          "vendidos_precio": 80,
+          "vendidos_precio": 95,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -895,10 +895,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 2,
-          "en_proceso": 5,
-          "ocupados": 87,
-          "disponibles": 327,
-          "pct_ocupacion": 21.0
+          "en_proceso": 7,
+          "ocupados": 104,
+          "disponibles": 310,
+          "pct_ocupacion": 25.1
         },
         {
           "zona": "Butaca Preferente Primera Base",
@@ -935,7 +935,7 @@
         {
           "zona": "Gourmet",
           "aforo": 749,
-          "vendidos_precio": 352,
+          "vendidos_precio": 356,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -944,14 +944,14 @@
           "promociones": 0,
           "bloqueos": 45,
           "en_proceso": 0,
-          "ocupados": 421,
-          "disponibles": 328,
-          "pct_ocupacion": 56.2
+          "ocupados": 425,
+          "disponibles": 324,
+          "pct_ocupacion": 56.7
         },
         {
           "zona": "Lateral Alta Primera Base",
           "aforo": 1223,
-          "vendidos_precio": 157,
+          "vendidos_precio": 274,
           "promos": 0,
           "cortesias": 240,
           "precio_1": 0,
@@ -959,31 +959,31 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 5,
-          "ocupados": 402,
-          "disponibles": 821,
-          "pct_ocupacion": 32.9
+          "en_proceso": 7,
+          "ocupados": 521,
+          "disponibles": 702,
+          "pct_ocupacion": 42.6
         },
         {
           "zona": "Lateral Preferente Alta",
           "aforo": 583,
-          "vendidos_precio": 292,
+          "vendidos_precio": 364,
           "promos": 0,
           "cortesias": 21,
           "precio_1": 40,
           "abonos": 0,
           "paquetes": 0,
           "promociones": 0,
-          "bloqueos": 67,
-          "en_proceso": 13,
-          "ocupados": 433,
-          "disponibles": 150,
-          "pct_ocupacion": 74.3
+          "bloqueos": 65,
+          "en_proceso": 6,
+          "ocupados": 496,
+          "disponibles": 87,
+          "pct_ocupacion": 85.1
         },
         {
           "zona": "Lateral Preferente Alta Tercera Base",
           "aforo": 1175,
-          "vendidos_precio": 49,
+          "vendidos_precio": 91,
           "promos": 0,
           "cortesias": 20,
           "precio_1": 0,
@@ -991,10 +991,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 7,
-          "ocupados": 76,
-          "disponibles": 1099,
-          "pct_ocupacion": 6.5
+          "en_proceso": 0,
+          "ocupados": 111,
+          "disponibles": 1064,
+          "pct_ocupacion": 9.4
         },
         {
           "zona": "Lateral Preferente Primera Base",
@@ -1049,12 +1049,12 @@
           "aforo": 1307,
           "vendidos_precio": 906,
           "promos": 43,
-          "cortesias": 39,
+          "cortesias": 48,
           "precio_1": 0,
           "abonos": 253,
           "paquetes": 0,
           "promociones": 0,
-          "bloqueos": 28,
+          "bloqueos": 19,
           "en_proceso": 0,
           "ocupados": 1269,
           "disponibles": 38,
@@ -1079,34 +1079,34 @@
         {
           "zona": "Planta Alta Lateral Primera Base",
           "aforo": 1070,
-          "vendidos_precio": 752,
+          "vendidos_precio": 806,
           "promos": 57,
           "cortesias": 0,
           "precio_1": 0,
           "abonos": 0,
           "paquetes": 0,
           "promociones": 0,
-          "bloqueos": 31,
-          "en_proceso": 6,
-          "ocupados": 846,
-          "disponibles": 224,
-          "pct_ocupacion": 79.1
+          "bloqueos": 40,
+          "en_proceso": 0,
+          "ocupados": 903,
+          "disponibles": 167,
+          "pct_ocupacion": 84.4
         },
         {
           "zona": "Planta Alta Lateral Tercera Base",
           "aforo": 1088,
-          "vendidos_precio": 742,
+          "vendidos_precio": 785,
           "promos": 25,
           "cortesias": 0,
           "precio_1": 0,
           "abonos": 0,
           "paquetes": 0,
           "promociones": 0,
-          "bloqueos": 16,
-          "en_proceso": 2,
-          "ocupados": 785,
-          "disponibles": 303,
-          "pct_ocupacion": 72.2
+          "bloqueos": 26,
+          "en_proceso": 0,
+          "ocupados": 836,
+          "disponibles": 252,
+          "pct_ocupacion": 76.8
         },
         {
           "zona": "Planta Baja",
@@ -1334,16 +1334,16 @@
     "2026": {
       "evento": "Juego Inaugural: Sultanes vs Dorados",
       "aforo_total": 7819,
-      "ocupados_total": 4183,
-      "disponibles_total": 3636,
+      "ocupados_total": 4454,
+      "disponibles_total": 3365,
       "bloqueos_total": 1362,
-      "en_proceso_total": 40,
-      "pct_ocupacion": 53.5,
+      "en_proceso_total": 6,
+      "pct_ocupacion": 57.0,
       "zonas": [
         {
           "zona": "Jardin Derecho",
           "aforo": 1515,
-          "vendidos_precio": 250,
+          "vendidos_precio": 316,
           "promos": 0,
           "cortesias": 8,
           "precio_1": 0,
@@ -1351,15 +1351,15 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 50,
-          "en_proceso": 8,
-          "ocupados": 316,
-          "disponibles": 1199,
-          "pct_ocupacion": 20.9
+          "en_proceso": 0,
+          "ocupados": 374,
+          "disponibles": 1141,
+          "pct_ocupacion": 24.7
         },
         {
           "zona": "Jardin Izquierdo",
           "aforo": 1516,
-          "vendidos_precio": 76,
+          "vendidos_precio": 86,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -1368,9 +1368,9 @@
           "promociones": 0,
           "bloqueos": 40,
           "en_proceso": 0,
-          "ocupados": 116,
-          "disponibles": 1400,
-          "pct_ocupacion": 7.7
+          "ocupados": 126,
+          "disponibles": 1390,
+          "pct_ocupacion": 8.3
         },
         {
           "zona": "Oro",
@@ -1423,7 +1423,7 @@
         {
           "zona": "Plata",
           "aforo": 1709,
-          "vendidos_precio": 795,
+          "vendidos_precio": 809,
           "promos": 0,
           "cortesias": 50,
           "precio_1": 0,
@@ -1431,15 +1431,15 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 749,
-          "en_proceso": 7,
-          "ocupados": 1678,
-          "disponibles": 31,
-          "pct_ocupacion": 98.2
+          "en_proceso": 4,
+          "ocupados": 1689,
+          "disponibles": 20,
+          "pct_ocupacion": 98.8
         },
         {
           "zona": "Preferente",
           "aforo": 1853,
-          "vendidos_precio": 1069,
+          "vendidos_precio": 1284,
           "promos": 0,
           "cortesias": 45,
           "precio_1": 0,
@@ -1447,10 +1447,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 190,
-          "en_proceso": 25,
-          "ocupados": 1334,
-          "disponibles": 519,
-          "pct_ocupacion": 72.0
+          "en_proceso": 2,
+          "ocupados": 1526,
+          "disponibles": 327,
+          "pct_ocupacion": 82.4
         },
         {
           "zona": "Suite Premier",
@@ -1942,11 +1942,11 @@
     "2026": {
       "evento": "Juego Inaugural: Tecos vs Rieleros",
       "aforo_total": 5622,
-      "ocupados_total": 3831,
-      "disponibles_total": 1791,
+      "ocupados_total": 3939,
+      "disponibles_total": 1683,
       "bloqueos_total": 86,
-      "en_proceso_total": 9,
-      "pct_ocupacion": 68.1,
+      "en_proceso_total": 4,
+      "pct_ocupacion": 70.1,
       "zonas": [
         {
           "zona": "Discapacitados",
@@ -1983,7 +1983,7 @@
         {
           "zona": "Palco Plus Derecho",
           "aforo": 180,
-          "vendidos_precio": 137,
+          "vendidos_precio": 138,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -1992,9 +1992,9 @@
           "promociones": 0,
           "bloqueos": 0,
           "en_proceso": 0,
-          "ocupados": 167,
-          "disponibles": 13,
-          "pct_ocupacion": 92.8
+          "ocupados": 168,
+          "disponibles": 12,
+          "pct_ocupacion": 93.3
         },
         {
           "zona": "Palco Plus izquierdo",
@@ -2015,7 +2015,7 @@
         {
           "zona": "Preferente Derecho",
           "aforo": 1256,
-          "vendidos_precio": 504,
+          "vendidos_precio": 527,
           "promos": 0,
           "cortesias": 107,
           "precio_1": 0,
@@ -2024,25 +2024,25 @@
           "promociones": 0,
           "bloqueos": 0,
           "en_proceso": 0,
-          "ocupados": 648,
-          "disponibles": 608,
-          "pct_ocupacion": 51.6
+          "ocupados": 671,
+          "disponibles": 585,
+          "pct_ocupacion": 53.4
         },
         {
           "zona": "Preferente Izquierdo",
           "aforo": 1393,
-          "vendidos_precio": 167,
+          "vendidos_precio": 173,
           "promos": 0,
-          "cortesias": 455,
+          "cortesias": 459,
           "precio_1": 0,
           "abonos": 1,
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 4,
-          "ocupados": 627,
-          "disponibles": 766,
-          "pct_ocupacion": 45.0
+          "en_proceso": 0,
+          "ocupados": 633,
+          "disponibles": 760,
+          "pct_ocupacion": 45.4
         },
         {
           "zona": "Suite",
@@ -2065,21 +2065,21 @@
           "aforo": 180,
           "vendidos_precio": 43,
           "promos": 0,
-          "cortesias": 20,
+          "cortesias": 22,
           "precio_1": 0,
           "abonos": 0,
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
           "en_proceso": 0,
-          "ocupados": 63,
-          "disponibles": 117,
-          "pct_ocupacion": 35.0
+          "ocupados": 65,
+          "disponibles": 115,
+          "pct_ocupacion": 36.1
         },
         {
           "zona": "Terraza 1er",
           "aforo": 200,
-          "vendidos_precio": 150,
+          "vendidos_precio": 182,
           "promos": 0,
           "cortesias": 4,
           "precio_1": 0,
@@ -2087,15 +2087,15 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 0,
-          "ocupados": 154,
-          "disponibles": 46,
-          "pct_ocupacion": 77.0
+          "en_proceso": 4,
+          "ocupados": 190,
+          "disponibles": 10,
+          "pct_ocupacion": 95.0
         },
         {
           "zona": "Terraza 3ra",
           "aforo": 200,
-          "vendidos_precio": 186,
+          "vendidos_precio": 200,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -2104,14 +2104,14 @@
           "promociones": 0,
           "bloqueos": 0,
           "en_proceso": 0,
-          "ocupados": 186,
-          "disponibles": 14,
-          "pct_ocupacion": 93.0
+          "ocupados": 200,
+          "disponibles": 0,
+          "pct_ocupacion": 100.0
         },
         {
           "zona": "Zona Plata",
           "aforo": 547,
-          "vendidos_precio": 490,
+          "vendidos_precio": 493,
           "promos": 0,
           "cortesias": 40,
           "precio_1": 0,
@@ -2119,7 +2119,7 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 3,
+          "en_proceso": 0,
           "ocupados": 538,
           "disponibles": 9,
           "pct_ocupacion": 98.4
@@ -2127,7 +2127,7 @@
         {
           "zona": "Zona Rielera 1era.",
           "aforo": 350,
-          "vendidos_precio": 293,
+          "vendidos_precio": 294,
           "promos": 0,
           "cortesias": 40,
           "precio_1": 0,
@@ -2136,14 +2136,14 @@
           "promociones": 0,
           "bloqueos": 0,
           "en_proceso": 0,
-          "ocupados": 336,
-          "disponibles": 14,
-          "pct_ocupacion": 96.0
+          "ocupados": 337,
+          "disponibles": 13,
+          "pct_ocupacion": 96.3
         },
         {
           "zona": "Zona Rielera 3ra.",
           "aforo": 346,
-          "vendidos_precio": 174,
+          "vendidos_precio": 201,
           "promos": 0,
           "cortesias": 70,
           "precio_1": 0,
@@ -2151,10 +2151,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 22,
-          "en_proceso": 2,
-          "ocupados": 269,
-          "disponibles": 77,
-          "pct_ocupacion": 77.7
+          "en_proceso": 0,
+          "ocupados": 294,
+          "disponibles": 52,
+          "pct_ocupacion": 85.0
         },
         {
           "zona": "Zona VIP",
@@ -2369,13 +2369,13 @@
       "ocupados_total": 10493,
       "disponibles_total": 91,
       "bloqueos_total": 1415,
-      "en_proceso_total": 86,
+      "en_proceso_total": 3,
       "pct_ocupacion": 99.1,
       "zonas": [
         {
           "zona": "Area Contenedores",
           "aforo": 248,
-          "vendidos_precio": 103,
+          "vendidos_precio": 106,
           "promos": 0,
           "cortesias": 24,
           "precio_1": 0,
@@ -2383,7 +2383,7 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 32,
-          "en_proceso": 3,
+          "en_proceso": 0,
           "ocupados": 194,
           "disponibles": 54,
           "pct_ocupacion": 78.2
@@ -2391,7 +2391,7 @@
         {
           "zona": "Butaca Central B",
           "aforo": 3479,
-          "vendidos_precio": 1770,
+          "vendidos_precio": 1787,
           "promos": 0,
           "cortesias": 100,
           "precio_1": 0,
@@ -2399,7 +2399,7 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 187,
-          "en_proceso": 19,
+          "en_proceso": 2,
           "ocupados": 3479,
           "disponibles": 0,
           "pct_ocupacion": 100.0
@@ -2407,7 +2407,7 @@
         {
           "zona": "Butaca Lateral A",
           "aforo": 1435,
-          "vendidos_precio": 897,
+          "vendidos_precio": 912,
           "promos": 0,
           "cortesias": 130,
           "precio_1": 0,
@@ -2415,7 +2415,7 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 84,
-          "en_proceso": 15,
+          "en_proceso": 0,
           "ocupados": 1435,
           "disponibles": 0,
           "pct_ocupacion": 100.0
@@ -2423,7 +2423,7 @@
         {
           "zona": "Butaca Lateral C",
           "aforo": 1434,
-          "vendidos_precio": 1015,
+          "vendidos_precio": 1021,
           "promos": 0,
           "cortesias": 76,
           "precio_1": 0,
@@ -2431,7 +2431,7 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 74,
-          "en_proceso": 7,
+          "en_proceso": 1,
           "ocupados": 1434,
           "disponibles": 0,
           "pct_ocupacion": 100.0
@@ -2439,7 +2439,7 @@
         {
           "zona": "General-Gradas",
           "aforo": 2713,
-          "vendidos_precio": 998,
+          "vendidos_precio": 1040,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -2447,7 +2447,7 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 1038,
-          "en_proceso": 42,
+          "en_proceso": 0,
           "ocupados": 2713,
           "disponibles": 0,
           "pct_ocupacion": 100.0
@@ -2902,27 +2902,27 @@
     "2026": {
       "evento": "Juego Inaugural: Durango vs Sultanes",
       "aforo_total": 22579,
-      "ocupados_total": 17944,
-      "disponibles_total": 4635,
+      "ocupados_total": 18507,
+      "disponibles_total": 4072,
       "bloqueos_total": 2292,
-      "en_proceso_total": 83,
-      "pct_ocupacion": 79.5,
+      "en_proceso_total": 22,
+      "pct_ocupacion": 82.0,
       "zonas": [
         {
           "zona": "Bleachers",
           "aforo": 4198,
-          "vendidos_precio": 1795,
-          "promos": 1035,
+          "vendidos_precio": 1986,
+          "promos": 1139,
           "cortesias": 11,
           "precio_1": 0,
           "abonos": 0,
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 50,
-          "en_proceso": 41,
-          "ocupados": 2932,
-          "disponibles": 1266,
-          "pct_ocupacion": 69.8
+          "en_proceso": 9,
+          "ocupados": 3195,
+          "disponibles": 1003,
+          "pct_ocupacion": 76.1
         },
         {
           "zona": "Extra Suite",
@@ -2958,22 +2958,6 @@
         },
         {
           "zona": "Palco Azul",
-          "aforo": 189,
-          "vendidos_precio": 49,
-          "promos": 29,
-          "cortesias": 30,
-          "precio_1": 0,
-          "abonos": 23,
-          "paquetes": 0,
-          "promociones": 0,
-          "bloqueos": 58,
-          "en_proceso": 0,
-          "ocupados": 189,
-          "disponibles": 0,
-          "pct_ocupacion": 100.0
-        },
-        {
-          "zona": "Palco Azul",
           "aforo": 265,
           "vendidos_precio": 2,
           "promos": 0,
@@ -2990,6 +2974,22 @@
         },
         {
           "zona": "Palco Azul",
+          "aforo": 189,
+          "vendidos_precio": 49,
+          "promos": 29,
+          "cortesias": 30,
+          "precio_1": 0,
+          "abonos": 23,
+          "paquetes": 0,
+          "promociones": 0,
+          "bloqueos": 58,
+          "en_proceso": 0,
+          "ocupados": 189,
+          "disponibles": 0,
+          "pct_ocupacion": 100.0
+        },
+        {
+          "zona": "Palco Azul",
           "aforo": 186,
           "vendidos_precio": 17,
           "promos": 35,
@@ -3001,6 +3001,22 @@
           "bloqueos": 78,
           "en_proceso": 0,
           "ocupados": 186,
+          "disponibles": 0,
+          "pct_ocupacion": 100.0
+        },
+        {
+          "zona": "Palco Rojo",
+          "aforo": 199,
+          "vendidos_precio": 10,
+          "promos": 62,
+          "cortesias": 36,
+          "precio_1": 0,
+          "abonos": 0,
+          "paquetes": 0,
+          "promociones": 0,
+          "bloqueos": 91,
+          "en_proceso": 0,
+          "ocupados": 199,
           "disponibles": 0,
           "pct_ocupacion": 100.0
         },
@@ -3033,22 +3049,6 @@
           "bloqueos": 144,
           "en_proceso": 0,
           "ocupados": 274,
-          "disponibles": 0,
-          "pct_ocupacion": 100.0
-        },
-        {
-          "zona": "Palco Rojo",
-          "aforo": 199,
-          "vendidos_precio": 10,
-          "promos": 62,
-          "cortesias": 36,
-          "precio_1": 0,
-          "abonos": 0,
-          "paquetes": 0,
-          "promociones": 0,
-          "bloqueos": 91,
-          "en_proceso": 0,
-          "ocupados": 199,
           "disponibles": 0,
           "pct_ocupacion": 100.0
         },
@@ -3088,14 +3088,14 @@
           "zona": "Primer Nivel",
           "aforo": 2691,
           "vendidos_precio": 643,
-          "promos": 994,
+          "promos": 995,
           "cortesias": 603,
           "precio_1": 0,
           "abonos": 65,
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 385,
-          "en_proceso": 1,
+          "en_proceso": 0,
           "ocupados": 2691,
           "disponibles": 0,
           "pct_ocupacion": 100.0
@@ -3118,22 +3118,6 @@
         },
         {
           "zona": "Segundo Nivel",
-          "aforo": 1900,
-          "vendidos_precio": 736,
-          "promos": 778,
-          "cortesias": 309,
-          "precio_1": 0,
-          "abonos": 1,
-          "paquetes": 0,
-          "promociones": 0,
-          "bloqueos": 76,
-          "en_proceso": 0,
-          "ocupados": 1900,
-          "disponibles": 0,
-          "pct_ocupacion": 100.0
-        },
-        {
-          "zona": "Segundo Nivel",
           "aforo": 390,
           "vendidos_precio": 0,
           "promos": 16,
@@ -3149,20 +3133,20 @@
           "pct_ocupacion": 100.0
         },
         {
-          "zona": "Suites Primer Nivel",
-          "aforo": 336,
-          "vendidos_precio": 0,
-          "promos": 0,
-          "cortesias": 12,
+          "zona": "Segundo Nivel",
+          "aforo": 1900,
+          "vendidos_precio": 736,
+          "promos": 778,
+          "cortesias": 309,
           "precio_1": 0,
-          "abonos": 117,
+          "abonos": 1,
           "paquetes": 0,
           "promociones": 0,
-          "bloqueos": 52,
+          "bloqueos": 76,
           "en_proceso": 0,
-          "ocupados": 181,
-          "disponibles": 155,
-          "pct_ocupacion": 53.9
+          "ocupados": 1900,
+          "disponibles": 0,
+          "pct_ocupacion": 100.0
         },
         {
           "zona": "Suites Primer Nivel",
@@ -3179,6 +3163,22 @@
           "ocupados": 144,
           "disponibles": 72,
           "pct_ocupacion": 66.7
+        },
+        {
+          "zona": "Suites Primer Nivel",
+          "aforo": 336,
+          "vendidos_precio": 0,
+          "promos": 0,
+          "cortesias": 12,
+          "precio_1": 0,
+          "abonos": 117,
+          "paquetes": 0,
+          "promociones": 0,
+          "bloqueos": 52,
+          "en_proceso": 0,
+          "ocupados": 181,
+          "disponibles": 155,
+          "pct_ocupacion": 53.9
         },
         {
           "zona": "Suites Primer Nivel",
@@ -3247,18 +3247,18 @@
         {
           "zona": "Tercer Nivel",
           "aforo": 5441,
-          "vendidos_precio": 2645,
-          "promos": 237,
+          "vendidos_precio": 2894,
+          "promos": 316,
           "cortesias": 10,
           "precio_1": 0,
           "abonos": 0,
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 50,
-          "en_proceso": 41,
-          "ocupados": 2983,
-          "disponibles": 2458,
-          "pct_ocupacion": 54.8
+          "en_proceso": 13,
+          "ocupados": 3283,
+          "disponibles": 2158,
+          "pct_ocupacion": 60.3
         }
       ]
     }
@@ -3438,11 +3438,11 @@
     "2026": {
       "evento": "Juego Inaugural: Charros vs Tecos",
       "aforo_total": 4997,
-      "ocupados_total": 1264,
-      "disponibles_total": 3733,
+      "ocupados_total": 1282,
+      "disponibles_total": 3715,
       "bloqueos_total": 67,
-      "en_proceso_total": 20,
-      "pct_ocupacion": 25.3,
+      "en_proceso_total": 10,
+      "pct_ocupacion": 25.7,
       "zonas": [
         {
           "zona": "Asadores",
@@ -3463,7 +3463,7 @@
         {
           "zona": "Butaca General",
           "aforo": 566,
-          "vendidos_precio": 155,
+          "vendidos_precio": 160,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -3472,14 +3472,14 @@
           "promociones": 0,
           "bloqueos": 42,
           "en_proceso": 0,
-          "ocupados": 373,
-          "disponibles": 193,
-          "pct_ocupacion": 65.9
+          "ocupados": 378,
+          "disponibles": 188,
+          "pct_ocupacion": 66.8
         },
         {
           "zona": "Butaca Preferente",
           "aforo": 1041,
-          "vendidos_precio": 178,
+          "vendidos_precio": 186,
           "promos": 0,
           "cortesias": 4,
           "precio_1": 0,
@@ -3487,10 +3487,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 1,
-          "en_proceso": 12,
-          "ocupados": 726,
-          "disponibles": 315,
-          "pct_ocupacion": 69.7
+          "en_proceso": 10,
+          "ocupados": 732,
+          "disponibles": 309,
+          "pct_ocupacion": 70.3
         },
         {
           "zona": "Especial",
@@ -3511,7 +3511,7 @@
         {
           "zona": "Gradas",
           "aforo": 2800,
-          "vendidos_precio": 32,
+          "vendidos_precio": 47,
           "promos": 0,
           "cortesias": 0,
           "precio_1": 0,
@@ -3519,10 +3519,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 4,
-          "ocupados": 36,
-          "disponibles": 2764,
-          "pct_ocupacion": 1.3
+          "en_proceso": 0,
+          "ocupados": 47,
+          "disponibles": 2753,
+          "pct_ocupacion": 1.7
         },
         {
           "zona": "Palcos",
@@ -3567,10 +3567,10 @@
           "paquetes": 0,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 4,
-          "ocupados": 61,
-          "disponibles": 47,
-          "pct_ocupacion": 56.5
+          "en_proceso": 0,
+          "ocupados": 57,
+          "disponibles": 51,
+          "pct_ocupacion": 52.8
         },
         {
           "zona": "Tecobar",
@@ -3894,11 +3894,11 @@
     "2026": {
       "evento": "Juego Inaugural: Acereros vs Toros",
       "aforo_total": 16082,
-      "ocupados_total": 9835,
-      "disponibles_total": 6247,
-      "bloqueos_total": 1882,
-      "en_proceso_total": 7,
-      "pct_ocupacion": 61.2,
+      "ocupados_total": 9937,
+      "disponibles_total": 6145,
+      "bloqueos_total": 1896,
+      "en_proceso_total": 0,
+      "pct_ocupacion": 61.8,
       "zonas": [
         {
           "zona": "FAMILIA JUGADORES",
@@ -3924,13 +3924,13 @@
           "cortesias": 9,
           "precio_1": 0,
           "abonos": 0,
-          "paquetes": 906,
+          "paquetes": 959,
           "promociones": 0,
           "bloqueos": 64,
-          "en_proceso": 2,
-          "ocupados": 981,
-          "disponibles": 1391,
-          "pct_ocupacion": 41.4
+          "en_proceso": 0,
+          "ocupados": 1032,
+          "disponibles": 1340,
+          "pct_ocupacion": 43.5
         },
         {
           "zona": "General Superior",
@@ -3940,13 +3940,13 @@
           "cortesias": 20,
           "precio_1": 0,
           "abonos": 0,
-          "paquetes": 706,
+          "paquetes": 725,
           "promociones": 0,
           "bloqueos": 342,
           "en_proceso": 0,
-          "ocupados": 1068,
-          "disponibles": 1102,
-          "pct_ocupacion": 49.2
+          "ocupados": 1087,
+          "disponibles": 1083,
+          "pct_ocupacion": 50.1
         },
         {
           "zona": "Jardines",
@@ -3956,13 +3956,13 @@
           "cortesias": 0,
           "precio_1": 0,
           "abonos": 0,
-          "paquetes": 251,
+          "paquetes": 264,
           "promociones": 0,
           "bloqueos": 0,
-          "en_proceso": 1,
-          "ocupados": 252,
-          "disponibles": 2893,
-          "pct_ocupacion": 8.0
+          "en_proceso": 0,
+          "ocupados": 264,
+          "disponibles": 2881,
+          "pct_ocupacion": 8.4
         },
         {
           "zona": "Palcos",
@@ -4015,15 +4015,15 @@
         {
           "zona": "Preferente",
           "aforo": 1794,
-          "vendidos_precio": 45,
+          "vendidos_precio": 29,
           "promos": 0,
           "cortesias": 144,
           "precio_1": 0,
           "abonos": 375,
-          "paquetes": 852,
+          "paquetes": 855,
           "promociones": 0,
-          "bloqueos": 357,
-          "en_proceso": 1,
+          "bloqueos": 371,
+          "en_proceso": 0,
           "ocupados": 1774,
           "disponibles": 20,
           "pct_ocupacion": 98.9
@@ -4052,13 +4052,13 @@
           "cortesias": 0,
           "precio_1": 0,
           "abonos": 36,
-          "paquetes": 474,
+          "paquetes": 477,
           "promociones": 0,
           "bloqueos": 156,
           "en_proceso": 0,
-          "ocupados": 666,
-          "disponibles": 5,
-          "pct_ocupacion": 99.3
+          "ocupados": 669,
+          "disponibles": 2,
+          "pct_ocupacion": 99.7
         },
         {
           "zona": "Suite ToroGrill",
@@ -4116,13 +4116,13 @@
           "cortesias": 2,
           "precio_1": 0,
           "abonos": 17,
-          "paquetes": 512,
+          "paquetes": 514,
           "promociones": 0,
           "bloqueos": 93,
-          "en_proceso": 3,
-          "ocupados": 627,
-          "disponibles": 21,
-          "pct_ocupacion": 96.8
+          "en_proceso": 0,
+          "ocupados": 626,
+          "disponibles": 22,
+          "pct_ocupacion": 96.6
         },
         {
           "zona": "Superior3raBase",
@@ -4132,13 +4132,13 @@
           "cortesias": 24,
           "precio_1": 0,
           "abonos": 40,
-          "paquetes": 670,
+          "paquetes": 688,
           "promociones": 0,
           "bloqueos": 6,
           "en_proceso": 0,
-          "ocupados": 744,
-          "disponibles": 42,
-          "pct_ocupacion": 94.7
+          "ocupados": 762,
+          "disponibles": 24,
+          "pct_ocupacion": 96.9
         },
         {
           "zona": "ToroBar",
