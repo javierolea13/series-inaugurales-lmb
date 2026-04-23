@@ -1149,26 +1149,26 @@
     }
   },
   "Dorados": {
-    "subtotal": 579420.0,
-    "subtotal_online": 491000.0,
-    "subtotal_taquilla": 88420.0,
+    "subtotal": 612950.0,
+    "subtotal_online": 516830.0,
+    "subtotal_taquilla": 96120.0,
     "subtotal_paquete": 0.0,
-    "subtotal_no_paquete": 579420.0,
-    "boletos": 5054,
-    "boletos_online": 3878,
-    "boletos_taquilla": 1176,
-    "boletos_cortesias": 469,
+    "subtotal_no_paquete": 612950.0,
+    "boletos": 5468,
+    "boletos_online": 4146,
+    "boletos_taquilla": 1322,
+    "boletos_cortesias": 538,
     "boletos_cortesias_online": 0,
-    "boletos_cortesias_taquilla": 469,
+    "boletos_cortesias_taquilla": 538,
     "boletos_promocion": 117,
     "boletos_promocion_online": 117,
     "boletos_promocion_taquilla": 0,
     "cortesias_por_persona": [
       {
         "persona": "Alejandro Leon",
-        "total": 394,
+        "total": 463,
         "online": 0,
-        "taquilla": 394
+        "taquilla": 463
       },
       {
         "persona": "Monica Leon",
@@ -1185,16 +1185,16 @@
         "taquilla": 0
       }
     ],
-    "ordenes": 1669,
-    "ordenes_online": 1397,
-    "ordenes_taquilla": 272,
+    "ordenes": 1806,
+    "ordenes_online": 1504,
+    "ordenes_taquilla": 302,
     "events": [
       "Juego Inaugural: Sultanes vs Dorados"
     ],
     "has_paquete": false,
     "first_date": "13/04/2026",
-    "last_date": "22/04/2026",
-    "duration_days": 9,
+    "last_date": "23/04/2026",
+    "duration_days": 10,
     "daily": [
       {
         "date": "2026-04-13",
@@ -1243,42 +1243,63 @@
       },
       {
         "date": "2026-04-22",
-        "subtotal": 3420.0,
-        "boletos": 34
+        "subtotal": 33680.0,
+        "boletos": 412
+      },
+      {
+        "date": "2026-04-23",
+        "subtotal": 3270.0,
+        "boletos": 36
       }
     ],
     "zonas": {
-      "Jardin Derecho": {
-        "boletos": 1306,
-        "boletos_pagados": 1167,
-        "boletos_cortesias": 120,
+      "Grada Sol": {
+        "boletos": 45,
+        "boletos_pagados": 45,
+        "boletos_cortesias": 0,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 120,
-        "boletos_promocion": 19,
-        "boletos_promocion_online": 19,
-        "boletos_promocion_taquilla": 0,
-        "subtotal": 116700.0,
-        "ticket_promedio": 98.4,
-        "boletos_online": 992,
-        "subtotal_online": 97300.0,
-        "boletos_taquilla": 314,
-        "subtotal_taquilla": 19400.0
-      },
-      "Jardin Izquierdo": {
-        "boletos": 1000,
-        "boletos_pagados": 865,
-        "boletos_cortesias": 135,
-        "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 135,
+        "boletos_cortesias_taquilla": 0,
         "boletos_promocion": 0,
         "boletos_promocion_online": 0,
         "boletos_promocion_taquilla": 0,
-        "subtotal": 86500.0,
+        "subtotal": 3150.0,
+        "ticket_promedio": 70.0,
+        "boletos_online": 45,
+        "subtotal_online": 3150.0,
+        "boletos_taquilla": 0,
+        "subtotal_taquilla": 0.0
+      },
+      "Jardin Derecho": {
+        "boletos": 1361,
+        "boletos_pagados": 1187,
+        "boletos_cortesias": 155,
+        "boletos_cortesias_online": 0,
+        "boletos_cortesias_taquilla": 155,
+        "boletos_promocion": 19,
+        "boletos_promocion_online": 19,
+        "boletos_promocion_taquilla": 0,
+        "subtotal": 118700.0,
+        "ticket_promedio": 98.42,
+        "boletos_online": 1011,
+        "subtotal_online": 99200.0,
+        "boletos_taquilla": 350,
+        "subtotal_taquilla": 19500.0
+      },
+      "Jardin Izquierdo": {
+        "boletos": 1286,
+        "boletos_pagados": 1141,
+        "boletos_cortesias": 145,
+        "boletos_cortesias_online": 0,
+        "boletos_cortesias_taquilla": 145,
+        "boletos_promocion": 0,
+        "boletos_promocion_online": 0,
+        "boletos_promocion_taquilla": 0,
+        "subtotal": 114100.0,
         "ticket_promedio": 100.0,
-        "boletos_online": 718,
-        "subtotal_online": 71800.0,
-        "boletos_taquilla": 282,
-        "subtotal_taquilla": 14700.0
+        "boletos_online": 918,
+        "subtotal_online": 91800.0,
+        "boletos_taquilla": 368,
+        "subtotal_taquilla": 22300.0
       },
       "Oro": {
         "boletos": 20,
@@ -1297,60 +1318,60 @@
         "subtotal_taquilla": 0.0
       },
       "Plata": {
-        "boletos": 1001,
-        "boletos_pagados": 839,
-        "boletos_cortesias": 112,
+        "boletos": 1028,
+        "boletos_pagados": 842,
+        "boletos_cortesias": 136,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 112,
+        "boletos_cortesias_taquilla": 136,
         "boletos_promocion": 50,
         "boletos_promocion_online": 50,
         "boletos_promocion_taquilla": 0,
-        "subtotal": 184580.0,
-        "ticket_promedio": 207.63,
-        "boletos_online": 785,
-        "subtotal_online": 161700.0,
-        "boletos_taquilla": 216,
+        "subtotal": 185240.0,
+        "ticket_promedio": 207.67,
+        "boletos_online": 788,
+        "subtotal_online": 162360.0,
+        "boletos_taquilla": 240,
         "subtotal_taquilla": 22880.0
       },
       "Preferente": {
-        "boletos": 1727,
-        "boletos_pagados": 1597,
+        "boletos": 1728,
+        "boletos_pagados": 1598,
         "boletos_cortesias": 82,
         "boletos_cortesias_online": 0,
         "boletos_cortesias_taquilla": 82,
         "boletos_promocion": 48,
         "boletos_promocion_online": 48,
         "boletos_promocion_taquilla": 0,
-        "subtotal": 191640.0,
+        "subtotal": 191760.0,
         "ticket_promedio": 116.5,
-        "boletos_online": 1383,
-        "subtotal_online": 160200.0,
+        "boletos_online": 1384,
+        "subtotal_online": 160320.0,
         "boletos_taquilla": 344,
         "subtotal_taquilla": 31440.0
       }
     }
   },
   "Guerreros": {
-    "subtotal": 2827100.0,
-    "subtotal_online": 2787300.0,
+    "subtotal": 2829500.0,
+    "subtotal_online": 2789700.0,
     "subtotal_taquilla": 39800.0,
     "subtotal_paquete": 884400.0,
-    "subtotal_no_paquete": 1942700.0,
-    "boletos": 5826,
-    "boletos_online": 5618,
-    "boletos_taquilla": 208,
-    "boletos_cortesias": 114,
+    "subtotal_no_paquete": 1945100.0,
+    "boletos": 5834,
+    "boletos_online": 5624,
+    "boletos_taquilla": 210,
+    "boletos_cortesias": 116,
     "boletos_cortesias_online": 0,
-    "boletos_cortesias_taquilla": 114,
+    "boletos_cortesias_taquilla": 116,
     "boletos_promocion": 0,
     "boletos_promocion_online": 0,
     "boletos_promocion_taquilla": 0,
     "cortesias_por_persona": [
       {
         "persona": "Daniela Rios",
-        "total": 108,
+        "total": 110,
         "online": 0,
-        "taquilla": 108
+        "taquilla": 110
       },
       {
         "persona": "Administrador Boletomóvil",
@@ -1360,9 +1381,9 @@
       }
     ],
     "promocion_por_persona": [],
-    "ordenes": 1959,
-    "ordenes_online": 1949,
-    "ordenes_taquilla": 10,
+    "ordenes": 1962,
+    "ordenes_online": 1951,
+    "ordenes_taquilla": 11,
     "events": [
       "Juego Inaugural: Conspiradores vs Guerreros",
       "Paquete Serie Inaugural: Conspiradores vs Guerreros"
@@ -1409,8 +1430,8 @@
       },
       {
         "date": "2026-04-22",
-        "subtotal": 300.0,
-        "boletos": 1
+        "subtotal": 2700.0,
+        "boletos": 9
       }
     ],
     "zonas": {
@@ -1431,11 +1452,11 @@
         "subtotal_taquilla": 0.0
       },
       "Central": {
-        "boletos": 1041,
+        "boletos": 1043,
         "boletos_pagados": 927,
-        "boletos_cortesias": 114,
+        "boletos_cortesias": 116,
         "boletos_cortesias_online": 0,
-        "boletos_cortesias_taquilla": 114,
+        "boletos_cortesias_taquilla": 116,
         "boletos_promocion": 0,
         "boletos_promocion_online": 0,
         "boletos_promocion_taquilla": 0,
@@ -1443,22 +1464,22 @@
         "ticket_promedio": 817.15,
         "boletos_online": 905,
         "subtotal_online": 746500.0,
-        "boletos_taquilla": 136,
+        "boletos_taquilla": 138,
         "subtotal_taquilla": 11000.0
       },
       "Dogout": {
-        "boletos": 1993,
-        "boletos_pagados": 1993,
+        "boletos": 1999,
+        "boletos_pagados": 1999,
         "boletos_cortesias": 0,
         "boletos_cortesias_online": 0,
         "boletos_cortesias_taquilla": 0,
         "boletos_promocion": 0,
         "boletos_promocion_online": 0,
         "boletos_promocion_taquilla": 0,
-        "subtotal": 1070800.0,
-        "ticket_promedio": 537.28,
-        "boletos_online": 1921,
-        "subtotal_online": 1042000.0,
+        "subtotal": 1073200.0,
+        "ticket_promedio": 536.87,
+        "boletos_online": 1927,
+        "subtotal_online": 1044400.0,
         "boletos_taquilla": 72,
         "subtotal_taquilla": 28800.0
       },
